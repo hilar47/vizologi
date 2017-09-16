@@ -3774,100 +3774,100 @@ DO NOT WRITE ANY CSS STYLINGS HERE */
 /*font-family: 'Avenir', sans-serif;*/
 @font-face {
   font-family: "Avenir";
-  src: url('../fonts/avenir/AvenirLTStd-Light.otf?1052768844') format('opentype');
+  src: url('../fonts/avenir/AvenirLTStd-Light.otf?1505546646') format('opentype');
   font-weight: 100;
 }
 @font-face {
   font-family: "Avenir";
-  src: url('../fonts/avenir/AvenirLTStd-Book.otf?1052768844') format('opentype');
+  src: url('../fonts/avenir/AvenirLTStd-Book.otf?1505546646') format('opentype');
   font-weight: normal;
 }
 @font-face {
   font-family: "Avenir";
-  src: url('../fonts/avenir/AvenirLTStd-Oblique.otf?1052768844') format('opentype');
+  src: url('../fonts/avenir/AvenirLTStd-Oblique.otf?1505546646') format('opentype');
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: "Avenir";
-  src: url('../fonts/avenir/AvenirLTStd-Medium.otf?1052768844') format('opentype');
+  src: url('../fonts/avenir/AvenirLTStd-Medium.otf?1505546646') format('opentype');
   font-weight: 500;
 }
 @font-face {
   font-family: "Avenir";
-  src: url('../fonts/avenir/AvenirLTStd-Heavy.otf?1052768844') format('opentype');
+  src: url('../fonts/avenir/AvenirLTStd-Heavy.otf?1505546646') format('opentype');
   font-weight: 700;
 }
 @font-face {
   font-family: "Avenir";
-  src: url('../fonts/avenir/AvenirLTStd-Black.otf?1052768844') format('opentype');
+  src: url('../fonts/avenir/AvenirLTStd-Black.otf?1505546646') format('opentype');
   font-weight: 800;
 }
 /* AvenirNext Condensed */
 /*font-family: 'AvenirNext', sans-serif;*/
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-ultlt.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-ultlt.otf?1505546646') format('opentype');
   font-weight: 100;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-ultltit.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-ultltit.otf?1505546646') format('opentype');
   font-weight: 100;
   font-style: italic;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-regular.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-regular.otf?1505546646') format('opentype');
   font-weight: normal;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-it.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-it.otf?1505546646') format('opentype');
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-medium.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-medium.otf?1505546646') format('opentype');
   font-weight: 500;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-mediumit.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-mediumit.otf?1505546646') format('opentype');
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-demi.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-demi.otf?1505546646') format('opentype');
   font-weight: 600;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-demiit.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-demiit.otf?1505546646') format('opentype');
   font-weight: 600;
   font-style: italic;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-bold.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-bold.otf?1505546646') format('opentype');
   font-weight: 700;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-boldit.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-boldit.otf?1505546646') format('opentype');
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-heavy.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-heavy.otf?1505546646') format('opentype');
   font-weight: 800;
 }
 @font-face {
   font-family: "AvenirNextCondensed";
-  src: url('../fonts/avenir-condensed/avenirnextcn-heavyit.otf?1486640712') format('opentype');
+  src: url('../fonts/avenir-condensed/avenirnextcn-heavyit.otf?1505546646') format('opentype');
   font-weight: 800;
   font-style: italic;
 }
