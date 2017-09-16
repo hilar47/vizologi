@@ -1,0 +1,22 @@
+.subscribe {
+    background-color: $pink;
+    color: $white;
+    padding: 20px 0 30px;
+    h1 {
+        margin-bottom: 20px;
+    }
+    p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .btn {
+        margin-top: -2px;
+    }
+    input[type="email"] {
+        display: inline-block;
+        width: 40%;
+    }
+    @media(min-width:$screen-sm) {
+        padding: 60px 0;
+    }
+}

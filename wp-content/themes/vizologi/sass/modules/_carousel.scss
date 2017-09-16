@@ -1,0 +1,47 @@
+/* Carousel/Slider */
+
+.carousel {
+    .carousel-control {
+        background: none;
+    }
+}
+
+
+/* Footer Slider */
+
+.footer-slider {
+    background-color: $green;
+    color: $white;
+    padding: 20px 0 30px;
+    .item {
+        margin: 0 auto;
+        text-align: center;
+        img {
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+    .carousel-indicators {
+        bottom: -20px;
+        li {
+            border: 0;
+            background-color: $white;
+            &.active {
+                background-color: $black;
+            }
+        }
+    }
+    h1 {
+        margin-bottom: 20px;
+        color: $gray-dark2;
+        span {
+            color: $white;
+        }
+    }
+    .btn {
+        float: left;
+    }
+    @media(min-width:$screen-sm) {
+        padding: 60px 0;
+    }
+}

@@ -1,0 +1,71 @@
+/* Base Stylings like ul, p, body, etc */
+
+
+/* Body & Html */
+
+body,
+html {
+    height: 100%;
+    @include font-size(16px);
+    font-family: $font-primary;
+    -webkit-overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {}
+
+
+/* Paragraphs */
+
+p {}
+
+
+/* Images */
+
+img {
+    @include prefix(user-select, none);
+}
+
+
+/* Small */
+
+small {}
+
+
+/* Strong */
+
+strong,
+b {
+    font-weight: 600;
+}
+
+
+/* Links */
+
+a {
+    &:hover,
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+}
+
+main {
+    background-color: $white;
+}
+
+
+/* Listings */
+
+ul,
+ol {}
+
+section,
+footer,
+.copy,
+main,
+nav {
+    float: left;
+    width: 100%;
+}

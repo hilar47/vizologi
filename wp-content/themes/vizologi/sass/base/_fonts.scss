@@ -1,0 +1,32 @@
+/* FONTS */
+
+
+/* AvenirNext */
+
+
+/*font-family: 'Avenir', sans-serif;*/
+
+@include font-face("Avenir", font-files("avenir/AvenirLTStd-Light.otf"), $weight:100);
+@include font-face("Avenir", font-files("avenir/AvenirLTStd-Book.otf"), $weight:normal);
+@include font-face("Avenir", font-files("avenir/AvenirLTStd-Oblique.otf"), $weight:normal, $style:italic);
+@include font-face("Avenir", font-files("avenir/AvenirLTStd-Medium.otf"), $weight:500);
+@include font-face("Avenir", font-files("avenir/AvenirLTStd-Heavy.otf"), $weight:700);
+@include font-face("Avenir", font-files("avenir/AvenirLTStd-Black.otf"), $weight:800);
+
+/* AvenirNext Condensed */
+
+
+/*font-family: 'AvenirNext', sans-serif;*/
+
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-ultlt.otf"), $weight:100);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-ultltit.otf"), $weight:100, $style:italic);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-regular.otf"), $weight:normal);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-it.otf"), $weight:normal, $style:italic);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-medium.otf"), $weight:500);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-mediumit.otf"), $weight:500, $style:italic);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-demi.otf"), $weight:600);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-demiit.otf"), $weight:600, $style:italic);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-bold.otf"), $weight:700);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-boldit.otf"), $weight:700, $style:italic);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-heavy.otf"), $weight:800);
+@include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-heavyit.otf"), $weight:800, $style:italic);

@@ -1,0 +1,99 @@
+/* Footer */
+
+footer {
+    color: $black;
+    background-color: $white;
+    padding: 20px 0;
+    h3 {
+        margin: 0 0 20px;
+    }
+    .footer-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            color: $gray-dark;
+        }
+        a {
+            color: $gray-dark;
+            text-decoration: none;
+            &:hover,
+            &:active,
+            &:focus {
+                color: $black;
+            }
+        }
+        &.menu2 {
+            margin-top: 20px;
+            a {
+                color: $black;
+                font-size: 14px;
+            }
+        }
+    }
+    .fa {
+        color: $gray;
+        font-size: 20px;
+        padding: 10px 5px;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $black;
+        }
+    }
+    .social {
+        @media (min-width: $screen-sm) {
+            margin-top: 40px;
+            text-align: right;
+        }
+    }
+    @media (min-width: $screen-sm) {
+        background-color: $gray-light;
+        padding: 60px 0;
+        .footer-menu {
+            a {
+                color: $gray-dark;
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $black;
+                }
+            }
+            &.menu2 {
+                margin-top: 40px;
+                a {
+                    color: $gray;
+                    font-size: 16px;
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Footer Bottom
+.copy {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    p {
+        text-align: left;
+        color: $gray;
+        font-size: 13px;
+    }
+    @media (min-width: $screen-sm) {
+        background-color: $white;
+        padding: 30px 0;
+        img {
+            width: 150px;
+        }
+        p {
+            text-align: right;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    }
+}
