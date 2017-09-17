@@ -166,3 +166,88 @@ register_nav_menu('dropdown_menu','Dropdown Menu');
 //Footer Menus
 register_nav_menu('in_footer','Footer Menu 1');
 register_nav_menu('in_footer2','Footer Menu 2');
+
+//Side Menus
+register_nav_menu('sidebar','Side Menu');
+
+//custom post type CANVAS
+register_post_type( 'canvas',
+array(
+//LABELS FOR USE IN THE ADMIN
+'labels' => array(
+'name' => __( 'Canvas' ),
+'singular_name' => __( 'Canvas' ),
+'add_new_item' => __( 'Add New Canvas' ),
+),
+'exclude_from_search' => false,
+'public' => true,
+'has_archive' => true,
+'supports' => array('title', 'editor',  'thumbnail', 'excerpt',  'revisions', 'page-attributes'),
+'rewrite' => array('slug' => 'canvas'),
+)
+);
+
+add_action( 'init', 'create_tag_taxonomies', 0 );
+
+
+//Canvas CUSTOM TAXONOMY Category FOR USE IN THE ADMIN
+$labels = array(
+'name'              => _x( 'Categories', 'taxonomy general name' ),
+'singular_name'     => _x( 'Category', 'taxonomy singular name' ),
+'search_items'      => __( 'Search all Categories' ),
+'all_items'         => __( 'All Categories' ),
+'parent_item'       => __( 'Parent Category' ),
+'parent_item_colon' => __( 'Parent Category:' ),
+'edit_item'         => __( 'Edit Category' ),
+'update_item'       => __( 'Update Category' ),
+'add_new_item'      => __( 'Add New Category' ),
+'new_item_name'     => __( 'New Category Name' ),
+'menu_name'         => __( 'Categories' ),
+);
+
+//OPTIONS FOR THE TAXONOMY
+$args = array(
+'hierarchical'      => true,
+'labels'            => $labels,
+'show_ui'           => true,
+'show_admin_column' => true,
+'query_var'         => true,
+'rewrite'           => array( 'slug' => 'canvas_category' ),
+);
+
+//REGISTER THE TAXONOMY WITH WORDPRESS
+register_taxonomy( 'canvas_category', array( 'canvas' ), $args );
+
+
+
+//create two taxonomies, genres and tags for the post type "canvas"
+function create_tag_taxonomies() 
+{
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Tags', 'taxonomy general name' ),
+    'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Tags' ),
+    'popular_items' => __( 'Popular Tags' ),
+    'all_items' => __( 'All Tags' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Tag' ), 
+    'update_item' => __( 'Update Tag' ),
+    'add_new_item' => __( 'Add New Tag' ),
+    'new_item_name' => __( 'New Tag Name' ),
+    'separate_items_with_commas' => __( 'Separate tags with commas' ),
+    'add_or_remove_items' => __( 'Add or remove tags' ),
+    'choose_from_most_used' => __( 'Choose from the most used tags' ),
+    'menu_name' => __( 'Tags' ),
+  ); 
+
+  register_taxonomy('tag','canvas',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'tag' ),
+  ));
+}

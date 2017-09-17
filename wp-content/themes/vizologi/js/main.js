@@ -24,6 +24,11 @@ $(document).ready(function() {
         $('.navbar-toggle:visible').click();
     });
 
+    //apply class to main menu to give 100% height in mobile
+    $('.navbar-toggle').click(function() {
+        $('#mainNav').toggleClass("full-height");
+    });
+
     // Offset for Main Navigation
     $('#mainNav').affix({
         offset: {
