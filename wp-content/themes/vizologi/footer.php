@@ -10,11 +10,6 @@
 
 ?>
 
-<!-- Green Section slides -->
-<?php
-	get_template_part( 'template-parts/content', 'slides' );
-?>
-
 <!-- Subscription -->
 <?php
 	get_template_part( 'template-parts/content', 'subscribe' );

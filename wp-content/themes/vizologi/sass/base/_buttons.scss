@@ -36,4 +36,16 @@ button {
             background-color: $black;
         }
     }
+    &.btn-yellow {
+        color: $white;
+        background-color: $yellow;
+        font-family: $font-secondary;
+        text-transform: uppercase;
+        &:focus,
+        &:hover,
+        &:active,
+        {
+            background-color: #f3b224;
+        }
+    }
 }

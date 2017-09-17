@@ -1,5 +1,200 @@
 /* Home */
 
-.trending {
+.hero {
+    background: url(../images/home-header-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: $white;
+    height: 400px;
+    h1 {
+        font-size: 36px;
+        line-height: 1.2;
+        margin: 0;
+        margin-top: 50px;
+        @media(min-width: 450px) {
+            margin-top: 70px;
+        }
+    }
+    h2 {
+        margin: 0;
+        line-height: 1.2;
+        font-size: 24px;
+    }
+    .select-wrapper {
+        width: 100%;
+        margin-top: 20px;
+        h2 {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .select {
+            display: inline-block;
+            margin: 0;
+            @media(min-width: 445px) {
+                margin: 0 20px;
+            }
+        }
+        select {
+            width: 100%;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    }
+}
+
+//trending/new
+.trending,
+.new {
     background-color: $gray-light4;
+    padding: 30px 0;
+    h2 {
+        color: $gray-dark2;
+        font-size: 24px;
+        font-weight: normal;
+        a.view-all {
+            font-size: 13px;
+            text-align: right;
+            float: right;
+            line-height: 2.5;
+            padding: 0;
+        }
+    }
+    p {
+        color: $gray-light5;
+    }
+    a {
+        text-decoration: underline;
+        color: $gray-light5;
+        &:hover,
+        &:focus,
+        &:active {
+            color: $gray-dark2;
+        }
+    }
+    .view-all {
+        text-align: right;
+        padding-top: 25px;
+    }
+    .col-sm-4 {
+        &:nth-of-type(1) {
+            .card {
+                margin-top: 0;
+            }
+        }
+    }
+    .card {
+        margin-top: 30px;
+        background-color: $white;
+        width: 100%;
+        h1 {
+            color: $gray-dark2;
+            font-size: 24px;
+            font-weight: normal;
+            padding: 15px 15px 0;
+            margin: 0;
+        }
+        .entry-content {
+            color: $gray-light5;
+            font-size: 16px;
+            padding: 15px;
+        }
+        img {
+            clear: both;
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        a {
+            text-transform: uppercase;
+            font-family: $font-secondary;
+            color: $pink2;
+            text-decoration: none;
+            text-align: right;
+            display: block;
+            padding: 0 15px 15px;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $pink;
+                text-decoration: none;
+            }
+        }
+        .tags {
+            margin: 10px 0 0;
+            a {
+                display: inline-block;
+                font-size: 12px;
+                text-transform: uppercase;
+                padding: 0 15px;
+                color: $gray-light5;
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $gray;
+                }
+            }
+        }
+    }
+}
+
+.new {
+    background-color: $gray-dark3;
+}
+
+@media(min-width:$screen-sm) {
+    .trending,
+    .new {
+        padding: 60px 0 80px;
+        .col-sm-4 {
+            &:nth-of-type(1) {
+                .card {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+    .hero {
+        height: 500px;
+        h1 {
+            margin-top: 110px;
+            font-size: 49px;
+        }
+        .select-wrapper {
+            h2 {
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+@media(min-width:$screen-lg) {
+    .col-sm-4 {
+        &:nth-child(2),
+        &:nth-child(5) {
+            padding: 0 3.8%;
+        }
+        &:nth-child(3),
+        &:nth-child(6) {
+            padding-left: 6.4%;
+        }
+    }
+    .card {
+        width: 300px!important;
+    }
+    .hero {
+        height: 600px;
+        h1 {
+            margin-top: 150px;
+        }
+        .select-wrapper {
+            h2 {
+                font-size: 28px;
+            }
+        }
+    }
 }

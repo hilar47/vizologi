@@ -1,2 +1,30 @@
 /* Sidebar */
 
+
+/* menu */
+
+.sidebar-menu {
+    list-style: none;
+    margin-top: 10px;
+    @media(min-width: $screen-sm) {
+        margin-top: 75px;
+    }
+    padding: 0;
+    li {
+        padding-bottom: 5px;
+        &.current_page_item {
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+    a {
+        color: $gray2;
+        text-decoration: underline;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $gray;
+        }
+    }
+}
