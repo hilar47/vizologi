@@ -251,3 +251,87 @@ function create_tag_taxonomies()
     'rewrite' => array( 'slug' => 'tag' ),
   ));
 }
+
+
+
+/* BLOG */
+register_post_type( 'blog',
+	array(
+	//LABELS FOR USE IN THE ADMIN
+	'labels' => array(
+	'name' => __( 'Blog' ),
+	'singular_name' => __( 'Blog' ),
+	'add_new_item' => __( 'Add New Blog' ),
+	),
+	'exclude_from_search' => false,
+	'public' => true,
+	'has_archive' => true,
+	'supports' => array('title', 'editor',  'thumbnail', 'excerpt',  'revisions', 'page-attributes'),
+	'rewrite' => array('slug' => 'blog'),
+	)
+);
+
+add_action( 'init', 'create_blog_tag_taxonomies', 0 );
+
+
+//Blog CUSTOM TAXONOMY Category FOR USE IN THE ADMIN
+$labels = array(
+'name'              => _x( 'Blog Categories', 'taxonomy general name' ),
+'singular_name'     => _x( 'Blog Category', 'taxonomy singular name' ),
+'search_items'      => __( 'Search all Blog Categories' ),
+'all_items'         => __( 'All Blog Categories' ),
+'parent_item'       => __( 'Parent Blog Category' ),
+'parent_item_colon' => __( 'Parent Blog Category:' ),
+'edit_item'         => __( 'Edit Blog Category' ),
+'update_item'       => __( 'Update Blog Category' ),
+'add_new_item'      => __( 'Add New Blog Category' ),
+'new_item_name'     => __( 'New Blog Category Name' ),
+'menu_name'         => __( 'Blog Categories' ),
+);
+
+//OPTIONS FOR THE TAXONOMY
+$args = array(
+'hierarchical'      => true,
+'labels'            => $labels,
+'show_ui'           => true,
+'show_admin_column' => true,
+'query_var'         => true,
+'rewrite'           => array( 'slug' => 'blog_category' ),
+);
+
+//REGISTER THE TAXONOMY WITH WORDPRESS
+register_taxonomy( 'blog_category', array( 'blog' ), $args );
+
+
+
+//create two taxonomies, genres and tags for the post type "blog"
+function create_blog_tag_taxonomies() 
+{
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Blog Tags', 'taxonomy general name' ),
+    'singular_name' => _x( 'Blog Tag', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Blog Tags' ),
+    'popular_items' => __( 'Popular Blog Tags' ),
+    'all_items' => __( 'All Blog Tags' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Blog Tag' ), 
+    'update_item' => __( 'Update Blog Tag' ),
+    'add_new_item' => __( 'Add New Blog Tag' ),
+    'new_item_name' => __( 'New Blog Tag Name' ),
+    'separate_items_with_commas' => __( 'Separate blog tags with commas' ),
+    'add_or_remove_items' => __( 'Add or remove blog tags' ),
+    'choose_from_most_used' => __( 'Choose from the most used blog tags' ),
+    'menu_name' => __( 'Blog Tags' ),
+  ); 
+
+  register_taxonomy('blog_tag','blog',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'blog_tag' ),
+  ));
+}

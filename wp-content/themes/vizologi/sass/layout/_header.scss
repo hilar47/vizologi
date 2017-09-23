@@ -31,7 +31,7 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    color: darken($gray, 10%);
+                    color: $pink;
                     outline: none;
                 }
             }
@@ -155,10 +155,11 @@
             .screen-reader-text {
                 &:after {
                     margin: -2px 0 0 15px;
+                    text-indent: 4765px;
                     //chrome hack
-                    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                    /* @media screen and (-webkit-min-device-pixel-ratio: 0) {
                         text-indent: 4975px;
-                    }
+                    } */
                 }
             }
         }
@@ -256,7 +257,7 @@
         .search {
             .screen-reader-text {
                 position: absolute;
-                text-indent: -5005px;
+                text-indent: -4845px;
                 margin-top: 10px;
             }
         }
@@ -270,6 +271,32 @@
             margin-left: 9%;
             input.search-field {
                 width: 300px;
+            }
+            .screen-reader-text {
+                &:after {
+                    text-indent: 4925px;
+                    //chrome hack
+                    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                        text-indent: 4975px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//large
+@media(min-width:$screen-lg) {
+    .navbar-custom {
+        .search {
+            .screen-reader-text {
+                &:after {
+                    text-indent: 4925px;
+                    //chrome hack
+                    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                        text-indent: 4975px;
+                    }
+                }
             }
         }
     }
