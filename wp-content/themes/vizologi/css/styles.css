@@ -5403,7 +5403,6 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
 /* Masonry */
 /* line 3, ../sass/modules/_masonry.scss */
 .masonry {
-  /* Masonry container */
   column-count: 3;
   column-gap: 1em;
   -moz-column-count: 3;
@@ -5411,14 +5410,93 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   -webkit-column-count: 3;
   -webkit-column-gap: 1em;
   -ms-column-gap: 1em;
+  padding: 0 7%;
 }
 /* line 12, ../sass/modules/_masonry.scss */
 .masonry .item {
-  /* Masonry bricks or child elements */
-  background-color: #eee;
+  background-color: #797979;
   display: inline-block;
-  margin: 0 0 1em;
-  width: 100%;
+  margin: 0 0 2em;
+  width: 300px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+/* line 19, ../sass/modules/_masonry.scss */
+.masonry .item:nth-child(1n) {
+  background: #635bc8;
+}
+/* line 22, ../sass/modules/_masonry.scss */
+.masonry .item:nth-child(2n) {
+  background: #88c7a8;
+}
+/* line 25, ../sass/modules/_masonry.scss */
+.masonry .item:nth-child(3n) {
+  background: #fcc44b;
+}
+/* line 28, ../sass/modules/_masonry.scss */
+.masonry .item:nth-child(5n) {
+  background: #F57574;
+}
+/* line 32, ../sass/modules/_masonry.scss */
+.masonry .item:hover a.read-more {
+  opacity: 1;
+}
+/* line 37, ../sass/modules/_masonry.scss */
+.masonry .item .imageHolder img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+/* line 43, ../sass/modules/_masonry.scss */
+.masonry .item h1 {
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* line 47, ../sass/modules/_masonry.scss */
+.masonry .item h1 a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 100;
+}
+/* line 53, ../sass/modules/_masonry.scss */
+.masonry .item small {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "AvenirNextCondensed";
+  color: #000;
+  font-size: 12px;
+  margin-top: 50px;
+  display: inline-block;
+}
+/* line 62, ../sass/modules/_masonry.scss */
+.masonry .item a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #000;
+}
+/* line 66, ../sass/modules/_masonry.scss */
+.masonry .item a.category-name {
+  font-family: "AvenirNextCondensed";
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  display: inline-block;
+}
+/* line 73, ../sass/modules/_masonry.scss */
+.masonry .item a.read-more {
+  font-family: "AvenirNextCondensed";
+  color: #fff;
+  font-size: 12px;
+  margin-top: 50px;
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
+  opacity: 0;
+}
+/* line 82, ../sass/modules/_masonry.scss */
+.masonry .item a.read-more:hover, .masonry .item a.read-more:focus, .masonry .item a.read-more:active {
+  color: #fff;
 }
 
 /* line 1, ../sass/modules/_subscribe.scss */

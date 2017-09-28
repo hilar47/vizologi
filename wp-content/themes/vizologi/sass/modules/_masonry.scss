@@ -1,7 +1,6 @@
 /* Masonry */
 
 .masonry {
-    /* Masonry container */
     column-count: 3;
     column-gap: 1em;
     -moz-column-count: 3;
@@ -9,11 +8,83 @@
     -webkit-column-count: 3;
     -webkit-column-gap: 1em;
     -ms-column-gap: 1em;
+    padding: 0 7%;
     .item {
-        /* Masonry bricks or child elements */
-        background-color: #eee;
+        background-color: $gray;
         display: inline-block;
-        margin: 0 0 1em;
-        width: 100%;
+        margin: 0 0 2em;
+        width: 300px;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+        &:nth-child(1n) {
+            background: $indigo;
+        }
+        &:nth-child(2n) {
+            background: $green;
+        }
+        &:nth-child(3n) {
+            background: $yellow;
+        }
+        &:nth-child(5n) {
+            background: $pink;
+        }
+        &:hover {
+            a.read-more {
+                opacity: 1;
+            }
+        }
+        .imageHolder {
+            img {
+                max-width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        h1 {
+            margin: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            a {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 100;
+            }
+        }
+        small {
+            padding-left: 20px;
+            padding-right: 20px;
+            font-family: $font-secondary;
+            color: $black;
+            font-size: 12px;
+            margin-top: 50px;
+            display: inline-block;
+        }
+        a {
+            text-decoration: none;
+            font-size: 12px;
+            color: $black;
+            &.category-name {
+                font-family: $font-secondary;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-top: 20px;
+                display: inline-block;
+            }
+            &.read-more {
+                font-family: $font-secondary;
+                color: $white;
+                font-size: 12px;
+                margin-top: 50px;
+                display: inline-block;
+                float: right;
+                margin-right: 20px;
+                opacity: 0;
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $white;
+                }
+            }
+        }
     }
 }

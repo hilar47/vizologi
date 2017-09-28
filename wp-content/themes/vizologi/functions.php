@@ -171,7 +171,7 @@ register_nav_menu('in_footer2','Footer Menu 2');
 register_nav_menu('sidebar','Side Menu');
 
 //custom post type CANVAS
-register_post_type( 'canvas',
+/* register_post_type( 'canvas',
 array(
 //LABELS FOR USE IN THE ADMIN
 'labels' => array(
@@ -251,11 +251,11 @@ function create_tag_taxonomies()
     'rewrite' => array( 'slug' => 'tag' ),
   ));
 }
-
+ */
 
 
 /* BLOG */
-register_post_type( 'blog',
+/* register_post_type( 'blog',
 	array(
 	//LABELS FOR USE IN THE ADMIN
 	'labels' => array(
@@ -334,4 +334,16 @@ function create_blog_tag_taxonomies()
     'query_var' => true,
     'rewrite' => array( 'slug' => 'blog_tag' ),
   ));
+} */
+
+
+// REMOVE IMAGE DIMENSIONS
+
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
+add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
+
+function remove_thumbnail_dimensions( $html ) {
+    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+    return $html;
 }
+
