@@ -37,7 +37,7 @@ get_header();
 </section>
 
 <!-- Trending -->
-<section class="trending">
+<!-- <section class="trending">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
@@ -81,10 +81,10 @@ get_header();
 			?>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <!-- New -->
-<section class="new">
+<!-- <section class="new">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
@@ -129,7 +129,12 @@ get_header();
 			?>
 		</div>
 	</div>
-</section>
+</section> -->
+
+<!-- Content from Page -->
+<?php while ( have_posts() ): the_post(); ?>
+	<?php the_content(); ?>
+<?php endwhile; ?>
 
 <!-- Green Section slides -->
 <?php
