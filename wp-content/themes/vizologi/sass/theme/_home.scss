@@ -91,6 +91,11 @@
         margin-top: 30px;
         background-color: $white;
         width: 100%;
+        min-height: 340px;
+        @media(min-width: 768px) and (max-width: 1023px) {
+            min-height: 450px;
+        }
+        position: relative;
         h1 {
             color: $gray-dark2;
             font-size: 24px;
@@ -100,7 +105,7 @@
         }
         .entry-content {
             color: $gray-light5;
-            font-size: 16px;
+            font-size: 15px;
             padding: 15px;
         }
         img {
@@ -117,20 +122,26 @@
             text-align: right;
             display: block;
             padding: 0 15px 15px;
+            font-size: 14px;
             &:hover,
             &:focus,
             &:active {
-                color: $pink;
+                color: $black;
                 text-decoration: none;
+            }
+            &.view-canvas {
+                position: absolute;
+                bottom: 0;
+                right: 0;
             }
         }
         .tags {
-            margin: 10px 0 0;
+            padding: 15px 0 0;
             a {
                 display: inline-block;
-                font-size: 12px;
+                font-size: 10px;
                 text-transform: uppercase;
-                padding: 0 15px;
+                padding: 0 6px;
                 color: $gray-light5;
                 &:hover,
                 &:focus,

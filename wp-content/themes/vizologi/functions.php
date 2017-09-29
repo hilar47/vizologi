@@ -347,3 +347,7 @@ function remove_thumbnail_dimensions( $html ) {
     return $html;
 }
 
+
+/* Metaboxes */
+include_once 'metaboxes/setup.php';
+include_once 'metaboxes/post-spec.php';
