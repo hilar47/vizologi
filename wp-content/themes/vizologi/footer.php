@@ -27,11 +27,12 @@
 			</div>
 
 			<div class="col-sm-6 social col-sm-push-3">
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-facebook-square"></i></a>
-				<a href="#"><i class="fa fa-linkedin-square"></i></a>
-				<a href="#"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-pinterest"></i></a>
+				<a href="https://twitter.com/vizologi" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a href="https://www.facebook.com/vizologi/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+				<a href="
+https://www.linkedin.com/company/11166009/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+				<a href="https://www.instagram.com/vizologi/" target="_blank"><i class="fa fa-instagram"></i></a>
+				<a href="http://www.pinterest.com/vizologi/" target="_blank"><i class="fa fa-pinterest"></i></a>
 			</div>
 
 			<div class="col-sm-3 col-sm-pull-6">

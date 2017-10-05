@@ -1,0 +1,204 @@
+/* Canvas */
+
+.canvas-viewer {
+    background-color: #edebeb;
+    padding: 60px 0;
+}
+
+.canvas-detail-bar {
+    background-color: #525252;
+    .detail-bar-name {
+        float: left;
+        background-color: $white;
+        padding: 0;
+        &:before {
+            background-color: $white;
+            content: "";
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            left: -100%;
+        }
+        h4 {
+            font-size: 16px;
+            padding: 10px 15px;
+            //chrome
+            @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                padding: 11px 15px 10px;
+            }
+        }
+    }
+    .detail-bar-tools {
+        float: left;
+        color: $white;
+        padding: 0;
+        div {
+            float: left;
+            padding: 13px 20px;
+        }
+        a {
+            color: $white;
+            font-size: 21px;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $white;
+            }
+        }
+        .info {
+            background-color: $pink;
+            padding: 14px 20px 14px;
+        }
+        .range-slider {
+            padding: 17px 0 11px;
+            .mdl-slider__container {
+                padding: 0;
+                input {
+                    border: 0;
+                    //chrome
+                    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                        padding: 0;
+                        height: 2px;
+                        position: relative;
+                        top: 8px;
+                    }
+                }
+                div {
+                    padding: 0;
+                }
+            }
+        }
+        .star-rating__wrapper {
+            div {
+                padding: 0;
+                float: none;
+            }
+        }
+        .caption {
+            padding: 10px 0 3px !important;
+            font-size: 18px;
+        }
+    }
+}
+
+.canvas-info {
+    background-color: #edebeb;
+    padding: 50px 0;
+    img {
+        padding-bottom: 30px;
+    }
+    p {
+        color: #999999;
+    }
+    .text-about {
+        margin-top: 40px;
+        @media(min-width: $screen-md) {
+            margin-top: 95px;
+        }
+        /* b {
+            color: #cac9c9;
+        } */
+    }
+    .text-description-tags {
+        a {
+            color: #999999;
+            text-decoration: underline;
+            margin-right: 10px;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $gray;
+            }
+        }
+    }
+    a.company-url {
+        color: #404040;
+        text-decoration: underline;
+        margin-top: 50px;
+        display: inline-block;
+        &:hover,
+        &:focus,
+        &:active {
+            color: $black;
+        }
+    }
+}
+
+.recommended {
+    background-color: #f6f6f6;
+    .card-recommend {
+        min-height: inherit;
+    }
+}
+
+
+/* mobile only */
+
+@media(max-width: $screen-sm) {
+    .canvas-viewer {
+        padding: 0;
+    }
+    .detail-bar-name {
+        width: 100%;
+        &:before {
+            display: none;
+        }
+    }
+    .canvas-detail-bar {
+        .detail-bar-tools {
+            div {
+                padding: 13px 10px;
+            }
+            .info {
+                padding: 14px 10px 14px;
+            }
+        }
+    }
+}
+
+@media(min-width: 769px) and (max-width:$screen-md) {
+    .canvas-detail-bar {
+        .detail-bar-tools {
+            div {
+                padding: 13px 6px;
+                &.star-rating__wrapper {
+                    padding: 13px 0;
+                }
+            }
+            .info {
+                padding: 14px 10px 14px;
+            }
+        }
+    }
+}
+
+@media(min-width: $screen-md) and (max-width:$screen-lg) {
+    .canvas-detail-bar {
+        .detail-bar-tools {
+            div {
+                padding: 13px 17px;
+            }
+        }
+    }
+}
+
+@media(min-width: 768px) and (max-width: 768px) {
+    .canvas-detail-bar {
+        .detail-bar-name {
+            width: calc(100% + 24px);
+            margin-left: -15px;
+        }
+        .detail-bar-tools {
+            width: calc(100% + 24px);
+            margin-left: -15px;
+            div {
+                padding: 13px 25px;
+            }
+            .info {
+                padding: 14px 17px 14px;
+            }
+        }
+    }
+}

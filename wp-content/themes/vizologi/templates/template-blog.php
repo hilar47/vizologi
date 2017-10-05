@@ -30,21 +30,17 @@ get_header();
 						</a>
 					</div>
 
-					<a class="category-name" href="">
-						<?php
-						/* $terms = get_the_terms($post->ID, 'blog_category' );
-							if ($terms && ! is_wp_error($terms)) :
-								$tslugs_arr = array();
-								foreach ($terms as $term) {
-									$tslugs_arr[] = $term->slug;
-								}
-								$terms_slug_str = join( " ", $tslugs_arr);
-							endif;
-							echo $terms_slug_str; */
-						?>
-					<?php 
+					<?php
+						// Get the category name from the post	
 						$category = get_the_category( $post->ID );
-						echo $category[0]->cat_name;?>
+						// Get the ID of a given category		
+						$category_id = get_cat_ID( $category[0]->cat_name );
+						// Get the URL of this category
+						$category_link = get_category_link( $category_id );
+					?>
+					<a class="category-name" href="<?php echo esc_url( $category_link ); ?>"><?php
+						echo $category[0]->cat_name;
+						?>
 					</a>
 					
 					<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>

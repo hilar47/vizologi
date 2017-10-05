@@ -347,3 +347,17 @@ function remove_thumbnail_dimensions( $html ) {
     return $html;
 }
 
+
+/* Metaboxes */
+include_once 'metaboxes/setup.php';
+include_once 'metaboxes/post-spec.php';
+
+
+// Search redirect to a custom link/keyword
+function change_search_url_rewrite() {
+	if ( is_search() && ! empty( $_GET['s'] ) ) {
+		wp_redirect( home_url( "/search/?type=tag&term=" ) . urlencode( get_query_var( 's' ) ) );
+		exit();
+	}	
+}
+add_action( 'template_redirect', 'change_search_url_rewrite' );
