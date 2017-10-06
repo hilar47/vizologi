@@ -7,15 +7,14 @@
 * Author URI: 
 */
 
-// Example 1 : WP Shortcode to display form on any page or post.
 function getResults($atts){
 	$res = _curlTemplate('https://vizologi-api-server.herokuapp.com/getselections?selection='. $atts["type"]);
 	return _canvasTemplate($res);
 }
 
 function getRelated() {
-    $company = $_GET['company'];
-	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getrelated?slug=" . rawurlencode($company));
+    $company = $_GET['slug'];
+	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getrelated?slug=" . rawurlencode($company) . "&pagen=1&pagel=6");
 	return _canvasTemplateRecommended($res);
 }
 
@@ -25,33 +24,30 @@ function getCompanyCanvas() {
 	return _singleCompanyTemplate($res);
 }
 
-function getCompaniesByTag() {
-	$tag = $_GET['tag'];
-	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/searchcanvasbytag?tag=" . rawurlencode($tag));
-	return _canvasTemplate($res);
-}
-
 function searchCompanies() {
 	$type = $_GET['type'];
-	$term = $_GET['type'];
+	$term = $_GET['term'];
 	
 	$url = "";
 	
 	if(isset($type) && isset($term)) {
 		switch ($type) {
 			case "tag":
-				$url = "https://vizologi-api-server.herokuapp.com/searchcanvasbytag?tag=" . rawurlencode($term);
+				$url = "https://vizologi-api-server.herokuapp.com/searchcanvasbytag?tag=" . rawurlencode($term) . "&pagen=1&pagel=6";
 				break;
-			case "category":
-				echo "Your favorite color is blue!";
+			case "sector":
+				if(rawurlencode($term) == "all%20sectors")
+					$url = "https://vizologi-api-server.herokuapp.com/testDB?pagen=1&pagel=6";
+				else
+					$url = "https://vizologi-api-server.herokuapp.com/searchcanvasbysector?sector=". rawurlencode($term) ."&pagen=1&pagel=6";
 				break;
 			case "search":
-				$url = "https://vizologi-api-server.herokuapp.com/searchcanvas?query=" . rawurlencode($term);
+				$url = "https://vizologi-api-server.herokuapp.com/searchcanvas?query=" . rawurlencode($term) . "&pagen=1&pagel=6";
 				break;
 			default:
 				echo "";
 		}
-		
+	
 		$res = _curlTemplate($url);
 		return _searchTemplate($res);
 	}
@@ -82,10 +78,6 @@ function _curlTemplate($url) {
 
 // Collection of Canvases (homepage)
 function _canvasTemplate($arr) {
-	/*echo "<pre>";
-	print_r($arr);
-	echo "</pre>";*/
-	
 	$html = "";
 	foreach ($arr as $obj) {
 		
@@ -94,24 +86,21 @@ function _canvasTemplate($arr) {
 			$obj = $obj["companyObject"];
 		
 		$desc = (strlen($obj["Description"]) > 13) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
-	 	/* $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><img src="https://vizologi-api-server.herokuapp.com/'.strtolower($obj["Company Name"]).'" class="attachment-medium size-medium wp-post-image" alt="" /></div>'; */
-         $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="http://localhost/vizologi-new/wp-content/themes/vizologi/images/airbnb.png" class="attachment-medium size-medium wp-post-image" alt="" /></a></div>';
+		$logoName = _cleanFileName(strtolower($obj["Company Name"]));
+		
+         $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" /></a></div>';
 		$html .= '<div class="tags">';
 		$tags = explode(",",$obj["Tags"]);
 		foreach($tags as $tag) {
 			$html .= '<a href="'.get_home_url().'/canvas/search?type=tag&term='.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
 		}
-		$html .= '</div><h1><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'" class="view-canvas">View Canvas</a></div></div>';
+		$html .= '</div><h1><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'" class="view-canvas">View Canvas</a></div></div>';
 	}
 	return $html;
 }
 
 // Related Canvases (single canvas page)
 function _canvasTemplateRecommended($arr) {
-	/*echo "<pre>";
-	print_r($arr);
-	echo "</pre>";*/
-	
 	$html = "";
 	foreach ($arr as $obj) {
 		
@@ -120,8 +109,9 @@ function _canvasTemplateRecommended($arr) {
 			$obj = $obj["companyObject"];
 		
 		$desc = (strlen($obj["Description"]) > 13) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
-	 	/* $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><img src="https://vizologi-api-server.herokuapp.com/'.strtolower($obj["Company Name"]).'" class="attachment-medium size-medium wp-post-image" alt="" /></div>'; */
-         $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="http://localhost/vizologi-new/wp-content/themes/vizologi/images/airbnb.png" class="attachment-medium size-medium wp-post-image" alt="" /></a></div></div></div>';
+	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
+		
+         $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" /></a></div></div></div>';
 	}
 	return $html;
 }
@@ -131,7 +121,7 @@ function _canvasTemplateRecommended($arr) {
 function _singleCompanyTemplate($obj) {
 	
 	//wp_register_style( 'materialCSS', 'https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css' );
-    wp_enqueue_style( 'materialCSS' );
+    //wp_enqueue_style( 'materialCSS' );
 	wp_register_style( 'viewer', plugin_dir_url(__FILE__) .'js/viewer/viewer.css' );
     wp_enqueue_style( 'viewer' );
 	wp_register_script('materialJS', 'https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js');
@@ -288,39 +278,21 @@ function _searchTemplate($arr) {
                 <div class="row hover-item">
                     <div class="col-xs-12">
                         <p>Your search for</p>
-                        <h1>Mobile streaming</h1>
-                        <p>Resulted in <span>6 canvas</p>
+                        <h1><?php echo ucwords($_REQUEST["term"]); ?></h1>
+                        <p>Resulted in <span><?php echo count($arr) ; ?> canvas</p>
                     </div>
                 </div>
                 <div class="row hover-item">
-                    <?php
-                    foreach ($arr as $obj) {
-                    ?>
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="img-holder"><a href="<?php echo get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"]; ?>"><img src="<?php echo plugin_dir_url(__FILE__) . 'images/airbnb.png' ?>" class="attachment-medium size-medium wp-post-image" alt="" /></a></div>
-                                <div class="tags">
-                                <?php  
-                                    $tags = explode(",",$obj["Tags"]);
-                                    foreach($tags as $tag) { 
-                                        echo '<a class="company-tags" href="'.get_home_url().'/canvas/search?type=tag&term='.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
-                                    } ?>
-                                </div>
-                                <h1>
-                                    <a href="<?php echo get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"]; ?>">
-                                        <?php echo $obj["Company Name"]; ?> business model 
-                                    </a>
-                                </h1>
-
-                                <div class="entry-content"></div>
-                                <a href="<?php echo get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"]; ?>" class="view-canvas">View Canvas</a>
-                            </div>
-                        </div>
-                    <?php	
-                    }?>
+                    <?php echo _canvasTemplate($arr); ?>
                 </div>
             </div>
 </section>
 <?php
+}
+
+function _cleanFileName($string) {
+	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+
+   return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 }
 ?>
