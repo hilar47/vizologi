@@ -46,16 +46,16 @@
 			<div class="search-cat">
 				<h4>Or explore sectors:</h4>
 				<ul>
-					<li><a href="">Energy & utilities</a></li>
-					<li><a href="">Consumer services</a></li>
-					<li><a href="">Information and media</a></li>
-					<li><a href="">Healthcare</a></li>
-					<li><a href="">Technology</a></li>
-					<li><a href="">Transportation</a></li>
-					<li><a href="">Telecommunications</a></li>
-					<li><a href="">Financials</a></li>
-					<li><a href="">Consumer goods</a></li>
-					<li><a href="">Industrials</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=energy & utilites">Energy & utilities</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer services">Consumer services</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=information & media">Information and media</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=healthcare">Healthcare</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=technology">Technology</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=transportation">Transportation</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=telecommunications">Telecommunications</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=financials">Financials</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer goods">Consumer goods</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=industrials">Industrials</a></li>
 				</ul>
 			</div>
 		</div>

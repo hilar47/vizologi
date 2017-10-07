@@ -16,7 +16,7 @@ get_header();
 				<div class="select-wrapper">
 					<h2>I'm interested in</h2>
 					<div class="select">
-						<select name="select">
+						<select name="select" id="sectorSelect">
 							<option value="hide">all sectors</option>
 							<option value="energy-and-utilities">energy &amp; utilities</option>
 							<option value="information-and-media">information &amp; media</option>
@@ -29,7 +29,7 @@ get_header();
 							<option value="financials">financials</option>
 							<option value="industrials">industrials</option>
 						</select>
-					<button class="btn btn-yellow">Discover</button>
+					<button class="btn btn-yellow" id="discoverBtn">Discover</button>
 				</div>
 			</div>
 		</div>
@@ -141,12 +141,30 @@ get_header();
 	get_template_part( 'template-parts/content', 'slides' );
 ?>
 
+
+<!-- dynamic path -->
+<?php $sitePath= home_url(); ?>
+
 <!-- SELECT STYLING -->
 <script src="<?php echo get_template_directory_uri();?>/js/jquery.selectric.min.js"></script>
 <script>
 	$(function() {
 		$('select').selectric();
 	});
+
+	//pass sector values
+    $("#discoverBtn").on("click", function() {
+        var data = [];
+        $("#sectorSelect").each(function() {
+            data.push($(this).val());
+        });
+        sectorRedirect(data);
+    });
+
+    function sectorRedirect(val) {
+		var sitePath="<?php echo $sitePath; ?>";
+        window.location.href = sitePath + "/search/?type=sector&term=" + val;
+    }
 </script>
 <?php 
 	get_footer();

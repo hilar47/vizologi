@@ -5939,6 +5939,11 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
 }
 
 /* line 43, ../sass/modules/_search.scss */
+img.clear-img {
+  background: url(../images/close-btn.gif) no-repeat;
+}
+
+/* line 47, ../sass/modules/_search.scss */
 input.search-submit {
   background-color: #6e6e6e;
   color: #fff;
@@ -5952,12 +5957,12 @@ input.search-submit {
   padding: 14px 14px 15px;
   line-height: 1;
 }
-/* line 55, ../sass/modules/_search.scss */
+/* line 59, ../sass/modules/_search.scss */
 input.search-submit:hover, input.search-submit:focus, input.search-submit:active {
   background-color: #dd0202;
   color: #fff;
 }
-/* line 61, ../sass/modules/_search.scss */
+/* line 65, ../sass/modules/_search.scss */
 input.search-submit.active {
   display: block !important;
 }

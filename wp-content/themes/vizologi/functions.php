@@ -356,7 +356,7 @@ include_once 'metaboxes/post-spec.php';
 // Search redirect to a custom link/keyword
 function change_search_url_rewrite() {
 	if ( is_search() && ! empty( $_GET['s'] ) ) {
-		wp_redirect( home_url( "/search/?type=tag&term=" ) . urlencode( get_query_var( 's' ) ) );
+		wp_redirect( home_url( "/search/?type=search&term=" ) . urlencode( get_query_var( 's' ) ) );
 		exit();
 	}	
 }
