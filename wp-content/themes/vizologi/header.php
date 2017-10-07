@@ -42,7 +42,22 @@
 
 		<!-- Search -->
 		<div class="search hidden-xs">
-		<?php get_search_form(); ?>
+			<?php get_search_form(); ?>
+			<div class="search-cat">
+				<h4>Or explore sectors:</h4>
+				<ul>
+					<li><a href="">Energy & utilities</a></li>
+					<li><a href="">Consumer services</a></li>
+					<li><a href="">Information and media</a></li>
+					<li><a href="">Healthcare</a></li>
+					<li><a href="">Technology</a></li>
+					<li><a href="">Transportation</a></li>
+					<li><a href="">Telecommunications</a></li>
+					<li><a href="">Financials</a></li>
+					<li><a href="">Consumer goods</a></li>
+					<li><a href="">Industrials</a></li>
+				</ul>
+			</div>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->

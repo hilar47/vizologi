@@ -24,23 +24,25 @@ get_header(); ?>
 ?>
 
 <div class="container blog">
-	<small><?php echo get_the_date(); ?></small>
-	<?php
-		// Get the category name from the post	
-		$category = get_the_category( $post->ID );
-		// Get the ID of a given category		
-		$category_id = get_cat_ID( $category[0]->cat_name );
-		// Get the URL of this category
-		$category_link = get_category_link( $category_id );
-	?>
-
-	<a class="cat" href="<?php echo esc_url( $category_link ); ?>"><?php
-		echo $category[0]->cat_name;
+	<div class="col-sm-10 col-sm-offset-1">
+		<small><?php echo get_the_date(); ?></small>
+		<?php
+			// Get the category name from the post	
+			$category = get_the_category( $post->ID );
+			// Get the ID of a given category		
+			$category_id = get_cat_ID( $category[0]->cat_name );
+			// Get the URL of this category
+			$category_link = get_category_link( $category_id );
 		?>
-	</a>
-	<h1 class="title"><?php echo get_the_title( $post->ID );?></h1>
-	<!-- Content -->
-		<?php the_content(); ?>
+
+		<a class="cat" href="<?php echo esc_url( $category_link ); ?>"><?php
+			echo $category[0]->cat_name;
+			?>
+		</a>
+		<h1 class="title"><?php echo get_the_title( $post->ID );?></h1>
+		<!-- Content -->
+			<?php the_content(); ?>
+	</div>
 </div>
 
 <section class="blog-navigation">

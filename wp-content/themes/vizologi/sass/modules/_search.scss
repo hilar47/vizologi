@@ -1,0 +1,64 @@
+// Search Dropdown on headersearch-form{
+.search-form {
+    position: relative;
+}
+
+.search-cat {
+    display: none;
+    background-color: #d0d0d0;
+    font-family: $font-secondary;
+    position: absolute;
+    margin-top: -5px;
+    margin-left: 52px;
+    padding: 15px;
+    &.active {
+        display: block;
+    }
+    h4 {
+        color: $white;
+        margin: 0 0 5px;
+        font-family: $font-secondary;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            display: inline-block;
+            width: 49%;
+            margin-top: 12px;
+            a {
+                color: #6e6e6e;
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $black;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+input.search-submit {
+    background-color: #6e6e6e;
+    color: $white;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    font-family: $font-secondary;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 14px 14px 15px;
+    line-height: 1;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $red;
+        color: $white;
+    }
+    &.active {
+        display: block!important;
+    }
+}

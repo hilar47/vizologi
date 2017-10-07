@@ -130,6 +130,9 @@
     background-color: #f6f6f6;
     .card-recommend {
         min-height: inherit;
+        img {
+            max-width: 60%;
+        }
     }
 }
 

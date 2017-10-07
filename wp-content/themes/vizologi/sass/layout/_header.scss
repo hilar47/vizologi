@@ -85,6 +85,7 @@
         }
     }
     .search {
+        position: relative;
         label {
             width: 100%;
         }
@@ -168,9 +169,12 @@
         .navbar-nav {
             li {
                 a {
-                    border-bottom: 2px solid $white;
+                    border-bottom: 2px solid #fff;
                     padding-top: 15px;
-                    padding-bottom: 15px;
+                    padding-bottom: 0px;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin: 0 15px;
                 }
                 &.current-menu-item {
                     a {
@@ -190,7 +194,7 @@
         }
     }
     .navbar-nav>li>a {
-        line-height: 30px;
+        line-height: 35px;
     }
     .menu-main-menu-container {
         float: right;

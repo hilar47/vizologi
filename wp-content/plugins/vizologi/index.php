@@ -85,10 +85,13 @@ function _canvasTemplate($arr) {
 		if($obj["Company Name"] == "")
 			$obj = $obj["companyObject"];
 		
-		$desc = (strlen($obj["Description"]) > 13) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
+		$desc = (strlen($obj["Description"]) > 13) ? substr($obj["Description"],0,110) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["Company Name"]));
-		
-         $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" /></a></div>';
+
+		//CHECK WIDTH OF IMAGE
+		 list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
+
+         $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div>';
 		$html .= '<div class="tags">';
 		$tags = explode(",",$obj["Tags"]);
 		foreach($tags as $tag) {
@@ -110,8 +113,11 @@ function _canvasTemplateRecommended($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 13) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
+
+        //CHECK WIDTH OF IMAGE
+		 list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
 		
-         $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" /></a></div></div></div>';
+         $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div></div></div>';
 	}
 	return $html;
 }

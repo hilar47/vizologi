@@ -11,7 +11,7 @@ get_header();
 		<div class="col-sm-3">
 			<?php wp_nav_menu(array('theme_location' => 'sidebar', 'menu_class'=> 'sidebar-menu', 'container' => '')); ?>
 		</div>
-		<div class="col-sm-9 m-b-60">
+		<div class="col-sm-8 m-b-60">
 			<h1 class="title"><?php echo get_the_title( $post->ID );?></h1>
 			<!-- Content -->
 			<?php while ( have_posts() ): the_post(); ?>

@@ -39,4 +39,22 @@ $(document).ready(function() {
     //add placeholder for search
     $(".search-field").attr("placeholder", "Search canvas");
 
+    //add attribute for search field on load
+    $('.search-field').attr('autocomplete', 'off');
+
+    //show data box on search
+    $(".search-field").click(function() {
+        $(".search-cat").addClass("active");
+    });
+    $(".search-field").keyup(function() {
+        if ($(".search-field").val() != "") {
+            $("input.search-submit").addClass("active");
+        } else {
+            $("input.search-submit").removeClass("active");
+        }
+
+    });
+    $("#content, footer, .copy, .navbar-collapse").click(function() {
+        $(".search-cat").removeClass("active");
+    });
 });
