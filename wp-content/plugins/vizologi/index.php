@@ -24,6 +24,11 @@ function getCompanyCanvas() {
 	return _singleCompanyTemplate($res);
 }
 
+function getCanvasArchive() {
+	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/testDB?pagen=1&pagel=6");
+	return _canvasArchiveTemplate($res);
+}
+
 function searchCompanies() {
 	$type = $_GET['type'];
 	$term = $_GET['term'];
@@ -57,7 +62,7 @@ add_shortcode('vizologi_results', 'getResults');
 add_shortcode('vizologi_recommended', 'getRelated');
 add_shortcode('vizologi_company_details', 'getCompanyCanvas');
 add_shortcode('vizologi_search', 'searchCompanies');
-
+add_shortcode('vizologi_canvas_archive', 'getCanvasArchive');
 
 function _curlTemplate($url) {
 	
@@ -85,11 +90,11 @@ function _canvasTemplate($arr) {
 		if($obj["Company Name"] == "")
 			$obj = $obj["companyObject"];
 		
-		$desc = (strlen($obj["Description"]) > 13) ? substr($obj["Description"],0,110) .'...' : $obj["Description"];
+		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,110) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["Company Name"]));
 
 		//CHECK WIDTH OF IMAGE
-		 list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
+		 //list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
 
          $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div>';
 		$html .= '<div class="tags">';
@@ -111,11 +116,11 @@ function _canvasTemplateRecommended($arr) {
 		if($obj["Company Name"] == "")
 			$obj = $obj["companyObject"];
 		
-		$desc = (strlen($obj["Description"]) > 13) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
+		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
 
         //CHECK WIDTH OF IMAGE
-		 list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
+		 //list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
 		
          $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div></div></div>';
 	}
@@ -278,6 +283,7 @@ function _singleCompanyTemplate($obj) {
 
 // Search Canvas
 function _searchTemplate($arr) {
+	wp_enqueue_script('viz', plugin_dir_url(__FILE__) . 'js/viz_canvas.js');
 ?>
 <section class="search-results">
 		<div class="container feed-item">
@@ -288,8 +294,37 @@ function _searchTemplate($arr) {
                         <p>Resulted in <span><?php echo count($arr) ; ?> canvas</p>
                     </div>
                 </div>
-                <div class="row hover-item">
+                <div class="row hover-item" id="canvas-search-results">
                     <?php echo _canvasTemplate($arr); ?>
+                </div>
+                <div class="row">
+                	<input type="hidden" id="page-no" value="1" />
+					<button id="viz-search-load-more" class="btn btn-black <?php echo  (count($arr) < 6) ? 'hide' : ''; ?>">Load more</button>
+                </div>
+            </div>
+</section>
+<?php
+}
+
+// Search Canvas
+function _canvasArchiveTemplate($arr) {
+	wp_enqueue_script('viz', plugin_dir_url(__FILE__) . 'js/viz_canvas.js');
+?>
+<section class="recommended">
+		<div class="container feed-item">
+                <div class="row hover-item">
+                    <div class="col-xs-12">
+                        <p>So you want to see our</p>
+                        <h1>Business Model Canvas Archive</h1>
+                        <p>Resulted in <span><?php echo count($arr) ; ?> canvas</p>
+                    </div>
+                </div>
+                <div class="row hover-item" id="canvas-archive-results">
+                    <?php echo _canvasTemplateRecommended($arr); ?>
+                </div>
+                <div class="row">
+                	<input type="hidden" id="page-no" value="1" />
+					<button id="viz-archive-load-more" class="btn btn-black <?php echo  (count($arr) < 6) ? 'hide' : ''; ?>">Load more</button>
                 </div>
             </div>
 </section>

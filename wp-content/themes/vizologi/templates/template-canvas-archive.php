@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Search
+Template Name: Canvas Archive
 */
 
 get_header();
@@ -10,8 +10,8 @@ get_header();
 		<?php the_content(); ?>
 	<?php endwhile; ?>
 <script type="text/javascript">
-	$('#viz-search-load-more').click(function () {
-     	vizologi.getCompanies(document.getElementById('canvas-search-results'));
+	$('#viz-archive-load-more').click(function () {
+     	vizologi.getCanvasArchive(document.getElementById('canvas-archive-results'));
      });
 </script>
 
