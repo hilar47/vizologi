@@ -93,10 +93,22 @@ function _canvasTemplate($arr) {
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,110) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["Company Name"]));
 
-		//CHECK WIDTH OF IMAGE
-		 //list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
+		//CHECK if logo image exists
+        if ($logoName == "") {
+           //apply width to image
+           $imgPath = get_template_directory_uri();
+           $imgPath = $imgPath . '/images/google-adsense.png';
+           list($width) = getimagesize($imgPath);
 
-         $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div>';
+            $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="'.$imgPath.'" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div>';
+
+        } else {
+           //apply width to image
+           list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
+
+           $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div>';
+        }
+        
 		$html .= '<div class="tags">';
 		$tags = explode(",",$obj["Tags"]);
 		foreach($tags as $tag) {
@@ -119,10 +131,23 @@ function _canvasTemplateRecommended($arr) {
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
 
-        //CHECK WIDTH OF IMAGE
-		 //list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
+        //CHECK if logo image exists
+        if ($logoName == "") {
+           //apply width to image
+           $imgPath = get_template_directory_uri();
+           $imgPath = $imgPath . '/images/google-adsense.png';
+           list($width) = getimagesize($imgPath);
+
+           $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="'.$imgPath.'" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div></div></div>';
+
+        } else {
+           //apply width to image
+           list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
+
+           $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div></div></div>';
+        }
 		
-         $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div></div></div>';
+         
 	}
 	return $html;
 }

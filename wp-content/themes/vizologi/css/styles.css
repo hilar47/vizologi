@@ -6219,7 +6219,7 @@ input.search-submit.active {
 .search-results .card .img-holder img {
   clear: both;
   display: block;
-  max-width: 70%;
+  max-width: 60%;
   margin: 0 auto;
 }
 /* line 134, ../sass/theme/_home.scss */
