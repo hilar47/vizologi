@@ -361,3 +361,30 @@ function change_search_url_rewrite() {
 	}	
 }
 add_action( 'template_redirect', 'change_search_url_rewrite' );
+
+//Pagination for blog posts
+function wp_blog_pagination()  
+{  
+    $paged  = $_POST['page_no'];  
+	 
+    $blog_query = new WP_Query( 'showposts=6&post_type=post&post_status=publish&paged=' . $paged );  
+                          
+    if ( $blog_query->have_posts() ) :   
+                  
+        while ( $blog_query->have_posts() ) :  
+		
+            $blog_query->the_post();  
+                  echo    'a';
+            //get_template_part( 'blog' );  
+                      
+        endwhile;  
+          
+    endif;  
+                                  
+    // Reset Post Data  
+    wp_reset_postdata();  
+      
+    exit;  
+}  
+add_action('wp_ajax_blog_pagination', 'wp_blog_pagination'); // for logged in user  
+add_action('wp_ajax_nopriv_blog_pagination', 'wp_blog_pagination'); // if user not logged in 

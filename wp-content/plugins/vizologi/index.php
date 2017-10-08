@@ -92,9 +92,9 @@ function _canvasTemplate($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,110) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["Company Name"]));
-
+		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
 		//CHECK if logo image exists
-        if ($logoName == "") {
+        /*if ($logoName == "") {
            //apply width to image
            $imgPath = get_template_directory_uri();
            $imgPath = $imgPath . '/images/google-adsense.png';
@@ -107,7 +107,7 @@ function _canvasTemplate($arr) {
            list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
 
            $html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div>';
-        }
+        }*/
         
 		$html .= '<div class="tags">';
 		$tags = explode(",",$obj["Tags"]);
@@ -130,9 +130,9 @@ function _canvasTemplateRecommended($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
-
+$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
         //CHECK if logo image exists
-        if ($logoName == "") {
+        /*if ($logoName == "") {
            //apply width to image
            $imgPath = get_template_directory_uri();
            $imgPath = $imgPath . '/images/google-adsense.png';
@@ -145,7 +145,7 @@ function _canvasTemplateRecommended($arr) {
            list($width) = getimagesize("https://vizologi-api-server.herokuapp.com/logos/$logoName.png");
 
            $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="'.$width.'" /></a></div></div></div>';
-        }
+        }*/
 		
          
 	}
@@ -169,8 +169,8 @@ function _singleCompanyTemplate($obj) {
 
 
     <section class="canvas-viewer">
-        <div class="container">
-            <img class="img-responsive center-block" id="canvas-company-image" src="<?php echo plugin_dir_url(__FILE__) . "images/vizo_canvas.png" ?>" />
+        <div class="container" style="min-height:500px;">
+            <img class="img-responsive center-block" id="canvas-company-image" src="<?php echo plugin_dir_url(__FILE__) . "images/vizo_canvas.png" ?>" style="display:none;" />
         </div>
     </section>
 
@@ -242,14 +242,7 @@ function _singleCompanyTemplate($obj) {
                     </div> -->
 
                     <!-- Star rating sction -->
-                    <div class="star-rating__wrapper">
-                        <!-- <input type="text" class="kv-fa rating-loading" value="" dir="ltr" data-size="xs" title=""> -->
-                        <input id="input-2" name="input-2" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1">
-
-                        <!-- <p class="star-rating__votes">
-                            <?php echo $obj[0]["rating"]["average"]; ?>
-                        </p> -->
-                    </div>
+                    <input id="input-2" name="input-2" type="number" class="rating" min="0" max="5" step="0.5"  />
                 </div>
             </div>
         </div>

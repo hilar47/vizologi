@@ -54,6 +54,18 @@ var vizologi = (function () {
             $('#page-no').val(page);
         });
     }
+	
+	var paginateBlogPosts = function(page, ajaxURL) {
+		var data = {
+			action: 'blog_pagination',
+			page_no: page
+		};
+		
+		jQuery.post(ajaxURL, data, function(response) {
+			alert('Got this from the server: ' + response);
+			console.log(response);
+		});
+	}
 
     var _templateSearch = function (data) {
         var html = "";
@@ -62,8 +74,11 @@ var vizologi = (function () {
             $("#viz-search-load-more").hide();
 
         $.each(data, function (i, e) {
+			
+			var logoName = _cleanFileName(e["Company Name"]);
+			
             html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'canvas/?slug=' + e.slug + '">';
-            html += '<img src="' + server + 'logos/' + e.slug + '.png" class="attachment-medium size-medium wp-post-image" alt="" width="250"></a></div>';
+            html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width="250"></a></div>';
             html += '<div class="tags">';
 
             var tags = e.Tags.split(",");
@@ -89,8 +104,9 @@ var vizologi = (function () {
 
 
         $.each(data, function (i, e) {
+			var logoName = _cleanFileName(e["Company Name"]);
             html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + server + '/canvas/?slug=' + e.slug + '">';
-            html += '<img src="' + server + 'logos/' + e.slug + '.png" class="attachment-medium size-medium wp-post-image" alt="" width=""></a></div ></div ></div > ';
+            html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width=""></a></div ></div ></div > ';
         });
 
         return html;
@@ -105,9 +121,15 @@ var vizologi = (function () {
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
+	
+	var _cleanFileName = function(val) {
+		console.log(val);
+		return val.replace(/ /g, '-').replace(/ /g, '-').replace(/[^A-Za-z0-9\-]/g, '').toLowerCase();
+	}
 
     return {
         getCompanies: getCompanies,
-        getCanvasArchive: getCanvasArchive
+        getCanvasArchive: getCanvasArchive,
+		paginateBlogPosts: paginateBlogPosts
     }
 })();

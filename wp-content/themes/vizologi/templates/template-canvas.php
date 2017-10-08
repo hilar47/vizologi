@@ -18,6 +18,11 @@ get_header();
 <?php
 	get_template_part( 'template-parts/content', 'slides' );
 ?>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#input-2").rating();
+});
+</script>
 <?php 
 	get_footer();
 ?>

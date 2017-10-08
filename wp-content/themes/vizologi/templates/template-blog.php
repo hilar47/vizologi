@@ -5,6 +5,8 @@ Template Name: Blog
 
 get_header();
 ?>
+<!-- Rating -->
+<script rel="stylesheet" src="<?php echo content_url();?>/plugins/vizologi/js/viz_canvas.js"></script>
 
 <!-- Blog List -->
 <section class="trending">
@@ -55,12 +57,20 @@ get_header();
 	</div>
 </section>
 
+<button id="load-more-posts" class="">Load More</button>
 
 <!-- Green Section slides -->
 <?php
 	get_template_part( 'template-parts/content', 'slides' );
 ?>
-
+<script type="text/javascript">
+$(document).ready(function() {
+	 //ajax call 
+	 $('#load-more-posts').click(function() {
+		 	vizologi.paginateBlogPosts(<?php echo ($paged + 1); ?>, '<?php echo admin_url( 'admin-ajax.php' ) ?>');	 
+		 });
+});
+</script>
 
 <?php 
 	get_footer();
