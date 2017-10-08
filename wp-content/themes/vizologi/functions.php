@@ -362,8 +362,10 @@ function change_search_url_rewrite() {
 }
 add_action( 'template_redirect', 'change_search_url_rewrite' );
 
+
+
 //Pagination for blog posts
-function wp_blog_pagination()  
+/* function wp_blog_pagination()  
 {  
     $paged  = $_POST['page_no'];  
 	 
@@ -374,8 +376,8 @@ function wp_blog_pagination()
         while ( $blog_query->have_posts() ) :  
 		
             $blog_query->the_post();  
-                  echo    'a';
-            //get_template_part( 'blog' );  
+                
+           get_template_part( 'blog' );  
                       
         endwhile;  
           
@@ -387,4 +389,5 @@ function wp_blog_pagination()
     exit;  
 }  
 add_action('wp_ajax_blog_pagination', 'wp_blog_pagination'); // for logged in user  
-add_action('wp_ajax_nopriv_blog_pagination', 'wp_blog_pagination'); // if user not logged in 
+add_action('wp_ajax_nopriv_blog_pagination', 'wp_blog_pagination'); // if user not logged in  */
+

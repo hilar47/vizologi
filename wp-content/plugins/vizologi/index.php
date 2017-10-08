@@ -178,7 +178,7 @@ function _singleCompanyTemplate($obj) {
         <div class="container">
             <div class="row">
                 <div class="detail-bar-name col-sm-4">
-                    <h4> <?php echo $obj[0]["Company Name"]; ?> </h4>
+                    <h4> <?php echo $obj[0]["Company Name"]; ?> business modal canvas </h4>
                 </div>
 
                 <div class="detail-bar-tools col-sm-8">

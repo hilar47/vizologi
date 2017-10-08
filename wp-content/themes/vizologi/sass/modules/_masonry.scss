@@ -91,15 +91,17 @@
             margin-top: 50px;
             display: inline-block;
         }
+        .tag-holder {
+            margin: 20px 10px 0px;
+        }
         a {
             text-decoration: none;
             font-size: 12px;
             color: $black;
-            &.category-name {
+            &[rel="tag"] {
                 font-family: $font-secondary;
-                padding-left: 20px;
-                padding-right: 20px;
-                margin-top: 20px;
+                padding: 0 10px;
+                margin-top: 0;
                 display: inline-block;
             }
             &.read-more {
@@ -118,5 +120,33 @@
                 }
             }
         }
+    }
+}
+
+.load-more-blog {
+    margin: 0 auto;
+    text-align: center;
+    a {
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $black;
+        }
+    }
+    a,
+    .loader {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: normal;
+        color: #fff!important;
+        text-align: center;
+        background: #4b4b4b;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none!important;
+        text-transform: uppercase;
+        padding: 10px 15px;
+        font-family: $font-secondary;
+        position: relative;
     }
 }

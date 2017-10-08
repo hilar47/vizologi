@@ -36,7 +36,7 @@
         padding: 0;
         div {
             float: left;
-            padding: 13px 20px;
+            padding: 13px 20px 8px;
         }
         a {
             color: $white;
@@ -79,6 +79,7 @@
         .caption {
             padding: 10px 0 3px !important;
             font-size: 18px;
+            display: none;
         }
     }
 }
@@ -175,7 +176,7 @@
     .canvas-detail-bar {
         .detail-bar-tools {
             div {
-                padding: 13px 10px;
+                padding: 13px 20px 8px;
             }
             .info {
                 padding: 14px 10px 14px;
@@ -204,7 +205,7 @@
     .canvas-detail-bar {
         .detail-bar-tools {
             div {
-                padding: 13px 17px;
+                padding: 13px 17px 8px;
             }
         }
     }
@@ -220,7 +221,7 @@
             width: calc(100% + 24px);
             margin-left: -15px;
             div {
-                padding: 13px 25px;
+                padding: 13px 25px 8px;
             }
             .info {
                 padding: 14px 17px 14px;

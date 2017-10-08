@@ -23,7 +23,7 @@ get_header(); ?>
 							<p>Resulted in the following blogs</p>
 						</header><!-- .page-header -->
 
-						<div class="masonry ajax_posts">
+						<div class="masonry">
 							<?php
 							/* Start the Loop */
 							while ( have_posts() ) : the_post();

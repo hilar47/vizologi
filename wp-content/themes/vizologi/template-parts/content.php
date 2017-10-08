@@ -15,7 +15,14 @@
 			</a>
 		</div>
 
-		<h1 class="extra-pad"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<!-- tags -->
+		<div class="tag-holder">
+			<?php
+				$tags = get_the_term_list( get_the_ID(), 'post_tag');
+				echo $tags;
+			?>
+		</div>
+		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 										
 		<small><?php echo get_the_date(); ?></small>
 		<a class="read-more" href="<?php the_permalink(); ?>">Read</a>

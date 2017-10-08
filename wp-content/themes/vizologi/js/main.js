@@ -110,4 +110,17 @@ $(document).ready(function() {
         $(this).attr("width", width);
     });
 
+
+    //load more for blogs
+    jQuery('.load-more-blog a').on('click', function(e) {
+        e.preventDefault();
+        var link = jQuery(this).attr('href');
+        jQuery('.load-more-blog').html('<span class="loader">Loading more Blogs...</span>');
+        $.get(link, function(data) {
+            var post = $("#masonry .item ", data);
+            $('#masonry').append(post);
+        });
+        jQuery('.load-more-blog').load(link + ' .load_more a');
+    });
+
 });

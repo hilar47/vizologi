@@ -35,10 +35,16 @@ get_header(); ?>
 			$category_link = get_category_link( $category_id );
 		?>
 
-		<a class="cat" href="<?php echo esc_url( $category_link ); ?>"><?php
+		<!-- <a class="cat" href="<?php echo esc_url( $category_link ); ?>"><?php
 			echo $category[0]->cat_name;
 			?>
-		</a>
+		</a> -->
+		
+		<!-- tags -->
+			<?php
+				$tags = get_the_term_list( get_the_ID(), 'post_tag');
+				echo $tags;
+			?>
 		<h1 class="title"><?php echo get_the_title( $post->ID );?></h1>
 		<!-- Content -->
 			<?php the_content(); ?>
@@ -73,10 +79,17 @@ get_header(); ?>
 						// Get the URL of this category
 						$category_link = get_category_link( $category_id );
 					?>
-					<a class="cat" href="<?php echo esc_url( $category_link ); ?>"><?php
+					<!-- <a class="cat" href="<?php echo esc_url( $category_link ); ?>"><?php
 						echo $category[0]->cat_name;
 						?>
-					</a>
+					</a> -->
+					<!-- tags -->
+					<div class="tag-holder">
+						<?php
+							$tags = get_the_term_list( get_the_ID(), 'post_tag');
+							echo $tags;
+						?>
+					</div>
 					<a href="<?php the_permalink(); ?>">
 						<h4><?php the_title(); ?></h4>
 						<small><?php the_date('F j, Y'); ?></small>
@@ -98,10 +111,17 @@ get_header(); ?>
 						setup_postdata($post);
 			?>
 				<div class="item">
-					<a class="cat" href=""><?php 
+					<!-- <a class="cat" href=""><?php 
 						$category = get_the_category( $post->ID );
 						echo $category[0]->cat_name;?>
-					</a>
+					</a> -->
+					<!-- tags -->
+					<div class="tag-holder">
+					<?php
+						$tags = get_the_term_list( get_the_ID(), 'post_tag');
+						echo $tags;
+					?>
+					</div>
 					<a href="<?php the_permalink(); ?>">
 						<h4><?php the_title(); ?></h4>
 						<small><?php the_date('F j, Y'); ?></small>
