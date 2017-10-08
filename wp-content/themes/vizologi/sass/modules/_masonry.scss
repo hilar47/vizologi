@@ -34,15 +34,27 @@
         text-transform: uppercase;
         &:nth-child(1n) {
             background: $indigo;
+            &:hover {
+                background: $pink;
+            }
         }
         &:nth-child(2n) {
             background: $green;
+            &:hover {
+                background: $pink;
+            }
         }
         &:nth-child(3n) {
             background: $yellow;
+            &:hover {
+                background: $indigo;
+            }
         }
         &:nth-child(5n) {
             background: $pink;
+            &:hover {
+                background: $yellow;
+            }
         }
         &:hover {
             a.read-more {

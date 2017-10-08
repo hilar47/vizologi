@@ -19,6 +19,40 @@ $(document).ready(function() {
         offset: 51
     });
 
+
+    // If scrolling upwards show shrinked menu
+    /*  var lastScroll = 0;
+     $(window).on('scroll', function() {
+
+         var scroll = $(window).scrollTop();
+         if (lastScroll - scroll > 0) {
+             $("#mainNav").addClass("shrink");
+         } else {
+             $("#mainNav").removeClass("shrink");
+         }
+         lastScroll = scroll;
+
+     }); */
+    $(window).on('mousewheel DOMMouseScroll wheel', function(e) {
+        var direction = (function() {
+
+            var delta = (e.type === 'DOMMouseScroll' ?
+                e.originalEvent.detail * -40 :
+                e.originalEvent.wheelDelta);
+
+            return delta > 0 ? 0 : 1;
+        }());
+
+        if (direction === 1) {
+            $("#mainNav").removeClass("shrink");
+        }
+        if (direction === 0) {
+            $("#mainNav").addClass("shrink");
+        }
+    });
+
+
+
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a').click(function() {
         $('.navbar-toggle:visible').click();
@@ -67,6 +101,13 @@ $(document).ready(function() {
         $('.search-field').val('');
         $("input.search-submit").removeClass("active");
         $(".clear-img").remove();
+    });
+
+    //Get canvas image width and apply it
+    $('.img-holder img').on('load', function() {
+        var width = $(this).width();
+        var height = $(this).height();
+        $(this).attr("width", width);
     });
 
 });

@@ -97,6 +97,9 @@
             display: inline-block;
             position: relative;
             text-indent: -5000px;
+            @supports (-ms-ime-align: auto) {
+                text-indent: -5025px;
+            }
             &:after {
                 content: "\f002";
                 font-family: $fontAwesome;
@@ -129,10 +132,36 @@
 //desktop
 @media(min-width:$screen-sm) {
     .navbar-custom {
-        padding: 22px 0;
-        -webkit-transition: padding 0.3s;
-        -moz-transition: padding 0.3s;
-        transition: padding 0.3s;
+        padding: 27px 0;
+        /* transform: translate(0, 0);
+        transition: transform 0.4s linear; */
+        position: fixed;
+        top: 0;
+        transition: top 0.3s ease-in-out;
+        +main {
+            transition: margin-top 0.3s ease-in-out;
+        }
+        &.affix {
+            top: -125px;
+            +main {
+                margin-top: 0;
+            }
+        }
+        &.shrink {
+            top: 0;
+            padding: 7px 0;
+            .navbar-brand {
+                width: 180px;
+                top: 4px;
+            }
+        }
+        &.affix-top {
+            padding: 27px 0!important;
+            .navbar-brand {
+                width: 200px!important;
+                top: 0!important;
+            }
+        }
         .navbar-brand {
             height: auto;
             padding: 0 15px;
@@ -142,6 +171,7 @@
             transition: all 0.3s;
             position: relative;
             z-index: 1;
+            margin-bottom: 0;
         }
         .search {
             float: left;
@@ -150,7 +180,7 @@
             input.search-field {
                 font-size: 15px;
                 padding: 12px 10px 12px 40px;
-                width: 320px;
+                width: 390px;
                 border-radius: 0;
             }
             label {
@@ -187,12 +217,6 @@
     }
     .navbar-collapse {
         float: right;
-    }
-    .navbar-custom.affix {
-        padding: 7px 0 0;
-        .navbar-brand {
-            width: 180px;
-        }
     }
     .navbar-nav>li>a {
         line-height: 35px;
@@ -253,7 +277,7 @@
         .search {
             margin-left: 0;
             input.search-field {
-                width: 230px;
+                width: 315px;
             }
         }
     }
@@ -277,7 +301,7 @@
         .search {
             margin-left: 9%;
             input.search-field {
-                width: 300px;
+                width: 390px;
             }
             .screen-reader-text {
                 &:after {

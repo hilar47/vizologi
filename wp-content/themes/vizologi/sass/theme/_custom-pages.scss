@@ -38,6 +38,9 @@
         background-color: #eeeef0;
         padding-top: 160px;
         text-align: center;
+        p {
+            margin: 0;
+        }
         h1 {
             color: $pink;
             font-size: 35px;
@@ -300,15 +303,27 @@
         }
         &:nth-child(1n) {
             background: $green;
+            &:hover {
+                background: $yellow;
+            }
         }
         &:nth-child(2n) {
             background: $indigo;
+            &:hover {
+                background: $green;
+            }
         }
         &:nth-child(3n) {
             background: $yellow;
+            &:hover {
+                background: $pink;
+            }
         }
         &:nth-child(5n) {
             background: $pink;
+            &:hover {
+                background: $indigo;
+            }
         }
         &:hover {
             a.read-more {
