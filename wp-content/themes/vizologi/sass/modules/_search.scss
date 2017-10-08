@@ -9,7 +9,10 @@
     font-family: $font-secondary;
     position: absolute;
     margin-top: -5px;
-    margin-left: 52px;
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        margin-left: 52px;
+    }
+    margin-left: 4px;
     padding: 15px;
     &.active {
         display: block;
@@ -40,8 +43,15 @@
     }
 }
 
-img.clear-img {
+.clear-img {
     background: url(../images/close-btn.gif) no-repeat;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 15px;
+    background-size: 100%;
+    right: 75px;
+    cursor: pointer;
 }
 
 input.search-submit {

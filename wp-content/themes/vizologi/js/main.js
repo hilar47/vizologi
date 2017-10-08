@@ -49,14 +49,24 @@ $(document).ready(function() {
     $(".search-field").keyup(function() {
         if ($(".search-field").val() != "") {
             $("input.search-submit").addClass("active");
-
+            if (!$('.clear-img').length) {
+                $("<div class='clear-img'></div>").insertBefore(".search-field");
+            }
         } else {
             $("input.search-submit").removeClass("active");
+            $(".clear-img").remove();
         }
 
     });
     $("#content, footer, .copy, .navbar-collapse").click(function() {
         $(".search-cat").removeClass("active");
+    });
+
+    //clear btn in search
+    $('body').on('click', '.search-field', function() {
+        $('.search-field').val('');
+        $("input.search-submit").removeClass("active");
+        $(".clear-img").remove();
     });
 
 });

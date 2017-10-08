@@ -297,7 +297,7 @@ function _searchTemplate($arr) {
                 <div class="row hover-item" id="canvas-search-results">
                     <?php echo _canvasTemplate($arr); ?>
                 </div>
-                <div class="row">
+                <div class="row load-more">
                 	<input type="hidden" id="page-no" value="1" />
 					<button id="viz-search-load-more" class="btn btn-black <?php echo  (count($arr) < 6) ? 'hide' : ''; ?>">Load more</button>
                 </div>
@@ -310,11 +310,11 @@ function _searchTemplate($arr) {
 function _canvasArchiveTemplate($arr) {
 	wp_enqueue_script('viz', plugin_dir_url(__FILE__) . 'js/viz_canvas.js');
 ?>
-<section class="recommended">
+<section class="recommended canvas-archive">
 		<div class="container feed-item">
                 <div class="row hover-item">
                     <div class="col-xs-12">
-                        <p>So you want to see our</p>
+                        <p>So you <b>want</b> to see our</p>
                         <h1>Business Model Canvas Archive</h1>
                         <p>Resulted in <span><?php echo count($arr) ; ?> canvas</p>
                     </div>
@@ -322,7 +322,7 @@ function _canvasArchiveTemplate($arr) {
                 <div class="row hover-item" id="canvas-archive-results">
                     <?php echo _canvasTemplateRecommended($arr); ?>
                 </div>
-                <div class="row">
+                <div class="row load-more">
                 	<input type="hidden" id="page-no" value="1" />
 					<button id="viz-archive-load-more" class="btn btn-black <?php echo  (count($arr) < 6) ? 'hide' : ''; ?>">Load more</button>
                 </div>

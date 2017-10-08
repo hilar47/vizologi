@@ -136,6 +136,29 @@
     }
 }
 
+.canvas-archive {
+    padding: 0 0 50px;
+    background: none;
+    margin: 0 -15px;
+    .card-recommend {
+        min-height: inherit;
+        img {
+            max-width: 60%;
+        }
+    }
+    p {
+        span,
+        b {
+            color: $black;
+            font-weight: normal;
+        }
+    }
+    h1 {
+        color: $pink;
+        font-weight: 600;
+    }
+}
+
 
 /* mobile only */
 
