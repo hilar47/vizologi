@@ -37,6 +37,23 @@ input[type="search"]::-ms-reveal {
     height: 0;
 }
 
+input[type="range"]::-moz-focus-outer {
+    border: 0;
+}
+
+//remove red border from input for firefox
+:invalid {
+    box-shadow: none;
+}
+
+:-moz-submit-invalid {
+    box-shadow: none;
+}
+
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
 
 /* Search placeholder */
 

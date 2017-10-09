@@ -123,4 +123,5 @@ $(document).ready(function() {
         jQuery('.load-more-blog').load(link + ' .load_more a');
     });
 
+
 });

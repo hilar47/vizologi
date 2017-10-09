@@ -272,7 +272,7 @@ function _singleCompanyTemplate($obj) {
                                 <?php } ?>
                             </div>
 
-                            <a class="company-url" target="_blank" href="<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
+                            <a class="company-url" target="_blank" href="http://<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
                     </div>
                 </div>
 

@@ -21,6 +21,35 @@ get_header();
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#input-2").rating();
+
+
+	var firstClick = true;
+
+	//scroll based on location (canvas single page)
+    $(window).scroll(function() {
+		if($(window).scrollTop() == 0){
+			$(".canvas-detail-bar").removeClass("detach");
+			firstClick = true;
+		}
+		else{
+			$(".canvas-detail-bar").addClass("detach");
+		}
+        
+	});	
+
+	$('#bt-show-info').click(function(event) {
+		event.preventDefault();
+		if(firstClick){
+			$('#canvas-info').css("display", "block");
+			$('html,body').animate({
+				scrollTop: $(".canvas-detail-bar").offset().top-170},
+			'slow');
+			firstClick = false;
+		} else {
+			$('#canvas-info').slideToggle("slow");
+		}
+		
+	});
 });
 </script>
 <?php 

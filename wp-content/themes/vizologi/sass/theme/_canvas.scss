@@ -17,6 +17,13 @@
 
 .canvas-detail-bar {
     background-color: #525252;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    &.detach {
+        position: relative;
+        bottom: inherit;
+    }
     .detail-bar-name {
         float: left;
         background-color: $white;
@@ -69,9 +76,21 @@
             background-color: #f47574;
             padding: 11px 17px 12px 23px;
             margin-right: 0;
+            position: relative;
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
                 margin-right: 25px;
                 padding: 12px 17px 12px 23px;
+            }
+            &:after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-top: 10px solid #f47574;
+                position: absolute;
+                bottom: -8px;
+                margin-left: 0px;
             }
         }
         .range-slider {
@@ -109,7 +128,13 @@
 
 .canvas-info {
     background-color: #edebeb;
-    padding: 50px 0;
+    &.active {
+        display: block;
+    }
+    #canvas-info {
+        padding: 75px 0px;
+        display: none;
+    }
     img {
         padding-bottom: 30px;
     }
