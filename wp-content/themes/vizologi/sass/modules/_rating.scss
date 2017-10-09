@@ -23,6 +23,14 @@
  * Stars & Input
  */
 
+.rating-container {
+    padding: 8px 20px!important;
+    margin-left: 10px;
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        margin-right: 20px;
+    }
+}
+
 .rating-container .rating-stars {
     position: relative;
     cursor: pointer;
@@ -60,11 +68,12 @@
 
 .rating-container .empty-stars {
     color: #aaa;
-    font-size: 22px;
+    span.lsf-icon {
+        font-size: 26px;
+    }
 }
 
 .rating-container .filled-stars {
-    font-size: 22px;
     position: absolute;
     left: 0;
     top: 0;
@@ -74,6 +83,9 @@
     overflow: hidden;
     /*  -webkit-text-stroke: 1px #777;
     text-shadow: 1px 1px #999; */
+    span.lsf-icon {
+        font-size: 26px;
+    }
 }
 
 .rating-rtl {
@@ -144,6 +156,9 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 60%;
+    vertical-align: middle;
+    padding: 0 20px!important;
+    display: none;
 }
 
 .clear-rating-active {

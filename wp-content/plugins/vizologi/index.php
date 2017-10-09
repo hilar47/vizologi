@@ -169,9 +169,8 @@ function _singleCompanyTemplate($obj) {
 
 
     <section class="canvas-viewer">
-        <div class="container" style="min-height:500px;">
+        <div class="overlay" onclick="style.pointerEvents='none'"></div>
             <img class="img-responsive center-block" id="canvas-company-image" src="<?php echo plugin_dir_url(__FILE__) . "images/vizo_canvas.png" ?>" style="display:none;" />
-        </div>
     </section>
 
     <section class="canvas-detail-bar">
@@ -184,13 +183,13 @@ function _singleCompanyTemplate($obj) {
                 <div class="detail-bar-tools col-sm-8">
                     <div class="info">
                         <a id="bt-show-info" href="#">
-                            <i class="fa fa-info-circle"></i>
+                            <i class="lsf-icon" title="info"></i>
                         </a>
                     </div>
 
                     <div class="minus">
                         <a id="bt-canvas-minus" href="#">
-                            <i class="fa fa-minus"></i>
+                            <i class="lsf-icon" title="minus"></i>
                         </a>
                     </div>
 
@@ -200,19 +199,25 @@ function _singleCompanyTemplate($obj) {
 
                     <div class="plus">
                         <a id="bt-canvas-plus" href="#">
-                            <i class="fa fa-plus"></i>
+                            <i class="lsf-icon" title="plus"></i>
                         </a>
                     </div>
 
                     <div class="full-screen">
                         <a id="bt-canvas-full" href="">
-                            <i class="fa fa-compress"></i>
+                            <i class="lsf-icon" title="full"></i>
+                        </a>
+                    </div>
+
+                    <div class="share">
+                        <a href="">
+                            <i class="lsf-icon" title="share"></i>
                         </a>
                     </div>
 
                     <div class="download">
                         <a href="/img/vizo-canvas.jpg" download="vizology-canvas-<?php echo $obj[0]["slug"]; ?>.jpg">
-                            <i class="fa fa-download"></i>
+                            <i class="lsf-icon" title="download"></i>
                         </a>
                     </div>
 
@@ -240,6 +245,7 @@ function _singleCompanyTemplate($obj) {
 
                         </div>
                     </div> -->
+
 
                     <!-- Star rating sction -->
                     <input id="input-2" name="input-2" type="number" class="rating" min="0" max="5" step="0.5"  />

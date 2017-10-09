@@ -3,6 +3,16 @@
 .canvas-viewer {
     background-color: #edebeb;
     padding: 60px 0;
+    min-height: 500px;
+    position: relative;
+    .overlay {
+        background: transparent none repeat scroll 0 0;
+        height: 500px;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+    }
 }
 
 .canvas-detail-bar {
@@ -36,7 +46,14 @@
         padding: 0;
         div {
             float: left;
-            padding: 13px 20px 8px;
+            padding: 11px 20px;
+            @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                padding: 12px 20px;
+            }
+        }
+        i {
+            font-style: normal;
+            font-size: 24px;
         }
         a {
             color: $white;
@@ -45,11 +62,17 @@
             &:focus,
             &:active {
                 color: $white;
+                text-decoration: none;
             }
         }
         .info {
-            background-color: $pink;
-            padding: 14px 20px 14px;
+            background-color: #f47574;
+            padding: 11px 17px 12px 23px;
+            margin-right: 0;
+            @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                margin-right: 25px;
+                padding: 12px 17px 12px 23px;
+            }
         }
         .range-slider {
             padding: 17px 0 11px;

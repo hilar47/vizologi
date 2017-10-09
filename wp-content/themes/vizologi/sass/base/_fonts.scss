@@ -30,3 +30,11 @@
 @include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-boldit.otf"), $weight:700, $style:italic);
 @include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-heavy.otf"), $weight:800);
 @include font-face("AvenirNextCondensed", font-files("avenir-condensed/avenirnextcn-heavyit.otf"), $weight:800, $style:italic);
+//LigatureSymbols
+@font-face {
+    font-family: 'LigatureSymbols';
+    src: url('../fonts/ligature/LigatureSymbols-2.11.eot');
+    src: url('../fonts/ligature/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'), url('../fonts/ligature/LigatureSymbols-2.11.woff') format('woff'), url('../fonts/ligature/LigatureSymbols-2.11.ttf') format('truetype'), url('../fonts/ligature/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
