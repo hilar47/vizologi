@@ -122,5 +122,11 @@ $(document).ready(function() {
         });
         jQuery('.load-more-blog').load(link + ' .load_more a');
     });
+	
+	// Add class to share button of detail
+$(".open-new").click(function(event) {
+    event.preventDefault();
+    $(this).toggleClass("active");
+})
 
 });

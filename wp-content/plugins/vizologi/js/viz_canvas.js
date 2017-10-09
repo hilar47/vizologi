@@ -20,7 +20,7 @@ var vizologi = (function () {
                     break;
                 case "sector":
                     if (term == "all%20sectors")
-                        url = "testDB?pagen=" + page + "&pagel=" + pageLength;
+                        url = "getallcompanies?pagen=" + page + "&pagel=" + pageLength;
                     else
                         url = "searchcanvasbysector?sector=" + term + "&pagen=" + page + "&pagel=" + pageLength;
                     break;
@@ -52,6 +52,27 @@ var vizologi = (function () {
             var content = _templateArchive(msg);
             $(bindingElement).append(content);
             $('#page-no').val(page);
+        });
+    }
+	
+	var checkRating = function (user, slug, userrate) {
+        var a = $.ajax({
+            method: "GET",
+            url: server + "findUserId?userid=" + user + "&slug=" + slug
+        }).done(function (msg) {
+			if(!msg.userExists) {
+				setRating(user, slug, userrate);
+			}
+        });
+    }
+	
+	
+	var setRating = function (user, slug, userrate) {
+        var a = $.ajax({
+            method: "GET",
+            url: server + "setRate?userid=" + user + "&slug=" + slug + "&userrate=" + userrate
+        }).done(function (msg) {
+			$('#number-of-votes').text(Number($('#number-of-votes').text()) + 1);
         });
     }
 	
@@ -130,6 +151,7 @@ var vizologi = (function () {
     return {
         getCompanies: getCompanies,
         getCanvasArchive: getCanvasArchive,
-		paginateBlogPosts: paginateBlogPosts
+		paginateBlogPosts: paginateBlogPosts,
+		checkRating: checkRating
     }
 })();

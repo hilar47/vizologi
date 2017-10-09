@@ -391,3 +391,16 @@ add_action( 'template_redirect', 'change_search_url_rewrite' );
 add_action('wp_ajax_blog_pagination', 'wp_blog_pagination'); // for logged in user  
 add_action('wp_ajax_nopriv_blog_pagination', 'wp_blog_pagination'); // if user not logged in  */
 
+function myStartSession() {
+    if(!session_id()) {
+        session_start();
+		
+		$cookie_name = "vizologi_user";
+		
+		if(!isset($_COOKIE[$cookie_name])) {
+				setcookie($cookie_name, $_COOKIE["PHPSESSID"],time()+31556926, "/");
+		} 
+    }
+}
+
+add_action('init', 'myStartSession', 1);
