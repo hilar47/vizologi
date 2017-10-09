@@ -127,6 +127,14 @@ $(document).ready(function() {
 $(".open-new").click(function(event) {
     event.preventDefault();
     $(this).toggleClass("active");
-})
+});
+
+$('#set-accept-cookie').click(function() {
+	var now = new Date();
+  var time = now.getTime();
+  var expireTime = time + 3600 * 1000 * 24 * 365;
+  now.setTime(expireTime);
+	document.cookie = "use_cookies=true; expires="+expireTime+"; path=/";
+});
 
 });

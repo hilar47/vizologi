@@ -157,7 +157,7 @@ function _canvasTemplateRecommended($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
-$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
+$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
         //CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -270,31 +270,6 @@ function _singleCompanyTemplate($obj) {
                         </a>
                     </div>
 
-                    <!-- <div class="open-new">
-                        <a href="#">
-                            <i class="fa fa-share-square-o"></i>
-                        </a>
-
-                        <div class="open-new__share">
-                            <a href="#" class="open-new__share__item">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="open-new__share__item">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="open-new__share__item">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="open-new__share__item">
-                                <i class="fa fa-pinterest"></i>
-                            </a>
-                            <a href="#" class="open-new__share__item">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-
-                        </div>
-                    </div> -->
-
 
                     <!-- Star rating sction -->
                     <input id="input-2" name="input-rating" type="text" class="rating" min="0" max="5" step="0.5"  />
@@ -321,7 +296,7 @@ function _singleCompanyTemplate($obj) {
                                 <?php } ?>
                             </div>
 
-                            <a class="company-url" target="_blank" href="<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
+                            <a class="company-url" target="_blank" href="http://<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
                     </div>
                 </div>
 

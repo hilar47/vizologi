@@ -88,3 +88,9 @@
 
 <!-- Main Content -->
 <main id="content" class="site-content">
+<?php if(!isset($_COOKIE["use_cookies"])) {  ?>
+<section>
+	<p>This web app uses cookies to compile statistic information of our users visits. By continuing to browse the site you are agreeing to our use of cookies.
+    If you wish you may change your preference or <a href="">read about cookies</a> <button id="set-accept-cookie">OK</button></p>
+</section>
+<?php } ?>
