@@ -25,7 +25,7 @@ function getCompanyCanvas() {
 }
 
 function getCanvasArchive() {
-	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/testDB?pagen=1&pagel=6");
+	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getallcompanies?pagen=1&pagel=6");
 	return _canvasArchiveTemplate($res);
 }
 
@@ -374,6 +374,7 @@ function _canvasArchiveTemplate($arr) {
 }
 
 function _cleanFileName($string) {
+	$string = str_replace(' ', '-', $string); //not the same as blank space. this is a different space.
 	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 
    return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.

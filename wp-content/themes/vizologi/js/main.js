@@ -135,6 +135,8 @@ $('#set-accept-cookie').click(function() {
   var expireTime = time + 3600 * 1000 * 24 * 365;
   now.setTime(expireTime);
 	document.cookie = "use_cookies=true; expires="+expireTime+"; path=/";
+	    $("section.cookies").remove();
+
 });
 
 
