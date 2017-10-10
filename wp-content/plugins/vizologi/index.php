@@ -296,7 +296,7 @@ function _singleCompanyTemplate($obj) {
                                 <?php } ?>
                             </div>
 
-                            <a class="company-url" target="_blank" href="http://<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
+                            <a class="company-url" target="_blank" href="<?php echo _fixRedirectionURLs($obj[0]["URL"]); ?>"> Visit website </a>
                     </div>
                 </div>
 
@@ -378,5 +378,13 @@ function _cleanFileName($string) {
 	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 
    return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+}
+
+function _fixRedirectionURLs($string) {
+	if(substr($string, 0, 3) == 'www') {
+		return "http://" . $string;
+	}else{
+		return $string;
+	}
 }
 ?>
