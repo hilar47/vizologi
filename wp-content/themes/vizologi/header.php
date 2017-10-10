@@ -46,15 +46,15 @@
 			<div class="search-cat">
 				<h4>Or explore sectors:</h4>
 				<ul>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=energy & utilites">Energy & utilities</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer services">Consumer services</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=information & media">Information and media</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=energy%20%26%20utilities">Energy & utilities</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer%20services">Consumer services</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=information%20%26%20media">Information & media</a></li>
 					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=healthcare">Healthcare</a></li>
 					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=technology">Technology</a></li>
 					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=transportation">Transportation</a></li>
 					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=telecommunications">Telecommunications</a></li>
 					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=financials">Financials</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer goods">Consumer goods</a></li>
+					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer%20goods">Consumer goods</a></li>
 					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=industrials">Industrials</a></li>
 				</ul>
 			</div>
@@ -88,3 +88,16 @@
 
 <!-- Main Content -->
 <main id="content" class="site-content">
+<?php if(!isset($_COOKIE["use_cookies"])) {  ?>
+<section class="cookies">
+	<div class="container">
+		<div class="row">
+				<div class="col-sm-10">
+					<p>This web app uses cookies to compile statistic information of our users visits. By continuing to browse the site you are agreeing to our use of cookies.
+				If you wish you may change your preference or <a href="javascript:void(0);">read about cookies</a> </p>
+				</div>
+				<div class="col-sm-2">
+					<button id="set-accept-cookie">OK</button>
+				</div>
+</section>
+<?php } ?>

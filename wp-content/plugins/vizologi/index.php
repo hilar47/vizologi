@@ -42,7 +42,7 @@ function searchCompanies() {
 				break;
 			case "sector":
 				if(rawurlencode($term) == "all%20sectors")
-					$url = "https://vizologi-api-server.herokuapp.com/testDB?pagen=1&pagel=6";
+					$url = "https://vizologi-api-server.herokuapp.com/getallcompanies?pagen=1&pagel=6";
 				else
 					$url = "https://vizologi-api-server.herokuapp.com/searchcanvasbysector?sector=". rawurlencode($term) ."&pagen=1&pagel=6";
 				break;
@@ -63,6 +63,33 @@ add_shortcode('vizologi_recommended', 'getRelated');
 add_shortcode('vizologi_company_details', 'getCompanyCanvas');
 add_shortcode('vizologi_search', 'searchCompanies');
 add_shortcode('vizologi_canvas_archive', 'getCanvasArchive');
+
+function getTotalResult($type, $term) {
+	switch ($type) {
+			case "tag":
+				$url = "https://vizologi-api-server.herokuapp.com/searchcanvasbytag?tag=" . rawurlencode($term) ."&count=true";
+				break;
+			case "sector":
+				if(rawurlencode($term) == "all%20sectors")
+					$url = "https://vizologi-api-server.herokuapp.com/getallcompanies?count=true";
+				else
+					$url = "https://vizologi-api-server.herokuapp.com/searchcanvasbysector?sector=". rawurlencode($term) ."&count=true";
+				break;
+			case "search":
+				$url = "https://vizologi-api-server.herokuapp.com/searchcanvas?query=" . rawurlencode($term) . "&count=true";
+				break;
+			case "archive":
+				$url = "https://vizologi-api-server.herokuapp.com/searchcanvas?query=" . rawurlencode($term) . "&count=true";
+				break;
+			default:
+				echo "";
+		}
+		
+		$a = _curlTemplate($url);
+		
+		echo $a;
+}
+
 
 function _curlTemplate($url) {
 	
@@ -130,7 +157,7 @@ function _canvasTemplateRecommended($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
-$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'&company='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
+$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
         //CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -164,7 +191,11 @@ function _singleCompanyTemplate($obj) {
 	wp_enqueue_script( 'materialJS' );
 	wp_register_script('viewer', plugin_dir_url(__FILE__) . 'js/viewer/viewer.js');
 	wp_enqueue_script('viz', plugin_dir_url(__FILE__) . 'js/viz.js', array('viewer'), '4.8.1', true);
+	wp_enqueue_script('vizologi', plugin_dir_url(__FILE__) . 'js/viz_canvas.js');
 	
+	/*echo "<pre>";
+	print_r($obj[0]);
+	echo "</pre>";*/
 ?>
 
 
@@ -209,23 +240,10 @@ function _singleCompanyTemplate($obj) {
                         </a>
                     </div>
 
-                    <div class="share">
-                        <a href="">
+                    <div class="share open-new">
+                        <a href="javascript:void(0);">
                             <i class="lsf-icon" title="share"></i>
                         </a>
-                    </div>
-
-                    <div class="download">
-                        <a href="/img/vizo-canvas.jpg" download="vizology-canvas-<?php echo $obj[0]["slug"]; ?>.jpg">
-                            <i class="lsf-icon" title="download"></i>
-                        </a>
-                    </div>
-
-                    <!-- <div class="open-new">
-                        <a href="#">
-                            <i class="fa fa-share-square-o"></i>
-                        </a>
-
                         <div class="open-new__share">
                             <a href="#" class="open-new__share__item">
                                 <i class="fa fa-facebook"></i>
@@ -244,11 +262,18 @@ function _singleCompanyTemplate($obj) {
                             </a>
 
                         </div>
-                    </div> -->
+                    </div>
+
+                    <div class="download">
+                        <a href="/img/vizo-canvas.jpg" download="vizology-canvas-<?php echo $obj[0]["slug"]; ?>.jpg">
+                            <i class="lsf-icon" title="download"></i>
+                        </a>
+                    </div>
 
 
                     <!-- Star rating sction -->
-                    <input id="input-2" name="input-2" type="number" class="rating" min="0" max="5" step="0.5"  />
+                    <input id="input-2" name="input-rating" type="text" class="rating" min="0" max="5" step="0.5"  />
+                    <input type="hidden" id="rating-value" value="<?php echo $obj[0]['rating']['average']; ?>" />
                 </div>
             </div>
         </div>
@@ -258,8 +283,7 @@ function _singleCompanyTemplate($obj) {
         <div class="container">
             <div id="canvas-info" class="row">
                 <div class="col-sm-8">
-                    <!-- <img class="img-responsive" src="https://vizologi-api-server.herokuapp.com/<?php echo $obj[0]["slug"]; ?>" /> -->
-                    <img class="img-responsive" src="http://localhost/vizologi-new/wp-content/themes/vizologi/images/airbnb-alt.png" />
+                    <img class="img-responsive" src="https://vizologi-api-server.herokuapp.com/logos/<?php echo _cleanFileName(strtolower($obj[0]["Company Name"])); ?>.png" />
                     <div class="text-description">
                             <p>
                                 <?php echo $obj[0]["Description"]; ?>
@@ -272,30 +296,24 @@ function _singleCompanyTemplate($obj) {
                                 <?php } ?>
                             </div>
 
-                            <a class="company-url" target="_blank" href="http://<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
+                            <a class="company-url" target="_blank" href="<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
                     </div>
                 </div>
 
                 <div class="col-sm-4">
                     <div class="text-about">
                             <p>
-                                <b>Country:</b> <br/>
-                                <span class="text__about__content"style="color:#a0a0a0;"> <?php echo $obj[0]["Area"]; ?> </span>
+                                <b>Average rate:</b> <br/>
+                                <span class="text__about__content"style="color:#a0a0a0;"> <?php echo $obj[0]['rating']['average']; ?> </span>
                             </p>
                             <p>
-                                <b>Foundation date:</b> <br/>
-                                <span class="text__about__content"style="color:#a0a0a0;"> <?php echo $obj[0]["Company's Foundation Date"]; ?> </span>
+                                <b>Number of votes:</b> <br/>
+                                <span class="text__about__content"style="color:#a0a0a0;" id="number-of-votes"> <?php echo count($obj[0]['rating']['records']) + 250 ?> </span>
                             </p>
                             <p>
-                                <b>Type:</b> <br/>
-                                <span class="text__about__content"style="color:#a0a0a0;"> <?php echo $obj[0]["Sector"]; ?> </span>
+                                <b>Digital maturity:</b> <br/>
+                                <span class="text__about__content"style="color:#a0a0a0;"> <?php echo $obj[0]["Digital maturity"]; ?> </span>
                             </p>
-                            <?php if($obj[0]["Category"] != "") { ?>
-                            <p>
-                                <b>Category:</b> <br/>
-                                    <span class="text__about__content"style="color:#a0a0a0;"> <?php echo $obj[0]["Category"]; ?> </span>
-                            </p>
-                            <?php } ?>
                         </div>
                 </div>
             </div>
@@ -315,7 +333,7 @@ function _searchTemplate($arr) {
                     <div class="col-xs-12">
                         <p>Your search for</p>
                         <h1><?php echo ucwords($_REQUEST["term"]); ?></h1>
-                        <p>Resulted in <span><?php echo count($arr) ; ?> canvas</p>
+                        <p>Resulted in <span><?php getTotalResult($_REQUEST["type"], $_REQUEST["term"]) ; ?> canvas</p>
                     </div>
                 </div>
                 <div class="row hover-item" id="canvas-search-results">
@@ -340,7 +358,7 @@ function _canvasArchiveTemplate($arr) {
                     <div class="col-xs-12">
                         <p>So you <b>want</b> to see our</p>
                         <h1>Business Model Canvas Archive</h1>
-                        <p>Resulted in <span><?php echo count($arr) ; ?> canvas</p>
+                        <p>Resulted in <span><?php getTotalResult("archive", "") ; ?> canvas</p>
                     </div>
                 </div>
                 <div class="row hover-item" id="canvas-archive-results">

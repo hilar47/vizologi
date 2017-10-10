@@ -17,13 +17,13 @@ get_header();
 					<h2>I'm interested in</h2>
 					<div class="select">
 						<select name="select" id="sectorSelect">
-							<option value="hide">all sectors</option>
-							<option value="energy-and-utilities">energy &amp; utilities</option>
-							<option value="information-and-media">information &amp; media</option>
+							<option value="all sectors">all sectors</option>
+							<option value="energy & utilities">energy &amp; utilities</option>
+							<option value="information & media">information &amp; media</option>
 							<option value="technology">technology</option>
 							<option value="telecommunications">telecommunications</option>
-							<option value="consumer-goods">consumer goods</option>
-							<option value="consumer-services">consumer services</option>
+							<option value="consumer goods">consumer goods</option>
+							<option value="consumer services">consumer services</option>
 							<option value="healthcare">healthcare</option>
 							<option value="transportation">transportation</option>
 							<option value="financials">financials</option>
@@ -163,7 +163,7 @@ get_header();
 
     function sectorRedirect(val) {
 		var sitePath="<?php echo $sitePath; ?>";
-        window.location.href = sitePath + "/search/?type=sector&term=" + val;
+        window.location.href = sitePath + "/search/?type=sector&term=" +encodeURIComponent(val);
     }
 </script>
 <?php 

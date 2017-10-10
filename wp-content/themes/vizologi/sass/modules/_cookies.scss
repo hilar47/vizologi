@@ -1,0 +1,37 @@
+/* Cookies */
+
+.cookies {
+    background-color: #fcc44b;
+    padding: 30px;
+    p {
+        color: #fff;
+        margin: 0;
+    }
+    a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    button {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: normal;
+        color: #fff !important;
+        text-align: center;
+        background: #4b4b4b;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        padding: 10px 15px;
+        font-family: "AvenirNextCondensed";
+        position: relative;
+        border: 0;
+        width: 100px;
+        float: right;
+        &:focus,
+        &:hover,
+        &:active {
+            background: #000;
+        }
+    }
+}

@@ -24,6 +24,9 @@
         position: relative;
         bottom: inherit;
     }
+    .open-new__share {
+        display: none;
+    }
     .detail-bar-name {
         float: left;
         background-color: $white;
@@ -53,9 +56,9 @@
         padding: 0;
         div {
             float: left;
-            padding: 11px 20px;
+            padding: 11px 20px 10px;
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
-                padding: 12px 20px;
+                padding: 12px 20px 11px;
             }
         }
         i {
@@ -132,11 +135,12 @@
         display: block;
     }
     #canvas-info {
-        padding: 75px 0px;
+        padding: 65px 0px 75px;
         display: none;
     }
     img {
-        padding-bottom: 30px;
+        padding-bottom: 5px;
+        max-width: 50%;
     }
     p {
         color: #999999;
@@ -144,7 +148,7 @@
     .text-about {
         margin-top: 40px;
         @media(min-width: $screen-md) {
-            margin-top: 95px;
+            margin-top: 155px;
         }
         /* b {
             color: #cac9c9;

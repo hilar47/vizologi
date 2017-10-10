@@ -7,7 +7,6 @@ get_header();
 ?>
 <!-- Rating -->
 <script rel="stylesheet" src="<?php echo content_url();?>/themes/vizologi/js/star-rating.min.js"></script>
-
 <!-- Content -->
 <?php while ( have_posts() ): the_post(); ?>
 	<?php the_content(); ?>
@@ -20,8 +19,13 @@ get_header();
 ?>
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#input-2").rating();
-
+	val = $("#rating-value").val();
+	if(val != "")
+		$('#input-2').rating('update', val);
+	
+	$('.rating-stars').click(function() {
+		vizologi.checkRating('<?php echo $_COOKIE["vizologi_user"]; ?>', '<?php echo $_REQUEST["slug"]; ?>', $('.caption').text());
+	});
 
 	var firstClick = true;
 
@@ -48,7 +52,6 @@ $(document).ready(function() {
 		} else {
 			$('#canvas-info').slideToggle("slow");
 		}
-		
 	});
 });
 </script>
