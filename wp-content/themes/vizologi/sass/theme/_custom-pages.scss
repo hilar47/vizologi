@@ -112,8 +112,17 @@
                 background-position: center center;
                 background-size: auto 100%;
                 top: 215px;
-                left: 42%;
+                left: 41.5%;
                 height: 760px;
+            }
+            @media(min-width: 1366px) {
+                left: 42.5%;
+            }
+            @media(min-width: 1500px) {
+                left: 43%;
+            }
+            @media(min-width: 1920px) {
+                left: 44.5%;
             }
         }
         .row {

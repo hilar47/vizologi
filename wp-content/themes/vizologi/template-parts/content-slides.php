@@ -20,10 +20,12 @@
 					<div class="container">
 						<h1>Ok, a lot of business <br class="hidden-xs hidden-sm" />model canvas but...</h1>
 						<div class="circle">
+							<div class="vertical-center">
 							<h3>what else?</h3>
 							<p><b>Vizologi</b> Plataforma es un concepto con varios usos. Por lo general se trata de una base que se halla a una clave.</p>
+							</div>
 						</div>
-						<a href="#" class="btn btn-black text-uppercase pull-left">Read more</a>
+						<a href="about" class="btn btn-black text-uppercase pull-left">Read more</a>
 					</div>
 				</div>
 		
@@ -31,10 +33,12 @@
 					<div class="container">
 						<h1>What's happening <br class="hidden-xs hidden-sm" />in the Marketing Landscape?</h1>
 						<div class="circle">
-							<h3>Learn</h3>
-							<p>Try to understand the <b>HOW</b> behind the scene of each business model.<b>Knowledge</b> is power, and here you have a lot of <b>canvas</b> to improve it.</p>
+							<div class="vertical-center">
+								<h3>Learn</h3>
+								<p>Try to understand the <b>HOW</b> behind the scene of each business model.<b>Knowledge</b> is power, and here you have a lot of <b>canvas</b> to improve it.</p>
+							</div>
 						</div>
-						<a href="#" class="btn btn-black text-uppercase pull-left">Read more</a>
+						<a href="about" class="btn btn-black text-uppercase pull-left">Read more</a>
 					</div>
 				</div>
 				
@@ -42,10 +46,12 @@
 					<div class="container">
 						<h1>How is the business model <br class="hidden-xs hidden-sm" />context connected?</h1>
 						<div class="circle">
+							<div class="vertical-center">
 							<h3>Discover</h3>
 							<p>Explore the connections between the <b>neural network</b> and find the patterns. Experience the cognition journey to <b>boost your creativity</b>.</p>
+							</div>
 						</div>
-						<a href="#" class="btn btn-black text-uppercase pull-left">Read more</a>
+						<a href="about" class="btn btn-black text-uppercase pull-left">Read more</a>
 					</div>
 				</div>
 				
@@ -53,10 +59,12 @@
 					<div class="container">
 						<h1>How can I change <br class="hidden-xs hidden-sm" />the game?</h1>
 						<div class="circle">
+							<div class="vertical-center">
 							<h3>Play</h3>
 							<p>The best business model isn't written yet. Build something unique. <b>hack your creativity</b> and break the rules to find the true innovation path.</p>
+							</div>
 						</div>
-						<a href="#" class="btn btn-black text-uppercase pull-left">Read more</a>
+						<a href="about" class="btn btn-black text-uppercase pull-left">Read more</a>
 					</div>
 				</div>
 			</div>

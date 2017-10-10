@@ -8,11 +8,11 @@ get_header();
 
 <!-- Header -->
 <section class="hero">
-	<div class="container">
+	<div class="container vertical-center">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 				<h1>Empower your business insight</h1>
-				<h2>with +1000 free business model canvas</h2>
+				<h2>Free <a href="faq">(do whatever you want)</a> business model canvas</h2>
 				<div class="select-wrapper">
 					<h2>I'm interested in</h2>
 					<div class="select">

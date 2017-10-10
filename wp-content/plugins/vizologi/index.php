@@ -245,7 +245,9 @@ function _singleCompanyTemplate($obj) {
                             <i class="lsf-icon" title="share"></i>
                         </a>
                         <div class="open-new-share">
-                            <a href="#" class="open-new-share-item">
+                            
+                            <?php echo do_shortcode( '[addtoany]' ); ?>
+                            <!-- <a href="#" class="open-new-share-item">
                                 <i class="fa fa-facebook"></i>
                             </a>
                             <a href="#" class="open-new-share-item">
@@ -259,7 +261,7 @@ function _singleCompanyTemplate($obj) {
                             </a>
                             <a href="#" class="open-new-share-item">
                                 <i class="fa fa-envelope"></i>
-                            </a>
+                            </a> -->
 
                         </div>
                     </div>
@@ -300,7 +302,7 @@ function _singleCompanyTemplate($obj) {
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-2 col-sm-offset-1">
                     <div class="text-about">
                             <p>
                                 <b>Average rate:</b> <br/>

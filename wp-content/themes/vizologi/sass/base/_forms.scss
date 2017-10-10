@@ -23,6 +23,32 @@
     color: inherit;
 }
 
+input[type=range]::-ms-track {
+    /*example */
+    width: 160px;
+    height: 5px;
+    background: transparent;
+    border-color: transparent;
+    border-width: 6px 0;
+    color: transparent;
+    margin-top: -5px;
+}
+
+input[type=range]::-ms-thumb {
+    background: #fff;
+    border: 0;
+    width: 12px;
+    height: 15px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: gray;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: gray;
+}
+
 
 /* Default Styling overrides */
 

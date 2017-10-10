@@ -127,7 +127,8 @@ $(document).ready(function() {
 	//scroll based on location (canvas single page)
     $(window).scroll(function() {
 		if($(window).scrollTop() == 0){
-			$(".canvas-detail-bar").removeClass("detach");
+            $(".canvas-detail-bar").removeClass("detach");
+            $('#canvas-info').css("display", "none");
 			firstClick = true;
 		}
 		else{

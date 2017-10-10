@@ -3,7 +3,7 @@
 .canvas-viewer {
     background-color: #edebeb;
     padding: 60px 0;
-    min-height: 500px;
+    min-height: calc(100vh - 180px);
     position: relative;
     .overlay {
         background: transparent none repeat scroll 0 0;
@@ -24,8 +24,20 @@
         position: relative;
         bottom: inherit;
     }
-    .open-new__share {
-        display: none;
+    .share.open-new {
+        &.active {
+            background-color: inherit;
+        }
+    }
+    .open-new-share {
+        top: 58px!important;
+        width: 160px!important;
+        left: 355px!important;
+        height: 40px!important;
+        background-color: #525252!important;
+        div {
+            padding: 0!important;
+        }
     }
     .detail-bar-name {
         float: left;
@@ -94,10 +106,17 @@
                 position: absolute;
                 bottom: -8px;
                 margin-left: 0px;
+                @supports (-ms-ime-align: auto) {
+                    margin-left: -23px;
+                }
             }
         }
         .range-slider {
             padding: 17px 0 11px;
+            //edge
+            @supports (-ms-ime-align: auto) {
+                width: 160px;
+            }
             .mdl-slider__container {
                 padding: 0;
                 input {
@@ -108,6 +127,11 @@
                         height: 2px;
                         position: relative;
                         top: 8px;
+                    }
+                    //edge
+                    @supports (-ms-ime-align: auto) {
+                        height: auto;
+                        top: 5px;
                     }
                 }
                 div {
@@ -135,7 +159,7 @@
         display: block;
     }
     #canvas-info {
-        padding: 65px 0px 75px;
+        padding: 80px 0px 75px;
         display: none;
     }
     img {

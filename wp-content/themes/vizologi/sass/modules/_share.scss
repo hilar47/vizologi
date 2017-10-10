@@ -1,0 +1,20 @@
+.addtoany_share_save_container {
+    margin: 70px 0 0!important;
+}
+
+.addtoany_header {
+    color: #a5a5a5;
+    display: inline-block;
+    margin-right: 20px!important;
+}
+
+.addtoany_list {
+    a {
+        filter: grayscale(100%);
+        &:hover,
+        &:active,
+        &:focus {
+            filter: grayscale(0);
+        }
+    }
+}
