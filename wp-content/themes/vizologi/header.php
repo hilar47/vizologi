@@ -94,7 +94,7 @@
 		<div class="row">
 				<div class="col-sm-10">
 					<p>This web app uses cookies to compile statistic information of our users visits. By continuing to browse the site you are agreeing to our use of cookies.
-				If you wish you may change your preference or <a href="javascript:void(0);">read about cookies</a> </p>
+				If you wish you may change your preference or <a href="<?php echo home_url() ?>/privacy-policy/">read about cookies</a> </p>
 				</div>
 				<div class="col-sm-2">
 					<button id="set-accept-cookie">OK</button>

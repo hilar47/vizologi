@@ -244,20 +244,20 @@ function _singleCompanyTemplate($obj) {
                         <a href="javascript:void(0);">
                             <i class="lsf-icon" title="share"></i>
                         </a>
-                        <div class="open-new__share">
-                            <a href="#" class="open-new__share__item">
+                        <div class="open-new-share">
+                            <a href="#" class="open-new-share-item">
                                 <i class="fa fa-facebook"></i>
                             </a>
-                            <a href="#" class="open-new__share__item">
+                            <a href="#" class="open-new-share-item">
                                 <i class="fa fa-twitter"></i>
                             </a>
-                            <a href="#" class="open-new__share__item">
+                            <a href="#" class="open-new-share-item">
                                 <i class="fa fa-linkedin"></i>
                             </a>
-                            <a href="#" class="open-new__share__item">
+                            <a href="#" class="open-new-share-item">
                                 <i class="fa fa-pinterest"></i>
                             </a>
-                            <a href="#" class="open-new__share__item">
+                            <a href="#" class="open-new-share-item">
                                 <i class="fa fa-envelope"></i>
                             </a>
 
@@ -265,7 +265,7 @@ function _singleCompanyTemplate($obj) {
                     </div>
 
                     <div class="download">
-                        <a href="/img/vizo-canvas.jpg" download="vizology-canvas-<?php echo $obj[0]["slug"]; ?>.jpg">
+                        <a href="<?php echo plugin_dir_url(__FILE__) . "images/vizo_canvas.png" ?>" download="vizology-canvas-<?php echo $obj[0]["slug"]; ?>.png">
                             <i class="lsf-icon" title="download"></i>
                         </a>
                     </div>
@@ -296,7 +296,7 @@ function _singleCompanyTemplate($obj) {
                                 <?php } ?>
                             </div>
 
-                            <a class="company-url" target="_blank" href="<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
+                            <a class="company-url" target="_blank" href="http://<?php echo $obj[0]["URL"]; ?>"> Visit website </a>
                     </div>
                 </div>
 
@@ -304,11 +304,11 @@ function _singleCompanyTemplate($obj) {
                     <div class="text-about">
                             <p>
                                 <b>Average rate:</b> <br/>
-                                <span class="text__about__content"style="color:#a0a0a0;"> <?php echo $obj[0]['rating']['average']; ?> </span>
+                                <span class="text__about__content"style="color:#a0a0a0;" id="rating-average"> <?php echo $obj[0]['rating']['average']; ?> </span>
                             </p>
                             <p>
                                 <b>Number of votes:</b> <br/>
-                                <span class="text__about__content"style="color:#a0a0a0;" id="number-of-votes"> <?php echo count($obj[0]['rating']['records']) + 250 ?> </span>
+                                <span class="text__about__content"style="color:#a0a0a0;" id="number-of-votes"> <?php echo count($obj[0]['rating']['records']) + 860 ?> </span>
                             </p>
                             <p>
                                 <b>Digital maturity:</b> <br/>
