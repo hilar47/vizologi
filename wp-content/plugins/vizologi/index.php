@@ -272,7 +272,7 @@ function _singleCompanyTemplate($obj) {
 
 
                     <!-- Star rating sction -->
-                    <input id="input-2" name="input-rating" type="text" class="rating" min="0" max="5" step="0.5"  />
+                    <input id="input-2" name="input-rating" type="number" class="rating" min="0" max="5" step="0.5"  />
                     <input type="hidden" id="rating-value" value="<?php echo $obj[0]['rating']['average']; ?>" />
                 </div>
             </div>
