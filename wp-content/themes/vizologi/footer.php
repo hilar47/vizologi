@@ -63,6 +63,6 @@ https://www.linkedin.com/company/11166009/" target="_blank"><i class="fa fa-link
 
 <!-- custom scripts -->
 <script rel="stylesheet" src="<?php echo content_url();?>/themes/vizologi/js/bootstrap.min.js"></script>
-<script rel="stylesheet" src="<?php echo content_url();?>/themes/vizologi/js/main.js"></script>
+<script rel="stylesheet" src="<?php echo content_url();?>/themes/vizologi/js/main.js?ver=<?php echo time(); ?>"></script>
 </body>
 </html>

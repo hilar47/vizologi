@@ -117,7 +117,7 @@ add_action( 'widgets_init', 'vizology_widgets_init' );
  * Enqueue scripts and styles.
  */
 function vizology_scripts() {
-	wp_enqueue_style( 'vizology-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'vizology-style', get_stylesheet_uri() , '', time());
 
 	/* wp_enqueue_script( 'vizology-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

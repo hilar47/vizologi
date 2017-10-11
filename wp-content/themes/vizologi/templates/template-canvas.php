@@ -114,9 +114,15 @@ index.scss:296
 ?>
 <script type="text/javascript">
 $(document).ready(function() {
-	val = $("#rating-value").val();
-	if(val != "")
+	var val = $("#rating-value").val();
+	var userRate = $("#user-rate").val();
+	
+	if(parseFloat(userRate) > 0) {
+		$('#input-2').rating('update', userRate);
+		$('#input-2').rating('refresh',{displayOnly: true, showCaption: true});
+	}else {
 		$('#input-2').rating('update', val);
+	}
 	
 	$('.rating-stars').click(function() {
 		vizologi.checkRating('<?php echo $_COOKIE["vizologi_user"]; ?>', '<?php echo $_REQUEST["slug"]; ?>', $('.caption').text());

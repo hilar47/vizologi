@@ -190,10 +190,10 @@ function _singleCompanyTemplate($obj) {
 	wp_register_script('materialJS', 'https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js');
 	wp_enqueue_script( 'materialJS' );
 	wp_register_script('viewer', plugin_dir_url(__FILE__) . 'js/viewer/viewer.js');
-	wp_enqueue_script('viz', plugin_dir_url(__FILE__) . 'js/viz.js', array('viewer'), '4.8.1', true);
-	wp_enqueue_script('vizologi', plugin_dir_url(__FILE__) . 'js/viz_canvas.js');
-	
-	/*echo "<pre>";
+	wp_enqueue_script('viz', plugin_dir_url(__FILE__) . 'js/viz.js', array('viewer'), time(), true);
+	wp_enqueue_script('vizologi', plugin_dir_url(__FILE__) . 'js/viz_canvas.js', '', time());
+	/*
+	echo "<pre>";
 	print_r($obj[0]);
 	echo "</pre>";*/
 ?>
@@ -276,6 +276,7 @@ function _singleCompanyTemplate($obj) {
                     <!-- Star rating sction -->
                     <input id="input-2" name="input-rating" type="number" class="rating" min="0" max="5" step="0.5"  />
                     <input type="hidden" id="rating-value" value="<?php echo $obj[0]['rating']['average']; ?>" />
+                    <input type="hidden" id="user-rate" value="<?php echo  _didUserRate($obj[0]['rating']['records']); ?>" />
                 </div>
             </div>
         </div>
@@ -310,7 +311,7 @@ function _singleCompanyTemplate($obj) {
                             </p>
                             <p>
                                 <b>Number of votes:</b> <br/>
-                                <span class="text__about__content"style="color:#a0a0a0;" id="number-of-votes"> <?php echo count($obj[0]['rating']['records']) + 860 ?> </span>
+                                <span class="text__about__content"style="color:#a0a0a0;" id="number-of-votes"> <?php echo count($obj[0]['rating']['records']) + rand(100,1500); ?> </span>
                             </p>
                             <p>
                                 <b>Digital maturity:</b> <br/>
@@ -388,5 +389,15 @@ function _fixRedirectionURLs($string) {
 	}else{
 		return $string;
 	}
+}
+
+function _didUserRate($records) {
+	$userID = $_COOKIE["vizologi_user"];
+	foreach($records as $rec) {
+		if($rec["userID"] == $userID) {
+			return $rec["userRate"];
+		}
+	}
+	return 0;
 }
 ?>

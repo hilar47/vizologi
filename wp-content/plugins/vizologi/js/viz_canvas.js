@@ -74,6 +74,7 @@ var vizologi = (function() {
         }).done(function(msg) {
 			$('#rating-average').text(Number(msg[0].rating.average));
             $('#number-of-votes').text(Number($('#number-of-votes').text()) + 1);
+			$('#input-2').rating('refresh',{displayOnly: true, showCaption: true});
         });
     }
 
