@@ -79,6 +79,7 @@ $(document).ready(function() {
     //show data box on search
     $(".search-field").click(function() {
         $(".search-cat").addClass("active");
+        $("<div class='search-overlay' onclick='$.fn.closeDropdown();'></div>").insertBefore(".search.hidden-xs");
     });
     $(".search-field").keyup(function() {
         if ($(".search-field").val() != "") {
@@ -92,9 +93,14 @@ $(document).ready(function() {
         }
 
     });
+    //hide search dropdown
     $("#content, footer, .copy, .navbar-collapse").click(function() {
         $(".search-cat").removeClass("active");
     });
+    $.fn.closeDropdown = function() {
+        $(".search-overlay").remove();
+        $(".search-cat").removeClass("active");
+    }
 
     //clear btn in search
     $('body').on('click', '.search-field', function() {
@@ -122,22 +128,22 @@ $(document).ready(function() {
         });
         jQuery('.load-more-blog').load(link + ' .load_more a');
     });
-	
-	// Add class to share button of detail
-$(".open-new").click(function(event) {
-    event.preventDefault();
-    $(this).toggleClass("active");
-});
 
-$('#set-accept-cookie').click(function() {
-	var now = new Date();
-  var time = now.getTime();
-  var expireTime = time + 3600 * 1000 * 24 * 365;
-  now.setTime(expireTime);
-	document.cookie = "use_cookies=true; expires="+expireTime+"; path=/";
-	    $("section.cookies").remove();
+    // Add class to share button of detail
+    $(".open-new").click(function(event) {
+        event.preventDefault();
+        $(this).toggleClass("active");
+    });
 
-});
+    $('#set-accept-cookie').click(function() {
+        var now = new Date();
+        var time = now.getTime();
+        var expireTime = time + 3600 * 1000 * 24 * 365;
+        now.setTime(expireTime);
+        document.cookie = "use_cookies=true; expires=" + expireTime + "; path=/";
+        $("section.cookies").remove();
+
+    });
 
 
 });

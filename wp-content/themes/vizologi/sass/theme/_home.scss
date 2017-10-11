@@ -139,6 +139,7 @@
         }
         .img-holder {
             background-color: $gray;
+            transition: background-color 1s linear;
             height: 200px;
             img {
                 clear: both;
@@ -255,7 +256,7 @@
     .new,
     .recommended,
     .search-results {
-        padding: 60px 0 80px;
+        padding: 150px 0 80px;
         .col-sm-4 {
             &:nth-of-type(1) {
                 .card {

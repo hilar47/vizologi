@@ -24,6 +24,7 @@
         display: inline-block;
         margin: 0 0 2em;
         width: 100%;
+        transition: background-color 1s linear;
         @media(min-width: $screen-md) and (max-width: $screen-lg) {
             margin: 0 0 0.5em;
         }
@@ -78,7 +79,7 @@
             }
             a {
                 color: #fff;
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: 100;
             }
         }
@@ -88,11 +89,11 @@
             font-family: $font-secondary;
             color: $black;
             font-size: 12px;
-            margin-top: 50px;
+            margin-top: 70px;
             display: inline-block;
         }
         .tag-holder {
-            margin: 20px 10px 0px;
+            margin: 15px 10px 0px;
         }
         a {
             text-decoration: none;
@@ -108,7 +109,7 @@
                 font-family: $font-secondary;
                 color: $white;
                 font-size: 12px;
-                margin-top: 50px;
+                margin-top: 70px;
                 display: inline-block;
                 float: right;
                 margin-right: 20px;

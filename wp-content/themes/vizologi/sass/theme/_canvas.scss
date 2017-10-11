@@ -19,22 +19,46 @@
     background-color: #525252;
     position: fixed;
     bottom: 0;
+    height: 58px;
     z-index: 1;
     &.detach {
         position: relative;
         bottom: inherit;
     }
     .share.open-new {
-        &.active {
-            background-color: inherit;
+        padding: 12px 20px 11px;
+        //chrome
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            padding: 12px 20px 12px;
         }
+        &.active {}
     }
     .open-new-share {
-        top: 58px!important;
-        width: 160px!important;
-        left: 355px!important;
-        height: 40px!important;
-        background-color: #525252!important;
+        top: 75px !important;
+        width: 190px !important;
+        left: 360px !important;
+        //chrome
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            left: 345px !important;
+        }
+        padding: 24px 10px 20px !important;
+        height: auto !important;
+        background-color: #525252 !important;
+        &:before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 12px solid #525252;
+            position: absolute;
+            top: -8px;
+            margin-left: 0px;
+            left: 87px;
+        }
+        a {
+            padding: 0 10px;
+        }
         div {
             padding: 0!important;
         }
@@ -43,6 +67,7 @@
         float: left;
         background-color: $white;
         padding: 0;
+        height: 58px;
         &:before {
             background-color: $white;
             content: "";
@@ -56,6 +81,7 @@
         h4 {
             font-size: 16px;
             padding: 10px 15px;
+            color: #696969;
             //chrome
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
                 padding: 11px 15px 10px;
@@ -119,6 +145,16 @@
             }
             .mdl-slider__container {
                 padding: 0;
+                position: relative;
+                top: 2px;
+                //edge
+                @supports (-ms-ime-align: auto) {
+                    top: 0;
+                }
+                //chrome
+                @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                    top: 3px;
+                }
                 input {
                     border: 0;
                     //chrome
@@ -159,8 +195,8 @@
         display: block;
     }
     #canvas-info {
-        padding: 80px 0px 75px;
-        display: none;
+        padding: 50px 0px 100px;
+        // display: none;
     }
     img {
         padding-bottom: 5px;

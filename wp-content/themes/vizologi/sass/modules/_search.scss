@@ -80,3 +80,12 @@ input.search-submit {
         display: block!important;
     }
 }
+
+.search-overlay {
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 121px;
+    position: absolute;
+    z-index: 10;
+}

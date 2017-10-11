@@ -124,7 +124,7 @@ get_header(); ?>
 					</div>
 					<a href="<?php the_permalink(); ?>">
 						<h4><?php the_title(); ?></h4>
-						<small><?php the_date('F j, Y'); ?></small>
+						<small><?php echo get_the_date('F j, Y'); ?></small>
 
 					</a>
 				</div>
