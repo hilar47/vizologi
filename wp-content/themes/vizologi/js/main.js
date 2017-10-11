@@ -114,13 +114,23 @@ $(document).ready(function() {
     //load more for blogs
     jQuery('.load-more-blog a').on('click', function(e) {
         e.preventDefault();
-        var link = jQuery(this).attr('href');
-        jQuery('.load-more-blog').html('<span class="loader">Loading more Blogs...</span>');
+		var ele = jQuery(this);
+        var link = ele.attr('href');
+		ele.hide();
+		jQuery('.load-more-blog .loader').show();
+		
         $.get(link, function(data) {
             var post = $("#masonry .item ", data);
             $('#masonry').append(post);
+			jQuery('.load-more-blog .loader').hide();
+		
+			var url = link.substring(0, link.length - 2);
+			var page = link.substring(link.length - 2, link.length - 1);
+			if(Number(page) < Number($("#blog-page-length").val())) {
+				ele.attr('href', url + (Number(page) + 1) + "/");
+				ele.show();
+			}
         });
-        jQuery('.load-more-blog').load(link + ' .load_more a');
     });
 	
 	// Add class to share button of detail
