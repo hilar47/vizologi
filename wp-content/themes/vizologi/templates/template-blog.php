@@ -19,7 +19,7 @@ get_header();
 							$temp = $wp_query;
 							$wp_query = null;
 							$wp_query = new WP_Query();
-							$wp_query->query('showposts=6&post_type=post'.'&paged='.$paged);
+							$wp_query->query('showposts=15&post_type=post'.'&paged='.$paged);
 
 							while ($wp_query->have_posts()) : $wp_query->the_post();
 							?>
@@ -65,6 +65,8 @@ get_header();
 			<!-- load more btn -->
 			<?php if ( $wp_query->max_num_pages > 1 ) : ?>
 				<div class="load-more-blog">
+                	<input type="hidden" id="blog-page-length" value="<?php echo $wp_query->max_num_pages; ?>"/>
+                    <span class="loader " style="display:none;">Loading more Blogs...</span>
 					<?php next_posts_link( 'Load More' ); ?>
 				</div>
 			<?php endif;  ?>
