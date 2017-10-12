@@ -62,6 +62,9 @@
         div {
             padding: 0!important;
         }
+        .addtoany_list a img {
+            width: 19px;
+        }
     }
     .detail-bar-name {
         float: left;
@@ -339,5 +342,48 @@
                 padding: 14px 17px 14px;
             }
         }
+    }
+}
+
+// Canvas Template
+.canvas-template {}
+
+.hover-img {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
+    &:hover,
+    &:focus,
+    &:active {
+        &:before {
+            content: "";
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: calc(100% - 20px);
+            position: absolute;
+        }
+        .download-button {
+            top: 20px;
+            right: 20px;
+        }
+    }
+}
+
+.download-button {
+    transition: all 0.25s ease-in-out;
+    width: 50px;
+    height: 50px;
+    top: -60px;
+    right: -60px;
+    border-radius: 50%;
+    background: #f27576;
+    position: absolute;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    padding: 10px;
+    display: inline-block;
+    i {
+        color: white;
+        font-size: 24px;
+        padding: 3px;
     }
 }

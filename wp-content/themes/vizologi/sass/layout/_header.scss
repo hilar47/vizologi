@@ -96,19 +96,22 @@
         }
         .screen-reader-text {
             display: inline-block;
-            position: relative;
-            text-indent: -5000px;
-            //edge
-            @supports (-ms-ime-align: auto) {
-                text-indent: -5025px;
-            }
+            position: absolute;
+            color: #ebebeb;
+            width: 30px;
+            height: 40px;
             &:after {
                 content: "\f002";
                 font-family: $fontAwesome;
-                margin: 26px 0 0 15px;
+                margin: 0;
+                top: 7px;
+                left: 15px;
                 position: absolute;
-                text-indent: 4925px;
                 color: $gray;
+                //chrome hack
+                @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                    top: 9px;
+                }
             }
         }
         input.search-field {
@@ -190,8 +193,8 @@
             }
             .screen-reader-text {
                 &:after {
-                    margin: -2px 0 0 15px;
-                    text-indent: 4765px;
+                    // margin: -2px 0 0 15px;
+                    // text-indent: 4765px;
                     //chrome hack
                     /* @media screen and (-webkit-min-device-pixel-ratio: 0) {
                         text-indent: 4975px;
@@ -288,7 +291,7 @@
 }
 
 @media(min-width:$screen-sm) and (max-width:$screen-md) {
-    .navbar-custom {
+    /* .navbar-custom {
         .search {
             .screen-reader-text {
                 position: absolute;
@@ -296,7 +299,7 @@
                 margin-top: 10px;
             }
         }
-    }
+    } */
 }
 
 //desktop small
@@ -309,11 +312,11 @@
             }
             .screen-reader-text {
                 &:after {
-                    text-indent: 4925px;
+                    //  text-indent: 4925px;
                     //chrome hack
-                    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                    /* @media screen and (-webkit-min-device-pixel-ratio: 0) {
                         text-indent: 4975px;
-                    }
+                    } */
                 }
             }
         }
@@ -322,7 +325,8 @@
 
 //large
 @media(min-width:$screen-lg) {
-    .navbar-custom {
+    /* .navbar-custom {
+        
         .search {
             .screen-reader-text {
                 &:after {
@@ -334,7 +338,7 @@
                 }
             }
         }
-    }
+    } */
 }
 
 @media(min-width:$screen-sm) and (max-width:1440px) {
