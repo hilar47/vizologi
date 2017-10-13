@@ -9,14 +9,14 @@
     font-family: $font-secondary;
     position: absolute;
     margin-top: -5px;
-    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* @media screen and (-webkit-min-device-pixel-ratio: 0) {
         margin-left: 52px;
     }
     //tablet
     @media(min-width:$screen-sm - 1) and (max-width:$screen-md) {
         margin-left: 0;
     }
-    margin-left: 4px;
+    margin-left: 4px; */
     padding: 15px;
     &.active {
         display: block;

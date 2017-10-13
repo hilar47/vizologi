@@ -6283,20 +6283,15 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   font-family: "AvenirNextCondensed";
   position: absolute;
   margin-top: -5px;
-  margin-left: 4px;
+  /* @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      margin-left: 52px;
+  }
+  //tablet
+  @media(min-width:$screen-sm - 1) and (max-width:$screen-md) {
+      margin-left: 0;
+  }
+  margin-left: 4px; */
   padding: 15px;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  /* line 6, ../sass/modules/_search.scss */
-  .search-cat {
-    margin-left: 52px;
-  }
-}
-@media (min-width: 767px) and (max-width: 992px) {
-  /* line 6, ../sass/modules/_search.scss */
-  .search-cat {
-    margin-left: 0;
-  }
 }
 /* line 21, ../sass/modules/_search.scss */
 .search-cat.active {
