@@ -25,7 +25,7 @@ function getCompanyCanvas() {
 }
 
 function getCanvasArchive() {
-	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getallcompanies?pagen=1&pagel=6");
+	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getallcompanies?pagen=1&pagel=15");
 	return _canvasArchiveTemplate($res);
 }
 

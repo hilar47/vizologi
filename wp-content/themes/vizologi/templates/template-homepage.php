@@ -163,7 +163,7 @@ get_header();
 
     function sectorRedirect(val) {
 		var sitePath="<?php echo $sitePath; ?>";
-        window.location.href = sitePath + "/search/?type=sector&term=" +encodeURIComponent(val);
+        window.location.href = sitePath + "/canvas/search/?type=sector&term=" +encodeURIComponent(val);
     }
 </script>
 <?php 

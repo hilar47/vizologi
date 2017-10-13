@@ -46,16 +46,16 @@
 			<div class="search-cat">
 				<h4>Or explore sectors:</h4>
 				<ul>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=energy%20%26%20utilities">Energy & utilities</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer%20services">Consumer services</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=information%20%26%20media">Information & media</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=healthcare">Healthcare</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=technology">Technology</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=transportation">Transportation</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=telecommunications">Telecommunications</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=financials">Financials</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=consumer%20goods">Consumer goods</a></li>
-					<li><a href="<?php echo home_url() ?>/search/?type=sector&term=industrials">Industrials</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=energy%20%26%20utilities">Energy & utilities</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=consumer%20services">Consumer services</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=information%20%26%20media">Information & media</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=healthcare">Healthcare</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=technology">Technology</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=transportation">Transportation</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=telecommunications">Telecommunications</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=financials">Financials</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=consumer%20goods">Consumer goods</a></li>
+					<li><a href="<?php echo home_url() ?>/canvas/search/?type=sector&term=industrials">Industrials</a></li>
 				</ul>
 			</div>
 		</div>

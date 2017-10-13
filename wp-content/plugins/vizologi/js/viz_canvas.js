@@ -47,7 +47,7 @@ var vizologi = (function() {
 
         var a = $.ajax({
             method: "GET",
-            url: server + "testDB?pagen=" + page + "&pagel=" + pageLength
+            url: server + "getallcompanies?pagen=" + page + "&pagel=15"
         }).done(function(msg) {
             var content = _templateArchive(msg);
             $(bindingElement).append(content);
@@ -146,7 +146,6 @@ var vizologi = (function() {
     }
 
     var _cleanFileName = function(val) {
-        console.log(val);
         return val.replace(/Â /g, '-').replace(/ /g, '-').replace(/[^A-Za-z0-9\-]/g, '').toLowerCase();
     }
 
