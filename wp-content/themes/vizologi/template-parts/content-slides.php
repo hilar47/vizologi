@@ -66,7 +66,7 @@
 				</div>
 			</div>
 
-			<a href="about" class="btn btn-black text-uppercase pull-left read-more">Read more</a>
+			<a href="<?php echo get_home_url(); ?>/about" class="btn btn-black text-uppercase pull-left read-more">Read more</a>
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
