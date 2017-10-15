@@ -368,7 +368,7 @@ img.aligncenter {
         text-transform: uppercase;
         padding: 20px;
         float: left;
-        transition: background-color 1s linear;
+        transition: background-color 0.5s linear;
         width: 100%;
         @media(min-width: $screen-sm) {
             width: 270px;
@@ -467,7 +467,7 @@ img.aligncenter {
 
 .search-results {
     background-color: $gray-light4;
-    padding: 100px 0;
+    padding: 80px 0 60px;
     h1 {
         color: $pink;
         font-weight: 600;
@@ -514,5 +514,14 @@ img.aligncenter {
     }
     header {
         margin-bottom: 40px;
+    }
+}
+
+//Single Blog
+.single-post {
+    object,
+    iframe {
+        margin: 0 auto;
+        display: block;
     }
 }

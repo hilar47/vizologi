@@ -170,7 +170,8 @@
         .navbar-brand {
             height: auto;
             padding: 0 15px;
-            width: 200px;
+            width: 180px;
+            top: 5px;
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
@@ -181,7 +182,7 @@
         .search {
             float: left;
             padding: 10px 0;
-            margin-left: 16%;
+            margin-left: 20%;
             input.search-field {
                 font-size: 15px;
                 padding: 12px 10px 12px 40px;
@@ -306,7 +307,7 @@
 @media(min-width:$screen-md) and (max-width:$screen-lg) {
     .navbar-custom {
         .search {
-            margin-left: 5%;
+            margin-left: 11%;
             input.search-field {
                 width: 390px;
             }
@@ -353,10 +354,18 @@
     }
 }
 
+@media(min-width:1440px) {
+    .navbar-custom {
+        .search {
+            margin-left: 21.5%;
+        }
+    }
+}
+
 @media(min-width:1920px) {
     .navbar-custom {
         .search {
-            margin-left: 11%;
+            margin-left: 15%;
         }
     }
 }
