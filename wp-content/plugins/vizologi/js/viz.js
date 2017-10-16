@@ -19,6 +19,8 @@ function doZoom(value) {
 }
 
 var options = {
+	zoomRatio: 0.5,
+	movable: true,
     inline: true,
     navbar: false,
     toolbar: false,

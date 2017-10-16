@@ -125,7 +125,8 @@ $(document).ready(function() {
 	}
 	
 	$('.rating-stars').click(function() {
-		vizologi.checkRating('<?php echo $_COOKIE["vizologi_user"]; ?>', '<?php echo $_REQUEST["slug"]; ?>', $('.caption').text());
+		<?php $company = explode("-business-model-canvas",$_GET['company']); ?>
+		vizologi.checkRating('<?php echo $_COOKIE["vizologi_user"]; ?>', '<?php echo $company[0] ?>', $('.caption').text());
 	});
 
 	var firstClick = true;
