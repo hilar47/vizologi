@@ -105,7 +105,7 @@ var vizologi = (function() {
             html += '<div class="tags">';
 
             var tags = e.Tags.split(",");
-            var desc = e.Description.substring(0, 180) + "...";
+            var desc = e.Description.substring(0, 150) + "...";
 
             $.each(tags, function(k, t) {
                 var tag = t.replace(/^\s+|\s+$/g, '');

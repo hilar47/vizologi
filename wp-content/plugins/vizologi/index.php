@@ -117,7 +117,7 @@ function _canvasTemplate($arr) {
 		if($obj["Company Name"] == "")
 			$obj = $obj["companyObject"];
 		
-		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,110) .'...' : $obj["Description"];
+		$desc = (strlen($obj["Description"]) > 150) ? substr($obj["Description"],0,150) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["slug"]));
 		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
 		//CHECK if logo image exists
@@ -141,7 +141,7 @@ function _canvasTemplate($arr) {
 		foreach($tags as $tag) {
 			$html .= '<a href="'.get_home_url().'/canvas/search?type=tag&term='.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
 		}
-		$html .= '</div><h1><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
+		$html .= '</div><h1><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
 	}
 	return $html;
 }
@@ -155,7 +155,7 @@ function _canvasTemplateRecommended($arr) {
 		if($obj["Company Name"] == "")
 			$obj = $obj["companyObject"];
 		
-		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
+		$desc = (strlen($obj["Description"]) > 100) ? substr($obj["Description"],0,100) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["slug"]));
 $html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
         //CHECK if logo image exists
@@ -267,8 +267,7 @@ function _singleCompanyTemplate($obj) {
                     </div>
 
                     <div class="download">
-                        <a href="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png">
-                            <i class="lsf-icon" title="download"></i>
+                        <a id="btn-download" target="_blank" href="<?php echo plugin_dir_url(__FILE__) . 'download.php?downloadurl=http://vizologi-api-server.herokuapp.com/canvas/png/'.  $obj[0]["slug"] . '-business-model-canvas.png&name=' . $obj[0]["slug"] . '-business-model-canvas.png&ext=png'; ?>" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png"><i class="lsf-icon" title="download"></i>
                         </a>
                     </div>
 
