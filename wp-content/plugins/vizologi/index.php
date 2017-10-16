@@ -13,14 +13,14 @@ function getResults($atts){
 }
 
 function getRelated() {
-    $company = $_GET['slug'];
-	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getrelated?slug=" . rawurlencode($company) . "&pagen=1&pagel=6");
+	$company = explode("-business-model-canvas",$_GET['company']);
+	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getrelated?slug=" . rawurlencode($company[0]) . "&pagen=1&pagel=6");
 	return _canvasTemplateRecommended($res);
 }
 
 function getCompanyCanvas() {
-	$company = $_GET['slug'];
-	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getcompany?slug=" . rawurlencode($company));
+	$company = explode("-business-model-canvas",$_GET['company']);
+	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getcompany?slug=" . rawurlencode($company[0]));
 	return _singleCompanyTemplate($res);
 }
 
@@ -118,8 +118,8 @@ function _canvasTemplate($arr) {
 			$obj = $obj["companyObject"];
 		
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,110) .'...' : $obj["Description"];
-		$logoName = _cleanFileName(strtolower($obj["Company Name"]));
-		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
+		$logoName = _cleanFileName(strtolower($obj["slug"]));
+		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
 		//CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -141,7 +141,7 @@ function _canvasTemplate($arr) {
 		foreach($tags as $tag) {
 			$html .= '<a href="'.get_home_url().'/canvas/search?type=tag&term='.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
 		}
-		$html .= '</div><h1><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'" class="view-canvas">View Canvas</a></div></div>';
+		$html .= '</div><h1><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
 	}
 	return $html;
 }
@@ -156,8 +156,8 @@ function _canvasTemplateRecommended($arr) {
 			$obj = $obj["companyObject"];
 		
 		$desc = (strlen($obj["Description"]) > 180) ? substr($obj["Description"],0,180) .'...' : $obj["Description"];
-	    $logoName = _cleanFileName(strtolower($obj["Company Name"]));
-$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?slug='.$obj["slug"].'"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
+	    $logoName = _cleanFileName(strtolower($obj["slug"]));
+$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
         //CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -267,7 +267,7 @@ function _singleCompanyTemplate($obj) {
                     </div>
 
                     <div class="download">
-                        <a href="<?php echo plugin_dir_url(__FILE__) . "images/vizo_canvas.png" ?>" download="vizology-canvas-<?php echo $obj[0]["slug"]; ?>.png">
+                        <a href="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png">
                             <i class="lsf-icon" title="download"></i>
                         </a>
                     </div>
@@ -286,7 +286,7 @@ function _singleCompanyTemplate($obj) {
         <div class="container">
             <div id="canvas-info" class="row">
                 <div class="col-sm-8">
-                    <img class="img-responsive" src="https://vizologi-api-server.herokuapp.com/logos/<?php echo _cleanFileName(strtolower($obj[0]["Company Name"])); ?>.png" />
+                    <img class="img-responsive" src="https://vizologi-api-server.herokuapp.com/logos/<?php echo _cleanFileName(strtolower($obj[0]["slug"])); ?>.png" />
                     <div class="text-description">
                             <p>
                                 <?php echo $obj[0]["Description"]; ?>
@@ -377,7 +377,7 @@ function _canvasArchiveTemplate($arr) {
 }
 
 function _cleanFileName($string) {
-	$string = str_replace(' ', '-', $string); //not the same as blank space. this is a different space.
+	//$string = str_replace(' ', '-', $string); //not the same as blank space. this is a different space.
 	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 
    return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.

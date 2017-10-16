@@ -98,9 +98,9 @@ var vizologi = (function() {
 
         $.each(data, function(i, e) {
 
-            var logoName = _cleanFileName(e["Company Name"]);
+            var logoName = _cleanFileName(e.slug);
 
-            html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'canvas/?slug=' + e.slug + '">';
+            html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'canvas/?company=' + e.slug + '-business-model-canvas">';
             html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width="250"></a></div>';
             html += '<div class="tags">';
 
@@ -112,8 +112,8 @@ var vizologi = (function() {
                 html += '<a href="' + baseURL + 'canvas/search?type=tag&amp;term=' + tag + '" rel="tag">' + tag + '</a>';
             });
 
-            html += '</div><h1><a href="' + baseURL + 'canvas/?slug=' + e.slug + '">' + e["Company Name"] + '</a></h1>';
-            html += '<div class="entry-content">' + desc + '</div><a href="' + baseURL + 'canvas/?slug=' + e.slug + '" class="view-canvas">View Canvas</a></div></div >';
+            html += '</div><h1><a href="' + baseURL + 'canvas/?company=' + e.slug + '-business-model-canvas">' + e["Company Name"] + '</a></h1>';
+            html += '<div class="entry-content">' + desc + '</div><a href="' + baseURL + 'canvas/?company=' + e.slug + '-business-model-canvas" class="view-canvas">View Canvas</a></div></div >';
         });
 
         return html;
@@ -122,13 +122,13 @@ var vizologi = (function() {
     var _templateArchive = function(data) {
         var html = "";
 
-        if (data.length < pageLength)
+        if (data.length < 15)
             $("#viz-archive-load-more").hide();
 
 
         $.each(data, function(i, e) {
-            var logoName = _cleanFileName(e["Company Name"]);
-            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + '/canvas/?slug=' + e.slug + '">';
+            var logoName = _cleanFileName(e.slug);
+            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + '/canvas/?company=' + e.slug + '-business-model-canvas">';
             html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width=""></a></div ></div ></div > ';
         });
 
@@ -146,7 +146,8 @@ var vizologi = (function() {
     }
 
     var _cleanFileName = function(val) {
-        return val.replace(/Â /g, '-').replace(/ /g, '-').replace(/[^A-Za-z0-9\-]/g, '').toLowerCase();
+        	var a = val.toString().replace(/\s\s+/g, ' ').replace(/ /g, '-').replace(/[^A-Za-z0-9\-]/g, '').toLowerCase();
+			return a;
     }
 
     return {
