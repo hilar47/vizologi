@@ -19,7 +19,13 @@
     }
     input[type="email"] {
         display: inline-block;
+        border: 0;
         width: 70%;
+        color: #555;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
         @media(min-width: $screen-sm) {
             width: 40%;
         }

@@ -1,10 +1,13 @@
 /* Canvas */
 
 .canvas-viewer {
-    background-color: #edebeb;
-    padding: 60px 0;
+    background-color: $gray-dark2;
+    // padding: 60px 0;
     min-height: calc(100vh - 180px);
     position: relative;
+    .container {
+        background-color: #edebeb;
+    }
     .overlay {
         background: transparent none repeat scroll 0 0;
         height: 500px;
@@ -19,7 +22,7 @@
     background-color: #525252;
     position: fixed;
     bottom: 0;
-    height: 58px;
+    height: 60px;
     z-index: 1;
     &.detach {
         position: relative;
@@ -70,7 +73,7 @@
         float: left;
         background-color: $white;
         padding: 0;
-        height: 58px;
+        height: 60px;
         &:before {
             background-color: $white;
             content: "";
@@ -118,7 +121,7 @@
         }
         .info {
             background-color: #f47574;
-            padding: 11px 17px 12px 23px;
+            padding: 12px 17px 13px 23px;
             margin-right: 0;
             position: relative;
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
