@@ -5,8 +5,10 @@
     // padding: 60px 0;
     min-height: calc(100vh - 180px);
     position: relative;
+    overflow: hidden;
     .container {
         background-color: #edebeb;
+        padding: 0;
     }
     .overlay {
         background: transparent none repeat scroll 0 0;

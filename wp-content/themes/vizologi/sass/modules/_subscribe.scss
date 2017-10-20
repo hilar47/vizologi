@@ -11,11 +11,8 @@
         margin-bottom: 20px;
     }
     .btn {
-        margin-top: -1px;
-        margin-left: -4px;
-        @media screen and (-webkit-min-device-pixel-ratio: 0) {
-            margin-top: 0;
-        }
+        float: left;
+        margin: 0!important;
     }
     input[type="email"] {
         display: inline-block;
@@ -26,6 +23,7 @@
         padding: 6px 12px;
         font-size: 14px;
         line-height: 1.42857143;
+        float: left;
         @media(min-width: $screen-sm) {
             width: 40%;
         }
@@ -33,4 +31,11 @@
     @media(min-width:$screen-sm) {
         padding: 60px 0 80px;
     }
+}
+
+.mc4wp-form,
+.mc4wp-form-fields {
+    display: block;
+    float: left;
+    width: 100%;
 }
