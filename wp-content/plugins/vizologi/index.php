@@ -200,8 +200,10 @@ function _singleCompanyTemplate($obj) {
 
 
     <section class="canvas-viewer">
-        <div class="overlay" onclick="style.pointerEvents='none'"></div>
+        <!--<div class="overlay" onclick="style.pointerEvents='none'"></div>-->
+        <div class="container">
             <img class="img-responsive center-block" id="canvas-company-image" src="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png" style="display:none;" />
+            </div>
     </section>
 
     <section class="canvas-detail-bar">
