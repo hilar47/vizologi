@@ -103,16 +103,7 @@
 }
 
 .viewer-container {
-    /* bottom: 0;
-  direction: ltr;
-  font-size: 0;
-  left: 0;
-  line-height: 0;
-  overflow: hidden; */
     /* position: absolute; */
-    /* right: 0; */
-    -webkit-tap-highlight-color: transparent;
-    /* top: 0; */
     -webkit-touch-callout: none;
     -ms-touch-action: none;
     touch-action: none;
@@ -122,6 +113,20 @@
     user-select: none;
     height: calc(100vh - 180px) !important;
     float: left;
+}
+
+.viewer-fixed {
+    position: fixed;
+    height: auto!important;
+    bottom: 0;
+    direction: ltr;
+    font-size: 0;
+    left: 0;
+    line-height: 0;
+    overflow: hidden;
+    right: 0;
+    -webkit-tap-highlight-color: transparent;
+    top: 0;
 }
 
 .viewer-container::-moz-selection,
@@ -310,10 +315,6 @@
     bottom: 15px;
     left: 15px;
     position: absolute;
-}
-
-.viewer-fixed {
-    position: fixed;
 }
 
 .viewer-open {
