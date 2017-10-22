@@ -248,7 +248,7 @@ function _singleCompanyTemplate($obj) {
                         </a>
                         <div class="open-new-share">
                             
-                            <?php echo do_shortcode( '[addtoany]' ); ?>
+                              <?php echo do_shortcode( '[addtoany url="'.get_permalink()."/".$obj[0]["Company Name"].'-business-model-canvas"]' ); ?>
                             <!-- <a href="#" class="open-new-share-item">
                                 <i class="fa fa-facebook"></i>
                             </a>
