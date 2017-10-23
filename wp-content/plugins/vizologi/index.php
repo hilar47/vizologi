@@ -247,7 +247,7 @@ function _singleCompanyTemplate($obj) {
                         </a>
                         <div class="open-new-share">
                             
-                              <?php echo do_shortcode( '[addtoany url="'.get_permalink()."/".$obj[0]["Company Name"].'-business-model-canvas"]' ); ?>
+                              <?php echo do_shortcode( '[addtoany url="'.get_permalink().$obj[0]["slug"].'-business-model-canvas" title="'. $obj[0]["Company Name"] .' business model canvas"]' ); ?>
                             <!-- <a href="#" class="open-new-share-item">
                                 <i class="fa fa-facebook"></i>
                             </a>
@@ -413,23 +413,27 @@ function _didUserRate($records) {
 
 add_action('wp_head', 'wpse_43672_wp_head');
 function wpse_43672_wp_head(){
-    $company = explode("-business-model-canvas", get_query_var('company',1));
-	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getcompany?slug=" . rawurlencode($company[0]));
-    ?>
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:site" content="@vizologi"/>
-    <meta name="twitter:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
-    <meta name="twitter:description" content="<?php echo $res[0]["Description"]; ?>"/>
-    <meta name="twitter:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
-    <meta name="twitter:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
-
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
-    <meta property="og:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
-    <meta property="og:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>"/>
-    <meta property="og:site_name" content="Vizologi | rethinking business model design"/>
-    <meta property="og:description" content="<?php  echo $res[0]["Description"]; ?>" />
-    <?php //Open PHP tags
+	if(get_the_title() == "Canvas") {
+		$company = explode("-business-model-canvas", get_query_var('company',1));
+		$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getcompany?slug=" . rawurlencode($company[0]));
+		?>
+		<!-- Twitter Card data -->
+		<meta name="twitter:card" content="summary"/>
+		<meta name="twitter:site" content="@vizologi"/>
+		<meta name="twitter:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
+		<meta name="twitter:description" content="<?php echo $res[0]["Description"]; ?>"/>
+		<meta name="twitter:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
+		<meta name="twitter:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
+	
+		<meta property="og:type" content="article" />
+		<meta property="og:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
+		<meta property="og:image:width" content="1000" />
+		<meta property="og:image:height" content="1000" />
+		<meta property="og:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
+		<meta property="og:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>"/>
+		<meta property="og:site_name" content="Vizologi | rethinking business model design"/>
+		<meta property="og:description" content="<?php  echo $res[0]["Description"]; ?>" />
+    <?php 
+	}
 }
 ?>

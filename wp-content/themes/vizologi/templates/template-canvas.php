@@ -125,7 +125,7 @@ $(document).ready(function() {
 	}
 	
 	$('.rating-stars').click(function() {
-		<?php $company = explode("-business-model-canvas",$_GET['company']); ?>
+		<?php $company = explode("-business-model-canvas",get_query_var('company',1)); ?>
 		vizologi.checkRating('<?php echo $_COOKIE["vizologi_user"]; ?>', '<?php echo $company[0] ?>', $('.caption').text());
 	});
 

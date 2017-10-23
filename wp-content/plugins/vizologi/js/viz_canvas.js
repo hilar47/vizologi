@@ -1,7 +1,7 @@
 var vizologi = (function() {
 
     var server = "https://vizologi-api-server.herokuapp.com/";
-    var baseURL = "http://localhost/vizologi/";
+    var baseURL = "http://vizologi.com/";
     var pageLength = 6;
 
     var getCompanies = function(bindingElement) {
