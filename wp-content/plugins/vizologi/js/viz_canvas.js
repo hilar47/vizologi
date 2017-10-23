@@ -1,13 +1,13 @@
 var vizologi = (function() {
 
     var server = "https://vizologi-api-server.herokuapp.com/";
-    var baseURL = "http://hilariogoes.com/vizologi/";
+    var baseURL = "http://localhost/vizologi/";
     var pageLength = 6;
 
     var getCompanies = function(bindingElement) {
 
-        var type = _getParameterByName('type');
-        var term = encodeURIComponent(_getParameterByName('term'));
+        var type = search_params.type;
+        var term = search_params.term;
         var page = Number($('#page-no').val()) + 1;
 
         if (type.length > 0 && term.length > 0) {
@@ -100,7 +100,7 @@ var vizologi = (function() {
 
             var logoName = _cleanFileName(e.slug);
 
-            html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'canvas/?company=' + e.slug + '-business-model-canvas">';
+            html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas">';
             html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width="250"></a></div>';
             html += '<div class="tags">';
 
@@ -109,11 +109,11 @@ var vizologi = (function() {
 
             $.each(tags, function(k, t) {
                 var tag = t.replace(/^\s+|\s+$/g, '');
-                html += '<a href="' + baseURL + 'canvas/search?type=tag&amp;term=' + tag + '" rel="tag">' + tag + '</a>';
+                html += '<a href="' + baseURL + 'business-strategy/tag/' + tag + '" rel="tag">' + tag + '</a>';
             });
 
-            html += '</div><h1><a href="' + baseURL + 'canvas/?company=' + e.slug + '-business-model-canvas">' + e["Company Name"] + '</a></h1>';
-            html += '<div class="entry-content">' + desc + '</div><a href="' + baseURL + 'canvas/?company=' + e.slug + '-business-model-canvas" class="view-canvas">View Canvas</a></div></div >';
+            html += '</div><h1><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas">' + e["Company Name"] + '</a></h1>';
+            html += '<div class="entry-content">' + desc + '</div><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas" class="view-canvas">View Canvas</a></div></div >';
         });
 
         return html;
@@ -128,7 +128,7 @@ var vizologi = (function() {
 
         $.each(data, function(i, e) {
             var logoName = _cleanFileName(e.slug);
-            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + '/canvas/?company=' + e.slug + '-business-model-canvas">';
+            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + '/canvas/' + e.slug + '-business-model-canvas">';
             html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width=""></a></div ></div ></div > ';
         });
 

@@ -1766,7 +1766,7 @@ var methods = {
       imageData.height = newHeight;
       imageData.ratio = ratio;
       this.renderImage();
-
+	  
       if (hasTooltip) {
         this.tooltip();
       }

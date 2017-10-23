@@ -13,13 +13,13 @@ function getResults($atts){
 }
 
 function getRelated() {
-	$company = explode("-business-model-canvas",$_GET['company']);
+	$company = explode("-business-model-canvas",get_query_var('company',1));
 	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getrelated?slug=" . rawurlencode($company[0]) . "&pagen=1&pagel=6");
 	return _canvasTemplateRecommended($res);
 }
 
 function getCompanyCanvas() {
-	$company = explode("-business-model-canvas",$_GET['company']);
+	$company = explode("-business-model-canvas", get_query_var('company',1));
 	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getcompany?slug=" . rawurlencode($company[0]));
 	return _singleCompanyTemplate($res);
 }
@@ -30,8 +30,8 @@ function getCanvasArchive() {
 }
 
 function searchCompanies() {
-	$type = $_GET['type'];
-	$term = $_GET['term'];
+	$type = get_query_var('type',1);
+	$term = urldecode(get_query_var('term',1));
 	
 	$url = "";
 	
@@ -119,7 +119,7 @@ function _canvasTemplate($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 150) ? substr($obj["Description"],0,150) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["slug"]));
-		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
+		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
 		//CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -139,9 +139,9 @@ function _canvasTemplate($arr) {
 		$html .= '<div class="tags">';
 		$tags = explode(",",$obj["Tags"]);
 		foreach($tags as $tag) {
-			$html .= '<a href="'.get_home_url().'/canvas/search?type=tag&term='.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
+			$html .= '<a href="'.get_home_url().'/business-strategy/tag/'.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
 		}
-		$html .= '</div><h1><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
+		$html .= '</div><h1><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
 	}
 	return $html;
 }
@@ -157,7 +157,7 @@ function _canvasTemplateRecommended($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 100) ? substr($obj["Description"],0,100) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["slug"]));
-$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/?company='.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
+$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
         //CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -205,7 +205,6 @@ function _singleCompanyTemplate($obj) {
             <img class="img-responsive center-block" id="canvas-company-image" src="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png" style="display:none;" />
             </div>
     </section>
-
     <section class="canvas-detail-bar">
         <div class="container">
             <div class="row">
@@ -296,7 +295,7 @@ function _singleCompanyTemplate($obj) {
                             <div class="text-description-tags">
                                 <?php $tags = explode(",",$obj[0]["Tags"]);
                                     foreach($tags as $tag) { ?>
-                                    <a class="company-tags" href="<?php echo get_home_url().'/canvas/search?type=tag&term='.ltrim($tag);  ?>"><?php echo ltrim($tag); ?></a>
+                                    <a class="company-tags" href="<?php echo get_home_url().'/business-strategy/tag/'.ltrim($tag);  ?>"><?php echo ltrim($tag); ?></a>
                                 <?php } ?>
                             </div>
 
@@ -330,14 +329,24 @@ function _singleCompanyTemplate($obj) {
 // Search Canvas
 function _searchTemplate($arr) {
 	wp_enqueue_script('viz', plugin_dir_url(__FILE__) . 'js/viz_canvas.js');
+	wp_localize_script( 'viz', 'search_params', array(
+			'type' => get_query_var('type',1),
+			'term' => get_query_var('term',1)
+		)
+	);
+	
+	
+	/*echo "<pre>";
+	print_r($arr);
+	echo "</pre>";*/
 ?>
 <section class="search-results">
 		<div class="container feed-item">
                 <div class="row hover-item">
                     <div class="col-xs-12">
                         <p>Your search for</p>
-                        <h1><?php echo ucwords($_REQUEST["term"]); ?></h1>
-                        <p>Resulted in <span><?php getTotalResult($_REQUEST["type"], $_REQUEST["term"]) ; ?> canvas</p>
+                        <h1><?php echo ucwords(urldecode(get_query_var('term',1))); ?></h1>
+                        <p>Resulted in <span><?php getTotalResult(get_query_var('type',1), urldecode(get_query_var('term',1))) ; ?> canvas</p>
                     </div>
                 </div>
                 <div class="row hover-item" id="canvas-search-results">
@@ -400,5 +409,27 @@ function _didUserRate($records) {
 		}
 	}
 	return 0;
+}
+
+add_action('wp_head', 'wpse_43672_wp_head');
+function wpse_43672_wp_head(){
+    $company = explode("-business-model-canvas", get_query_var('company',1));
+	$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getcompany?slug=" . rawurlencode($company[0]));
+    ?>
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@vizologi"/>
+    <meta name="twitter:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
+    <meta name="twitter:description" content="<?php echo $res[0]["Description"]; ?>"/>
+    <meta name="twitter:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
+    <meta name="twitter:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
+    <meta property="og:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
+    <meta property="og:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>"/>
+    <meta property="og:site_name" content="Vizologi | rethinking business model design"/>
+    <meta property="og:description" content="<?php  echo $res[0]["Description"]; ?>" />
+    <?php //Open PHP tags
 }
 ?>
