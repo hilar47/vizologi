@@ -163,7 +163,7 @@ get_header();
 
     function sectorRedirect(val) {
 		var sitePath="<?php echo $sitePath; ?>";
-        window.location.href = sitePath + "/business-strategy/sector/" +encodeURIComponent(val);
+        window.location.href = sitePath + "/business-strategy/case-studies/sector/" +encodeURIComponent(val);
     }
 </script>
 <?php 

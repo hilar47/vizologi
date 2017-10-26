@@ -109,7 +109,7 @@ var vizologi = (function() {
 
             $.each(tags, function(k, t) {
                 var tag = t.replace(/^\s+|\s+$/g, '');
-                html += '<a href="' + baseURL + 'business-strategy/tag/' + tag + '" rel="tag">' + tag + '</a>';
+                html += '<a href="' + baseURL + 'business-strategy/case-studies/tag/' + tag + '" rel="tag">' + tag + '</a>';
             });
 
             html += '</div><h1><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas">' + e["Company Name"] + '</a></h1>';
@@ -128,7 +128,7 @@ var vizologi = (function() {
 
         $.each(data, function(i, e) {
             var logoName = _cleanFileName(e.slug);
-            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + '/canvas/' + e.slug + '-business-model-canvas">';
+            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas">';
             html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width=""></a></div ></div ></div > ';
         });
 

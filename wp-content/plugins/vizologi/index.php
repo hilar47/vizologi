@@ -139,7 +139,7 @@ function _canvasTemplate($arr) {
 		$html .= '<div class="tags">';
 		$tags = explode(",",$obj["Tags"]);
 		foreach($tags as $tag) {
-			$html .= '<a href="'.get_home_url().'/business-strategy/tag/'.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
+			$html .= '<a href="'.get_home_url().'/business-strategy/case-studies/tag/'.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
 		}
 		$html .= '</div><h1><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
 	}
@@ -295,7 +295,7 @@ function _singleCompanyTemplate($obj) {
                             <div class="text-description-tags">
                                 <?php $tags = explode(",",$obj[0]["Tags"]);
                                     foreach($tags as $tag) { ?>
-                                    <a class="company-tags" href="<?php echo get_home_url().'/business-strategy/tag/'.ltrim($tag);  ?>"><?php echo ltrim($tag); ?></a>
+                                    <a class="company-tags" href="<?php echo get_home_url().'/business-strategy/case-studies/tag/'.ltrim($tag);  ?>"><?php echo ltrim($tag); ?></a>
                                 <?php } ?>
                             </div>
 
@@ -433,7 +433,112 @@ function wpse_43672_wp_head(){
 		<meta property="og:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>"/>
 		<meta property="og:site_name" content="Vizologi | rethinking business model design"/>
 		<meta property="og:description" content="<?php  echo $res[0]["Description"]; ?>" />
+        
+        <script type="application/ld+json">
+			{
+			  "@context": "http://schema.org/",
+			  "@type":" BusinessModelCanvas",
+			  "name": "<?php echo $res[0]["Company Name"]; ?> business model canvas",
+			  "image": "http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png",
+			  "url": "<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>",
+			  "description": "<?php  echo $res[0]["Description"]; ?>",
+			  "aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "<?php echo $res[0]['rating']['average']; ?>",
+				"reviewCount": document.getElementById("number-of-votes").value,
+			  },
+			
+			  "digitalMaturity": "<?php echo $res[0]["Digital maturity"]; ?>",
+			  "tags": <?php echo json_encode(explode(",",$res[0]["Tags"])); ?>
+			}
+			</script>
     <?php 
 	}
+	else if(get_the_title() == "Business Strategy") {
+		$q = get_query_var('type',1) ;
+		
+		if($q == "sector") {
+			$url = "";
+	    	if(get_query_var('term',1) == "all%20sectors") {
+					$url = "https://vizologi-api-server.herokuapp.com/getallcompanies?pagen=1&pagel=1";
+			} else {
+					$url = "https://vizologi-api-server.herokuapp.com/searchcanvasbysector?sector=". get_query_var('term',1) ."&pagen=1&pagel=1";
+			}
+			
+			$res = _curlTemplate($url);
+		?>
+        <script type="application/ld+json">
+			{
+			
+			  "@context": "http://schema.org/",
+			
+			  "@type": "BusinessModelCanvas",
+			
+			  "name": "<?php echo $q ?>",
+			
+			  "image": "https://vizologi-api-server.herokuapp.com/logos/<?php echo $res[0]['slug']; ?>.png",
+			
+			  "url": "<?php echo $res[0]['URL']; ?>",
+			
+			  "description": "<?php echo $res[0]['Description']; ?>",
+			
+			  "resultNumber": "<?php echo getTotalResult($q, get_query_var('term',1)); ?>"
+			
+			}
+			
+			</script>
+        <?php
+		}
+		else if($q == "search") {
+			$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/searchcanvas?query=" . get_query_var('term',1) . "&pagen=1&pagel=1");
+		?>
+        <script type="application/ld+json">
+			{
+			
+			  "@context": "http://schema.org/",
+			
+			  "@type": "BusinessModelCanvas",
+			
+			  "name": "<?php echo $q ?>",
+			
+			  "image": "https://vizologi-api-server.herokuapp.com/logos/<?php echo $res[0]['slug']; ?>.png",
+			
+			  "url": "<?php echo $res[0]['URL']; ?>",
+			
+			  "description": "<?php echo $res[0]['Description']; ?>",
+			
+			  "resultNumber": "<?php echo getTotalResult($q, get_query_var('term',1)); ?>"
+			
+			}
+			
+			</script>
+        <?php
+		}
+		else if($q == "tag") {
+			$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/searchcanvasbytag?tag=" . get_query_var('term',1) . "&pagen=1&pagel=1");
+		?>
+        <script type="application/ld+json">
+			{
+			
+			  "@context": "http://schema.org/",
+			
+			  "@type": "BusinessModelCanvas",
+			
+			  "name": "<?php echo $q ?>",
+			
+			  "image": "https://vizologi-api-server.herokuapp.com/logos/<?php echo $res[0]['slug']; ?>.png",
+			
+			  "url": "<?php echo $res[0]['URL']; ?>",
+			
+			  "description": "<?php echo $res[0]['Description']; ?>",
+			
+			  "resultNumber": "<?php echo getTotalResult($q, get_query_var('term',1)); ?>"
+			
+			}
+			
+			</script>
+        <?php
+		}
+	 }
 }
 ?>

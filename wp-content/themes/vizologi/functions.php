@@ -356,7 +356,7 @@ include_once 'metaboxes/post-spec.php';
 // Search redirect to a custom link/keyword
 function change_search_url_rewrite() {
 	if ( is_search() && ! empty( $_GET['s'] ) ) {
-		wp_redirect( home_url( "/business-strategy/search/" ) . urlencode( get_query_var( 's' ) ) );
+		wp_redirect( home_url( "/business-strategy/case-studies/search/" ) . urlencode( get_query_var( 's' ) ) );
 		exit();
 	}	
 }
@@ -418,7 +418,7 @@ function custom_rewrite_basic() {
 	$page = get_page_by_title( 'Canvas' );
     add_rewrite_rule('^canvas/([^&]+)/?', 'index.php?page_id='. $page->ID .'&company=$matches[1]', 'top');
 	$page1 = get_page_by_title( 'Business Strategy' );
-    add_rewrite_rule('^business-strategy/([^&]+)/([^&]+)/?', 'index.php?page_id='. $page1->ID .'&type=$matches[1]&term=$matches[2]', 'top');
+    add_rewrite_rule('^business-strategy/case-studies/([^&]+)/([^&]+)/?', 'index.php?page_id='. $page1->ID .'&type=$matches[1]&term=$matches[2]', 'top');
 }
 
 add_action('init', 'custom_rewrite_basic', 10, 0);
