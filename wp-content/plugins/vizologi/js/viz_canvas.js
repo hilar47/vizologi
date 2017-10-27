@@ -100,7 +100,7 @@ var vizologi = (function() {
 
             var logoName = _cleanFileName(e.slug);
 
-            html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas">';
+            html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'business-strategy-canvas/' + e.slug + '-business-model-canvas">';
             html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width="250"></a></div>';
             html += '<div class="tags">';
 
@@ -112,8 +112,8 @@ var vizologi = (function() {
                 html += '<a href="' + baseURL + 'business-strategy/case-studies/tag/' + tag + '" rel="tag">' + tag + '</a>';
             });
 
-            html += '</div><h1><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas">' + e["Company Name"] + '</a></h1>';
-            html += '<div class="entry-content">' + desc + '</div><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas" class="view-canvas">View Canvas</a></div></div >';
+            html += '</div><h1><a href="' + baseURL + 'business-strategy-canvas/' + e.slug + '-business-model-canvas">' + e["Company Name"] + '</a></h1>';
+            html += '<div class="entry-content">' + desc + '</div><a href="' + baseURL + 'business-strategy-canvas/' + e.slug + '-business-model-canvas" class="view-canvas">View Canvas</a></div></div >';
         });
 
         return html;
@@ -128,7 +128,7 @@ var vizologi = (function() {
 
         $.each(data, function(i, e) {
             var logoName = _cleanFileName(e.slug);
-            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + 'canvas/' + e.slug + '-business-model-canvas">';
+            html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + 'business-strategy-canvas/' + e.slug + '-business-model-canvas">';
             html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="" width=""></a></div ></div ></div > ';
         });
 

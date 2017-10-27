@@ -416,7 +416,7 @@ add_action('init', 'custom_rewrite_tag', 10, 0);
 
 function custom_rewrite_basic() {
 	$page = get_page_by_title( 'Canvas' );
-    add_rewrite_rule('^canvas/([^&]+)/?', 'index.php?page_id='. $page->ID .'&company=$matches[1]', 'top');
+    add_rewrite_rule('^business-strategy-canvas/([^&]+)/?', 'index.php?page_id='. $page->ID .'&company=$matches[1]', 'top');
 	$page1 = get_page_by_title( 'Business Strategy' );
     add_rewrite_rule('^business-strategy/case-studies/([^&]+)/([^&]+)/?', 'index.php?page_id='. $page1->ID .'&type=$matches[1]&term=$matches[2]', 'top');
 }

@@ -119,7 +119,7 @@ function _canvasTemplate($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 150) ? substr($obj["Description"],0,150) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["slug"]));
-		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
+		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
 		//CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -141,7 +141,7 @@ function _canvasTemplate($arr) {
 		foreach($tags as $tag) {
 			$html .= '<a href="'.get_home_url().'/business-strategy/case-studies/tag/'.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
 		}
-		$html .= '</div><h1><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
+		$html .= '</div><h1><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
 	}
 	return $html;
 }
@@ -157,7 +157,7 @@ function _canvasTemplateRecommended($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 100) ? substr($obj["Description"],0,100) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["slug"]));
-$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
+$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';
         //CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -474,7 +474,7 @@ function wpse_43672_wp_head(){
 			
 			  "@type": "BusinessModelCanvas",
 			
-			  "name": "<?php echo $q ?>",
+			  "name": "<?php echo rawurldecode(get_query_var('term',1)) ?>",
 			
 			  "image": "https://vizologi-api-server.herokuapp.com/logos/<?php echo $res[0]['slug']; ?>.png",
 			
@@ -482,7 +482,7 @@ function wpse_43672_wp_head(){
 			
 			  "description": "<?php echo $res[0]['Description']; ?>",
 			
-			  "resultNumber": "<?php echo getTotalResult($q, get_query_var('term',1)); ?>"
+			  "resultNumber": "<?php echo getTotalResult($q, rawurldecode(get_query_var('term',1))); ?>"
 			
 			}
 			
@@ -499,7 +499,7 @@ function wpse_43672_wp_head(){
 			
 			  "@type": "BusinessModelCanvas",
 			
-			  "name": "<?php echo $q ?>",
+			  "name": "<?php echo rawurldecode(get_query_var('term',1)) ?>",
 			
 			  "image": "https://vizologi-api-server.herokuapp.com/logos/<?php echo $res[0]['slug']; ?>.png",
 			
@@ -507,7 +507,7 @@ function wpse_43672_wp_head(){
 			
 			  "description": "<?php echo $res[0]['Description']; ?>",
 			
-			  "resultNumber": "<?php echo getTotalResult($q, get_query_var('term',1)); ?>"
+			  "resultNumber": "<?php echo getTotalResult($q, rawurldecode(get_query_var('term',1))); ?>"
 			
 			}
 			
@@ -524,7 +524,7 @@ function wpse_43672_wp_head(){
 			
 			  "@type": "BusinessModelCanvas",
 			
-			  "name": "<?php echo $q ?>",
+			  "name": "<?php echo rawurldecode(get_query_var('term',1)) ?>",
 			
 			  "image": "https://vizologi-api-server.herokuapp.com/logos/<?php echo $res[0]['slug']; ?>.png",
 			
@@ -532,7 +532,7 @@ function wpse_43672_wp_head(){
 			
 			  "description": "<?php echo $res[0]['Description']; ?>",
 			
-			  "resultNumber": "<?php echo getTotalResult($q, get_query_var('term',1)); ?>"
+			  "resultNumber": "<?php echo getTotalResult($q, rawurldecode(get_query_var('term',1))); ?>"
 			
 			}
 			
