@@ -155,4 +155,33 @@ $(document).ready(function() {
 
     });
 
+
+    //Owl Carousel for home page
+    if (jQuery(window).width() <= 767) {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            center: true,
+            dots: true,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                }
+            }
+        })
+        $('.owl-carousel2').owlCarousel({
+            loop: true,
+            margin: 10,
+            center: true,
+            dots: true,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                }
+            }
+        })
+    }
+
 });

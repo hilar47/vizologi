@@ -261,6 +261,10 @@
     padding: 0 0 50px;
     background: none;
     margin: 0 -15px;
+    @media(max-width: 767px) {
+        margin: 0;
+        padding: 30px 0;
+    }
     .card-recommend {
         min-height: inherit;
         img {
@@ -283,7 +287,7 @@
 
 /* mobile only */
 
-@media(max-width: $screen-sm) {
+@media(max-width: 1199px) {
     .canvas-viewer {
         padding: 0;
     }
@@ -295,56 +299,62 @@
     }
     .canvas-detail-bar {
         .detail-bar-tools {
+            background: #575757;
+            width: 100%;
             div {
-                padding: 13px 20px 8px;
+                padding: 13px 15px 8px;
+            }
+            i {
+                font-size: 22px;
             }
             .info {
-                padding: 14px 10px 14px;
+                padding: 14px 10px 14px 15px;
+                margin-right: 0;
             }
+            .minus,
+            .range-slider,
+            .plus {
+                display: none;
+            }
+        }
+        .share.open-new {
+            padding: 12px 0px 16px 5px;
+        }
+        .open-new-share {
+            padding: 18px 5px 16px !important;
+            top: 69px !important;
+            left: 17px !important;
+        }
+    }
+    .rating-container {
+        padding: 11px 14px 11px 0 !important;
+        margin: 0;
+        .empty-stars span.lsf-icon,
+        .filled-stars span.lsf-icon {
+            font-size: 23px;
         }
     }
 }
 
-@media(min-width: 769px) and (max-width:$screen-md) {
+@media(min-width: 768px) and (max-width: 1199px) {
     .canvas-detail-bar {
         .detail-bar-tools {
-            div {
-                padding: 13px 6px;
-                &.star-rating__wrapper {
-                    padding: 13px 0;
-                }
-            }
-            .info {
-                padding: 14px 10px 14px;
-            }
+            width: inherit;
+            background: none;
         }
-    }
-}
-
-@media(min-width: $screen-md) and (max-width:$screen-lg) {
-    .canvas-detail-bar {
-        .detail-bar-tools {
-            div {
-                padding: 13px 17px 8px;
-            }
-        }
-    }
-}
-
-@media(min-width: 768px) and (max-width: 768px) {
-    .canvas-detail-bar {
         .detail-bar-name {
-            width: calc(100% + 24px);
-            margin-left: -15px;
+            width: inherit;
         }
+    }
+}
+
+@media(min-width: 850px) and (max-width: 1199px) {
+    .canvas-detail-bar {
         .detail-bar-tools {
-            width: calc(100% + 24px);
-            margin-left: -15px;
-            div {
-                padding: 13px 25px 8px;
-            }
-            .info {
-                padding: 14px 17px 14px;
+            .minus,
+            .range-slider,
+            .plus {
+                display: block;
             }
         }
     }

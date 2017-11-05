@@ -19,8 +19,9 @@
 	<title>Vizologi - <?php the_title(); ?></title>
 	<link rel="shortcut icon" type="image/png" href="<?php echo content_url();?>/themes/vizologi/favicon.png"/>
 	<?php wp_head(); ?>
+	<link rel="stylesheet" type="text/css" href="<?php echo content_url();?>/themes/vizologi/css/owl.carousel.css">
 	<!-- jquery -->
-	<script rel="stylesheet" src="<?php echo content_url();?>/themes/vizologi/js/jquery-3.1.1.min.js"></script>
+	<script src="<?php echo content_url();?>/themes/vizologi/js/jquery-3.1.1.min.js"></script>
 	</head>
 
 <body <?php body_class(); ?>>

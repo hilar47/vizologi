@@ -10,10 +10,21 @@
         background-color: $green;
         padding: 150px 0 0;
         margin-bottom: -100px;
+        @media(max-width: 767px) {
+            .container {
+                padding: 0;
+                overflow: hidden;
+            }
+        }
         h1 {
             color: $white;
             font-size: 35px;
             line-height: 1.3;
+            @media(max-width: 767px) {
+                font-size: 22px;
+                line-height: 1.3;
+                font-weight: normal;
+            }
         }
         p {
             color: #383838;
@@ -39,6 +50,10 @@
         background-color: #eeeef0;
         padding-top: 160px;
         text-align: center;
+        @media(max-width: 767px) {
+            padding-top: 80px;
+            overflow: hidden;
+        }
         p {
             margin: 0;
         }
@@ -46,10 +61,19 @@
             color: $pink;
             font-size: 35px;
             margin-bottom: 40px;
+            @media (max-width: 767px) {
+                font-size: 22px;
+                line-height: 1.3;
+                font-weight: normal;
+            }
         }
-        @media(max-width: $screen-sm) {
+        @media(max-width: 767px) {
             img {
-                width: 100%;
+                width: 150%;
+                max-width: inherit;
+                left: -25%;
+                position: relative;
+                overflow: hidden;
             }
         }
     }
@@ -68,6 +92,9 @@
             font-weight: 600;
             color: #444444;
             margin-bottom: 20px;
+            @media(max-width: 767px) {
+                font-size: 21px;
+            }
         }
         p {
             color: #848484;
@@ -107,10 +134,10 @@
             content: "";
             position: absolute;
             width: 115px;
+            background: url(../images/about-6.png) no-repeat;
+            background-position: center center;
+            background-size: auto 100%;
             @media(min-width: $screen-sm) {
-                background: url(../images/about-6.png) no-repeat;
-                background-position: center center;
-                background-size: auto 100%;
                 top: 215px;
                 left: 41.5%;
                 height: 760px;
@@ -123,6 +150,12 @@
             }
             @media(min-width: 1920px) {
                 left: 44.5%;
+            }
+            @media(max-width: 767px) {
+                top: 80px;
+                left: 0;
+                width: 50px;
+                height: 760px;
             }
         }
         .row {
@@ -143,7 +176,30 @@
                 p {
                     padding-bottom: 20px;
                 }
+                .col-sm-5,
+                .col-sm-12 {
+                    margin-left: 40px;
+                    h3 {
+                        font-size: 23px;
+                    }
+                }
                 &:nth-of-type(1) {
+                    margin-bottom: -55px;
+                }
+                &:nth-of-type(2) {
+                    height: 230px;
+                }
+                &:nth-of-type(3) {
+                    height: 220px;
+                }
+                &:nth-of-type(4) {
+                    height: 290px;
+                }
+                &:nth-of-type(5) {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+                /* &:nth-of-type(1) {
                     margin-bottom: 0;
                 }
                 &:nth-of-type(2) {
@@ -170,7 +226,7 @@
                 &:nth-of-type(5) {
                     margin-top: 30px;
                     margin-bottom: 20px;
-                }
+                } */
             }
         }
         @media(min-width: $screen-sm) {
@@ -226,8 +282,8 @@
             text-align: center;
             text-indent: -100px;
             @media(max-width: $screen-sm - 1) {
-                margin: 0 0 30px;
-                font-size: 28px;
+                margin: 0 0 30px -40px;
+                font-size: 22px;
                 text-align: left;
                 text-indent: 0;
             }
@@ -468,11 +524,18 @@ img.aligncenter {
 .search-results {
     background-color: $gray-light4;
     padding: 80px 0 60px;
+    @media(max-width: 767px) {
+        padding: 30px 0 0;
+    }
     h1 {
         color: $pink;
         font-weight: 600;
         margin: 25px 0 30px;
         font-size: 52px;
+        @media(max-width: 767px) {
+            margin: 15px 0 20px;
+            font-size: 32px;
+        }
     }
     p {
         color: #a7a7a7;

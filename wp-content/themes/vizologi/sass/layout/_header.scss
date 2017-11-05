@@ -87,6 +87,9 @@
     .search {
         position: relative;
         z-index: 11;
+        @media(max-width: 767px) {
+            margin-top: 15px;
+        }
         label {
             width: 100%;
             position: relative;
@@ -100,6 +103,10 @@
             color: #ebebeb;
             width: 30px;
             height: 40px;
+            @media(max-width: 767px) {
+                height: 27px;
+                overflow: hidden;
+            }
             &:after {
                 content: "\f002";
                 font-family: $fontAwesome;
@@ -111,6 +118,9 @@
                 //chrome hack
                 @media screen and (-webkit-min-device-pixel-ratio: 0) {
                     top: 9px;
+                }
+                @media(max-width: 767px) {
+                    top: 4px;
                 }
             }
         }

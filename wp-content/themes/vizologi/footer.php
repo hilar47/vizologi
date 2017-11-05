@@ -61,8 +61,16 @@ https://www.linkedin.com/company/11166009/" target="_blank"><i class="fa fa-link
 
 <?php wp_footer(); ?>
 
+
+
+	
+<script type="text/javascript">
+	if (jQuery(window).width() <= 767) {
+		document.write('<scri'+'pt src="<?php echo content_url();?>/themes/vizologi/js/owl.carousel.min.js"></'+'script>');	
+	}
+</script>
 <!-- custom scripts -->
-<script rel="stylesheet" src="<?php echo content_url();?>/themes/vizologi/js/bootstrap.min.js"></script>
-<script rel="stylesheet" src="<?php echo content_url();?>/themes/vizologi/js/main.js?ver=<?php echo time(); ?>"></script>
+<script src="<?php echo content_url();?>/themes/vizologi/js/bootstrap.min.js"></script>
+<script src="<?php echo content_url();?>/themes/vizologi/js/main.js?ver=<?php echo time(); ?>"></script>
 </body>
 </html>

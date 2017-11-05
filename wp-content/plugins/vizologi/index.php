@@ -119,7 +119,7 @@ function _canvasTemplate($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 150) ? substr($obj["Description"],0,150) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["slug"]));
-		$html .= '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
+		$html .= '<div class="col-sm-4 item"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
 		//CHECK if logo image exists
         /*if ($logoName == "") {
            //apply width to image
@@ -144,6 +144,8 @@ function _canvasTemplate($arr) {
 		$html .= '</div><h1><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
 	}
 	return $html;
+
+
 }
 
 // Related Canvases (single canvas page)
