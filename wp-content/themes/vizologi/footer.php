@@ -21,23 +21,25 @@
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3 hidden-xs">
+			<div class="col-sm-3">
 				<h3>Vizologi</h3>
-				<?php wp_nav_menu(array('theme_location' => 'in_footer', 'menu_class'=> 'footer-menu', 'container' => '')); ?>
+				<?php wp_nav_menu(array('theme_location' => 'in_footer', 'menu_class'=> 'footer-menu menu1', 'container' => '')); ?>
 			</div>
 
-			<div class="col-sm-6 social col-sm-push-3">
+			<div class="col-sm-3">
+				<?php wp_nav_menu(array('theme_location' => 'in_footer2', 'menu_class'=> 'footer-menu menu2', 'container' => '')); ?>
+			</div>
+
+			<div class="col-sm-6 social">
 				<a href="https://twitter.com/vizologi" target="_blank"><i class="fa fa-twitter"></i></a>
 				<a href="https://www.facebook.com/vizologi/" target="_blank"><i class="fa fa-facebook-square"></i></a>
 				<a href="
 https://www.linkedin.com/company/11166009/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-				<a href="https://www.instagram.com/vizologi/" target="_blank"><i class="fa fa-instagram"></i></a>
+				<!-- <a href="https://www.instagram.com/vizologi/" target="_blank"><i class="fa fa-instagram"></i></a> -->
 				<a href="http://www.pinterest.com/vizologi/" target="_blank"><i class="fa fa-pinterest"></i></a>
 			</div>
 
-			<div class="col-sm-3 col-sm-pull-6">
-				<?php wp_nav_menu(array('theme_location' => 'in_footer2', 'menu_class'=> 'footer-menu menu2', 'container' => '')); ?>
-			</div>
+			
 
 			
 		</div>

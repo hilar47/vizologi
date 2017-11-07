@@ -65,11 +65,13 @@
 @media (max-width:767px) {
     .hero {
         height: calc(100vh - 60px);
+        background-position: 0;
         h1 {
-            font-size: 26px;
+            font-size: 35px;
             line-height: 1.2;
             margin: 0;
             text-align: center;
+            font-weight: 500;
         }
         h2 {
             margin: 0;
@@ -104,6 +106,12 @@
     }
 }
 
+.page-template-template-blog .trending {
+    @media(max-width: 767px) {
+        padding: 0;
+    }
+}
+
 //trending/new
 .trending,
 .new,
@@ -120,6 +128,9 @@
             text-align: right;
             float: right;
             line-height: 2.5;
+            @media(max-width: 767px) {
+                line-height: 2.1;
+            }
             padding: 0;
         }
     }
@@ -178,6 +189,7 @@
             color: $gray-light5;
             font-size: 15px;
             padding: 15px;
+            text-align: left;
         }
         .img-holder {
             background-color: $gray;
@@ -283,6 +295,44 @@
                     background: $pink;
                     &:hover {
                         background: $indigo;
+                    }
+                }
+            }
+        }
+    }
+    @media(max-width: 767px) {
+        .owl-stage {
+            .owl-item {
+                &:nth-child(1n) {
+                    .img-holder {
+                        background: $indigo;
+                        &:hover {
+                            background: $green;
+                        }
+                    }
+                }
+                &:nth-child(2n) {
+                    .img-holder {
+                        background: $green;
+                        &:hover {
+                            background: $yellow;
+                        }
+                    }
+                }
+                &:nth-child(3n) {
+                    .img-holder {
+                        background: $yellow;
+                        &:hover {
+                            background: $pink;
+                        }
+                    }
+                }
+                &:nth-child(5n) {
+                    .img-holder {
+                        background: $pink;
+                        &:hover {
+                            background: $indigo;
+                        }
                     }
                 }
             }

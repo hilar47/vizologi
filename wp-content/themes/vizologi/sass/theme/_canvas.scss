@@ -128,7 +128,7 @@
             position: relative;
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
                 margin-right: 25px;
-                padding: 12px 17px 12px 23px;
+                padding: 14px 17px 12px 23px;
             }
             &:after {
                 content: "";
@@ -204,10 +204,16 @@
     }
     #canvas-info {
         padding: 50px 0px 100px;
+        @media(max-width: 767px) {
+            padding: 20px 0px 40px;
+        }
         // display: none;
     }
     img {
-        padding-bottom: 5px;
+        padding-bottom: 30px;
+        @media(max-width: 767px) {
+            padding-bottom: 20px;
+        }
         max-width: 50%;
     }
     p {
@@ -217,6 +223,9 @@
         margin-top: 40px;
         @media(min-width: $screen-md) {
             margin-top: 155px;
+        }
+        @media(max-width: 767px) {
+            margin-top: 20px;
         }
         /* b {
             color: #cac9c9;
@@ -251,6 +260,9 @@
     background-color: #f6f6f6;
     .card-recommend {
         min-height: inherit;
+        @media(max-width: 767px) {
+            margin-top: 15px!important;
+        }
         img {
             max-width: 60%;
         }
@@ -281,6 +293,13 @@
     h1 {
         color: $pink;
         font-weight: 600;
+        padding: 10px 0 20px;
+    }
+}
+
+#canvas-archive-results {
+    @media(max-width: 767px) {
+        margin-top: 25px;
     }
 }
 
@@ -302,13 +321,13 @@
             background: #575757;
             width: 100%;
             div {
-                padding: 13px 15px 8px;
+                padding: 13px 25px 8px;
             }
             i {
                 font-size: 22px;
             }
             .info {
-                padding: 14px 10px 14px 15px;
+                padding: 15px 10px 14px 15px;
                 margin-right: 0;
             }
             .minus,
@@ -336,6 +355,16 @@
     }
 }
 
+@media(max-width:359px) {
+    .canvas-detail-bar {
+        .detail-bar-tools {
+            div {
+                padding: 13px 15px 8px;
+            }
+        }
+    }
+}
+
 @media(min-width: 768px) and (max-width: 1199px) {
     .canvas-detail-bar {
         .detail-bar-tools {
@@ -348,7 +377,7 @@
     }
 }
 
-@media(min-width: 850px) and (max-width: 1199px) {
+@media(min-width: 1024px) and (max-width: 1199px) {
     .canvas-detail-bar {
         .detail-bar-tools {
             .minus,

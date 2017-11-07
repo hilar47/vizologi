@@ -4,8 +4,14 @@ footer {
     color: $black;
     background-color: $white;
     padding: 20px 0;
+    @media(max-width: 767px) {
+        background-color: #ebebeb;
+    }
     h3 {
         margin: 0 0 20px;
+        @media(max-width: 767px) {
+            margin-top: 15px;
+        }
     }
     .footer-menu {
         list-style: none;
@@ -23,11 +29,23 @@ footer {
                 color: $black;
             }
         }
+        @media(max-width: 767px) {
+            &.menu1 {
+                margin-top: 20px;
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
         &.menu2 {
             margin-top: 20px;
+            margin-bottom: 20px;
             a {
-                color: $black;
-                font-size: 14px;
+                color: #797979;
+                @media(max-width: 767px) {
+                    font-size: 14px;
+                }
+                font-size: 16px;
             }
         }
     }
@@ -83,6 +101,9 @@ footer {
         text-align: left;
         color: $gray;
         font-size: 13px;
+        @media(max-width: 767px) {
+            margin: 10px 0 0;
+        }
     }
     @media (min-width: $screen-sm) {
         background-color: $white;
