@@ -10,6 +10,11 @@
         background-color: #edebeb;
         padding: 0;
     }
+    .viewer-container {
+        @media(max-width: 767px) {
+            height: calc(100vh - 120px) !important;
+        }
+    }
     .overlay {
         background: transparent none repeat scroll 0 0;
         height: 500px;
@@ -42,6 +47,9 @@
         top: 75px !important;
         width: 190px !important;
         left: 360px !important;
+        @media(max-width: 767px) {
+            left: 10% !important;
+        }
         //chrome
         @media screen and (-webkit-min-device-pixel-ratio: 0) {
             left: 345px !important;
@@ -199,6 +207,9 @@
 
 .canvas-info {
     background-color: #edebeb;
+    @media(max-width: 767px) {
+        margin-top: 60px;
+    }
     &.active {
         display: block;
     }
