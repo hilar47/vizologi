@@ -12,6 +12,7 @@
         margin-bottom: -100px;
         padding: 35px 30px 15px;
         @media(max-width: 767px) {
+            padding: 120px 0 15px;
             .container {
                 padding: 0;
                 overflow: hidden;
@@ -43,7 +44,7 @@
             background-color: $white;
             padding: 50px 30px;
             @media(max-width: 767px) {
-                padding: 35px 30px;
+                padding: 20px 30px 2px;
             }
             @media(min-width: $screen-sm) {
                 padding: 90px 70px;
@@ -55,7 +56,7 @@
         padding-top: 160px;
         text-align: center;
         @media(max-width: 767px) {
-            padding-top: 80px;
+            padding-top: 45px;
             overflow: hidden;
         }
         p {
@@ -68,14 +69,17 @@
             @media (max-width: 767px) {
                 font-size: 22px;
                 line-height: 1.3;
-                font-weight: normal;
+                font-weight: 600;
+                position: absolute;
+                z-index: 1;
+                padding-top: 20px;
+                width: 100%;
             }
         }
         @media(max-width: 767px) {
             img {
-                width: 150%;
+                width: 100%;
                 max-width: inherit;
-                left: -25%;
                 position: relative;
                 overflow: hidden;
             }
