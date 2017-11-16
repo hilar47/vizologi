@@ -5688,13 +5688,7 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
 /* line 13, ../sass/modules/_carousel.scss */
 .footer-slider {
   color: #fff;
-  height: calc(100vh - 120px);
-}
-@media (max-width: 767px) {
-  /* line 13, ../sass/modules/_carousel.scss */
-  .footer-slider {
-    height: auto;
-  }
+  height: calc(100vh - 60px);
 }
 /* line 20, ../sass/modules/_carousel.scss */
 .footer-slider .carousel-inner {
@@ -5707,25 +5701,16 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   padding: 20px 0 30px;
   height: 100%;
 }
-@media (min-width: 767px) {
-  /* line 29, ../sass/modules/_carousel.scss */
-  .footer-slider .item .container {
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    bottom: inherit;
-    position: relative;
-  }
+/* line 29, ../sass/modules/_carousel.scss */
+.footer-slider .item .container {
+  height: 100%;
 }
-/* line 41, ../sass/modules/_carousel.scss */
+/* line 42, ../sass/modules/_carousel.scss */
 .footer-slider .item img {
   margin: 0 auto;
   text-align: center;
 }
-/* line 45, ../sass/modules/_carousel.scss */
+/* line 46, ../sass/modules/_carousel.scss */
 .footer-slider .item h1 {
   margin-bottom: 20px;
   font-size: 25px;
@@ -5733,55 +5718,57 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   line-height: 1.2;
   margin-top: 0;
   color: #4b4b4b;
+  position: absolute;
 }
-/* line 52, ../sass/modules/_carousel.scss */
+@media (min-width: 992px) {
+  /* line 46, ../sass/modules/_carousel.scss */
+  .footer-slider .item h1 {
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 46, ../sass/modules/_carousel.scss */
+  .footer-slider .item h1 {
+    font-size: 23px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+/* line 63, ../sass/modules/_carousel.scss */
 .footer-slider .item h1 span {
   color: #fff;
 }
-/* line 56, ../sass/modules/_carousel.scss */
+/* line 67, ../sass/modules/_carousel.scss */
 .footer-slider .item .btn {
   float: right;
 }
-/* line 59, ../sass/modules/_carousel.scss */
+/* line 70, ../sass/modules/_carousel.scss */
+.footer-slider .item .circle-container {
+  top: calc(50% - -15px);
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 79, ../sass/modules/_carousel.scss */
 .footer-slider .item .circle {
   border-radius: 100%;
   width: 330px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   padding: 45px;
   height: 330px;
 }
 @media (max-width: 767px) {
-  /* line 59, ../sass/modules/_carousel.scss */
+  /* line 79, ../sass/modules/_carousel.scss */
   .footer-slider .item .circle {
     width: 290px;
     height: 290px;
   }
 }
-@media (max-width: 374px) {
-  /* line 59, ../sass/modules/_carousel.scss */
-  .footer-slider .item .circle {
-    margin: 55px auto;
-  }
-}
-@media (min-width: 375px) and (max-width: 413px) {
-  /* line 59, ../sass/modules/_carousel.scss */
-  .footer-slider .item .circle {
-    margin: 105px auto;
-  }
-}
-@media (min-width: 414px) and (max-width: 567px) {
-  /* line 59, ../sass/modules/_carousel.scss */
-  .footer-slider .item .circle {
-    margin: 140px auto;
-  }
-}
-@media (min-width: 568px) and (max-width: 767px) {
-  /* line 59, ../sass/modules/_carousel.scss */
-  .footer-slider .item .circle {
-    margin: 20px auto;
-  }
-}
-/* line 81, ../sass/modules/_carousel.scss */
+/* line 101, ../sass/modules/_carousel.scss */
 .footer-slider .item .circle h3 {
   text-transform: uppercase;
   color: #fff;
@@ -5789,48 +5776,48 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   font-weight: 600;
   margin-top: 0;
 }
-/* line 88, ../sass/modules/_carousel.scss */
+/* line 108, ../sass/modules/_carousel.scss */
 .footer-slider .item .circle p {
   color: #4b4b4b;
   font-size: 17px;
 }
-/* line 93, ../sass/modules/_carousel.scss */
+/* line 113, ../sass/modules/_carousel.scss */
 .footer-slider .item.indigo {
   background-color: #635bc8;
 }
-/* line 95, ../sass/modules/_carousel.scss */
+/* line 115, ../sass/modules/_carousel.scss */
 .footer-slider .item.indigo .circle {
   background-color: #88c7a8;
 }
-/* line 98, ../sass/modules/_carousel.scss */
+/* line 118, ../sass/modules/_carousel.scss */
 .footer-slider .item.indigo h1 {
   color: #fff;
 }
-/* line 102, ../sass/modules/_carousel.scss */
+/* line 122, ../sass/modules/_carousel.scss */
 .footer-slider .item.pink {
   background-color: #F57574;
 }
-/* line 104, ../sass/modules/_carousel.scss */
+/* line 124, ../sass/modules/_carousel.scss */
 .footer-slider .item.pink .circle {
   background-color: #fcc44b;
 }
-/* line 108, ../sass/modules/_carousel.scss */
+/* line 128, ../sass/modules/_carousel.scss */
 .footer-slider .item.yellow {
   background-color: #fcc44b;
 }
-/* line 110, ../sass/modules/_carousel.scss */
+/* line 130, ../sass/modules/_carousel.scss */
 .footer-slider .item.yellow .circle {
   background-color: #88c7a8;
 }
-/* line 114, ../sass/modules/_carousel.scss */
+/* line 134, ../sass/modules/_carousel.scss */
 .footer-slider .item.green {
   background-color: #88c7a8;
 }
-/* line 116, ../sass/modules/_carousel.scss */
+/* line 136, ../sass/modules/_carousel.scss */
 .footer-slider .item.green .circle {
   background-color: #fcc44b;
 }
-/* line 121, ../sass/modules/_carousel.scss */
+/* line 141, ../sass/modules/_carousel.scss */
 .footer-slider .carousel-indicators {
   position: absolute;
   bottom: 9%;
@@ -5839,88 +5826,88 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   width: auto;
 }
 @media (min-width: 1920px) {
-  /* line 121, ../sass/modules/_carousel.scss */
+  /* line 141, ../sass/modules/_carousel.scss */
   .footer-slider .carousel-indicators {
     right: 21%;
   }
 }
 @media (max-width: 767px) {
-  /* line 121, ../sass/modules/_carousel.scss */
+  /* line 141, ../sass/modules/_carousel.scss */
   .footer-slider .carousel-indicators {
     bottom: 4%;
   }
 }
-/* line 133, ../sass/modules/_carousel.scss */
+/* line 153, ../sass/modules/_carousel.scss */
 .footer-slider .carousel-indicators li {
   border: 0;
   background-color: #fff;
 }
-/* line 136, ../sass/modules/_carousel.scss */
+/* line 156, ../sass/modules/_carousel.scss */
 .footer-slider .carousel-indicators li.active {
   background-color: #000;
 }
-/* line 141, ../sass/modules/_carousel.scss */
+/* line 161, ../sass/modules/_carousel.scss */
 .footer-slider .carousel-control {
   top: 50%;
   height: 30px;
   display: none;
 }
-/* line 145, ../sass/modules/_carousel.scss */
+/* line 165, ../sass/modules/_carousel.scss */
 .footer-slider .carousel-control.left {
   left: 2%;
 }
-/* line 148, ../sass/modules/_carousel.scss */
+/* line 168, ../sass/modules/_carousel.scss */
 .footer-slider .carousel-control.right {
   right: 2%;
 }
 @media (min-width: 1920px) {
-  /* line 152, ../sass/modules/_carousel.scss */
+  /* line 172, ../sass/modules/_carousel.scss */
   .footer-slider .carousel-control.left {
     left: 14%;
   }
-  /* line 155, ../sass/modules/_carousel.scss */
+  /* line 175, ../sass/modules/_carousel.scss */
   .footer-slider .carousel-control.right {
     right: 14%;
   }
 }
 @media (min-width: 400px) {
-  /* line 161, ../sass/modules/_carousel.scss */
+  /* line 181, ../sass/modules/_carousel.scss */
   .footer-slider .carousel-control {
     display: block;
   }
 }
 
-/* line 167, ../sass/modules/_carousel.scss */
+/* line 187, ../sass/modules/_carousel.scss */
 .read-more {
   position: absolute;
   bottom: 10%;
   left: 8%;
 }
 @media (min-width: 1920px) {
-  /* line 167, ../sass/modules/_carousel.scss */
+  /* line 187, ../sass/modules/_carousel.scss */
   .read-more {
     left: 21%;
   }
 }
 @media (max-width: 767px) {
-  /* line 167, ../sass/modules/_carousel.scss */
+  /* line 187, ../sass/modules/_carousel.scss */
   .read-more {
     bottom: 5%;
   }
 }
 
-/* line 179, ../sass/modules/_carousel.scss */
+/* line 199, ../sass/modules/_carousel.scss */
 .carousel-fade .carousel-inner .item {
   opacity: 0;
   transition-property: opacity;
 }
 
-/* line 184, ../sass/modules/_carousel.scss */
+/* line 204, ../sass/modules/_carousel.scss */
 .carousel-fade .carousel-inner .active {
   opacity: 1;
 }
 
-/* line 188, ../sass/modules/_carousel.scss */
+/* line 208, ../sass/modules/_carousel.scss */
 .carousel-fade .carousel-inner .active.left,
 .carousel-fade .carousel-inner .active.right {
   left: 0;
@@ -5928,13 +5915,13 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   z-index: 1;
 }
 
-/* line 195, ../sass/modules/_carousel.scss */
+/* line 215, ../sass/modules/_carousel.scss */
 .carousel-fade .carousel-inner .next.left,
 .carousel-fade .carousel-inner .prev.right {
   opacity: 1;
 }
 
-/* line 200, ../sass/modules/_carousel.scss */
+/* line 220, ../sass/modules/_carousel.scss */
 .carousel-fade .carousel-control {
   z-index: 2;
 }
@@ -5944,7 +5931,7 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
   Need to override the 3.3 new styles for modern browsers & apply opacity
 */
 @media all and (transform-3d), (-webkit-transform-3d) {
-  /* line 212, ../sass/modules/_carousel.scss */
+  /* line 232, ../sass/modules/_carousel.scss */
   .carousel-fade .carousel-inner > .item.next,
   .carousel-fade .carousel-inner > .item.active.right {
     opacity: 0;
@@ -5952,7 +5939,7 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 218, ../sass/modules/_carousel.scss */
+  /* line 238, ../sass/modules/_carousel.scss */
   .carousel-fade .carousel-inner > .item.prev,
   .carousel-fade .carousel-inner > .item.active.left {
     opacity: 0;
@@ -5960,7 +5947,7 @@ footer .fa:hover, footer .fa:active, footer .fa:focus {
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 224, ../sass/modules/_carousel.scss */
+  /* line 244, ../sass/modules/_carousel.scss */
   .carousel-fade .carousel-inner > .item.next.left,
   .carousel-fade .carousel-inner > .item.prev.right,
   .carousel-fade .carousel-inner > .item.active {

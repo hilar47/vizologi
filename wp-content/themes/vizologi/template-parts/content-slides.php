@@ -19,24 +19,27 @@
 				<div class="item green active">
 					<div class="container">
 						<h1>Ok, a lot of business <br class="hidden-xs hidden-sm" />model canvas but...</h1>
+						<div class="circle-container">
 						<div class="circle">
 							<div class="vertical-center">
 							<h3>what else?</h3>
 							<p>Ask yourself the right questions and find the right answers. <b>Vizologi</b> is more than a huuuuge business model collection.</p>
 							</div>
 						</div>
-						
+						</div>
 					</div>
 				</div>
 		
 				<div class="item yellow">
 					<div class="container">
 						<h1>What's happening <br class="hidden-xs hidden-sm" />in the Marketing Landscape?</h1>
+						<div class="circle-container">
 						<div class="circle">
 							<div class="vertical-center">
 								<h3>Learn</h3>
 								<p>Try to understand the <b>HOW</b> behind the scene of each business model. <b>Knowledge</b> is power, and here you have a lot of <b>canvas</b> to improve it.</p>
 							</div>
+						</div>
 						</div>
 					</div>
 				</div>
@@ -44,6 +47,7 @@
 				<div class="item pink">
 					<div class="container">
 						<h1>How is the business model <br class="hidden-xs hidden-sm" />context connected?</h1>
+						<div class="circle-container">
 						<div class="circle">
 							<div class="vertical-center">
 							<h3>Discover</h3>
@@ -51,15 +55,18 @@
 							</div>
 						</div>
 					</div>
+					</div>
 				</div>
 				
 				<div class="item indigo">
 					<div class="container">
 						<h1>How can I change <br class="hidden-xs hidden-sm" />the game?</h1>
-						<div class="circle">
-							<div class="vertical-center">
-							<h3>Play</h3>
-							<p>The best business model isn't written yet. Build something unique. <b>Hack your creativity</b> and break the rules to find the true innovation path.</p>
+						<div class="circle-container">
+							<div class="circle">
+								<div class="vertical-center">
+								<h3>Play</h3>
+								<p>The best business model isn't written yet. Build something unique. <b>Hack your creativity</b> and break the rules to find the true innovation path.</p>
+								</div>
 							</div>
 						</div>
 					</div>
