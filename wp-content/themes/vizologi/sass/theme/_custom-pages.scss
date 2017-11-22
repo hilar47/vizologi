@@ -421,6 +421,11 @@ img.aligncenter {
             content: "\f003";
         }
     }
+    .a2a_button_pinterest {
+        &:before {
+            content: "\f0d2";
+        }
+    }
 }
 
 .blog-navigation {
