@@ -141,7 +141,7 @@ $(document).ready(function() {
 
     // Add class to share button of detail
     $(".open-new").click(function(event) {
-        event.preventDefault();
+        /*event.preventDefault();*/
         $(this).toggleClass("active");
     });
 

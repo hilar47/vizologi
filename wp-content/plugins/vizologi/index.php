@@ -249,7 +249,7 @@ function _singleCompanyTemplate($obj) {
                         </a>
                         <div class="open-new-share">
                             
-                              <?php echo do_shortcode( '[addtoany url="'.get_permalink().$obj[0]["slug"].'-business-model-canvas" title="'. $obj[0]["Company Name"] .' business model canvas"]' ); ?>
+                              <?php  echo do_shortcode( '[addtoany url="'. get_site_url() . '/business-strategy-canvas/'.$obj[0]["slug"].'-business-model-canvas" title="'. $obj[0]["Company Name"] .' business model canvas"]' ); ?>
                             <!-- <a href="#" class="open-new-share-item">
                                 <i class="fa fa-facebook"></i>
                             </a>
