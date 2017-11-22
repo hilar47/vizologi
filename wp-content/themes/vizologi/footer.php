@@ -73,6 +73,7 @@ https://www.linkedin.com/company/11166009/" target="_blank"><i class="fa fa-link
 </script>
 <!-- custom scripts -->
 <script src="<?php echo content_url();?>/themes/vizologi/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
 <script src="<?php echo content_url();?>/themes/vizologi/js/main.js?ver=<?php echo time(); ?>"></script>
 </body>
 </html>
