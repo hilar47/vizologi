@@ -447,7 +447,7 @@ function wpse_43672_wp_head(){
 			  "aggregateRating": {
 				"@type": "AggregateRating",
 				"ratingValue": "<?php echo $res[0]['rating']['average']; ?>",
-				"reviewCount": document.getElementById("number-of-votes").value,
+				"reviewCount": "<?php echo count($res[0]['rating']['records']); ?>"
 			  },
 			
 			  "digitalMaturity": "<?php echo $res[0]["Digital maturity"]; ?>",
