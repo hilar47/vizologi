@@ -407,13 +407,16 @@ function myStartSession() {
 
 add_action('init', 'myStartSession', 1);
 
+/* custom query string attributes */
 function custom_rewrite_tag() {
   add_rewrite_tag('%company%', '([^&]+)');
   add_rewrite_tag('%type%', '([^&]+)');
   add_rewrite_tag('%term%', '([^&]+)');
 }
+
 add_action('init', 'custom_rewrite_tag', 10, 0);
 
+/* custom friendly urls redirects */
 function custom_rewrite_basic() {
 	$page = get_page_by_title( 'Canvas' );
     add_rewrite_rule('^business-strategy-canvas/([^&]+)/?', 'index.php?page_id='. $page->ID .'&company=$matches[1]', 'top');
@@ -422,3 +425,19 @@ function custom_rewrite_basic() {
 }
 
 add_action('init', 'custom_rewrite_basic', 10, 0);
+
+/* remove yoast plugin from interfering with canvas page metatags */
+function remove_wpseo(){
+    if (is_page('Canvas')) {
+        global $wpseo_front;
+            if(defined($wpseo_front)){
+                remove_action('wp_head',array($wpseo_front,'head'),1);
+            }
+            else {
+              $wp_thing = WPSEO_Frontend::get_instance();
+              remove_action('wp_head',array($wp_thing,'head'),1);
+            }
+    }
+}
+
+add_action('template_redirect','remove_wpseo');
