@@ -427,7 +427,7 @@ function custom_rewrite_basic() {
 add_action('init', 'custom_rewrite_basic', 10, 0);
 
 /* remove yoast plugin from interfering with canvas page metatags */
-/*function remove_wpseo(){
+function remove_wpseo(){
     if (is_page('Canvas')) {
         global $wpseo_front;
             if(defined($wpseo_front)){
@@ -440,4 +440,4 @@ add_action('init', 'custom_rewrite_basic', 10, 0);
     }
 }
 
-add_action('template_redirect','remove_wpseo');*/
+add_action('template_redirect','remove_wpseo');
