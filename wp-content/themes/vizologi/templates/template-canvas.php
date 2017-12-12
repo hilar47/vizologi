@@ -25,9 +25,8 @@ Template Name: Canvas
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!-- <title>Vizologi - Business Models & Business Strategy <?php the_title(); ?></title> -->
-	<title>Vizologi - Business Models & Business Strategy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--
+	<title>Vizologi - Business Models & Business Strategy</title>-->
 	<link rel="shortcut icon" type="image/png" href="<?php echo content_url();?>/themes/vizologi/favicon.png"/>
 	<?php wp_head(); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo content_url();?>/themes/vizologi/css/owl.carousel.css">

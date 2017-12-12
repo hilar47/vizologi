@@ -414,12 +414,16 @@ function _didUserRate($records) {
 }
 
 add_action('wp_head', 'wpse_43672_wp_head');
+
 function wpse_43672_wp_head(){
 	if(get_the_title() == "Canvas") {
 		$company = explode("-business-model-canvas", get_query_var('company',1));
 		$res = _curlTemplate("https://vizologi-api-server.herokuapp.com/getcompany?slug=" . rawurlencode($company[0]));
 		?>
-		<!-- Twitter Card data -->
+		
+        <title>What is <?php echo $res[0]["Company Name"]; ?>'s business model? | <?php echo $res[0]["Company Name"]; ?> business model canvas explained - Vizologi</title>
+	    <meta name="description" content="<?php echo $res[0]["Description"]; ?>" />
+        <!-- Twitter Card data -->
 		<meta name="twitter:card" content="summary"/>
 		<meta name="twitter:site" content="@vizologi"/>
 		<meta name="twitter:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
@@ -458,7 +462,12 @@ function wpse_43672_wp_head(){
 	}
 	else if(get_the_title() == "Business Strategy") {
 		$q = get_query_var('type',1) ;
-		
+		?>
+        
+        <title><?php echo ucwords(rawurldecode(get_query_var('term',1))); ?> Business Models | Canvas Examples & Business Strategy - Vizologi</title>
+	    <meta name="description" content="<?php echo $res[0]["Description"]; ?>" />
+        
+        <?php
 		if($q == "sector") {
 			$url = "";
 	    	if(get_query_var('term',1) == "all%20sectors") {
