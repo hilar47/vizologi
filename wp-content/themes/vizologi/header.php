@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Vizology
+ * @package Vizologi
  */
 
 ?>
@@ -16,7 +16,12 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Vizologi - <?php the_title(); ?></title>
+	<!-- <title>Vizologi - Business Models & Business Strategy <?php the_title(); ?></title> -->
+	<title>Vizologi - Business Models & Business Strategy</title>
+	<meta name="description" content="Free (do whatever you want) online business model canvas examples to help find the right business model for your company." />
+	<meta name="keywords" content="business models, business model, 
+	business model examples, business model canvas, business strategy, canvas model, entrepreneurship, 
+	management consulting, business strategist " />
 	<link rel="shortcut icon" type="image/png" href="<?php echo content_url();?>/themes/vizologi/favicon.png"/>
 	<?php wp_head(); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo content_url();?>/themes/vizologi/css/owl.carousel.css">
