@@ -114,7 +114,6 @@ Template Name: Canvas
 </section>
 <?php } ?>
 
-?>
 
 <!-- Header end -->
 
