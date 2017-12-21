@@ -51,7 +51,7 @@ https://www.linkedin.com/company/11166009/" target="_blank"><i class="fa fa-link
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 hidden-xs">
-				<img src="<?php echo get_template_directory_uri();?>/images/logo-2x.png" class="img-responsive" />
+				<img src="<?php echo get_template_directory_uri();?>/images/logo-2x.png" class="img-responsive" alt="Vizologi" />
 			</div>
 			<div class="col-sm-8">
 				<p>&copy;2017 Vizologi Inc. All rights reserved.</p>

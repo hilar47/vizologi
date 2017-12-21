@@ -84,10 +84,10 @@
 
 			<!-- Controls -->
 			 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-				<img src="<?php echo get_template_directory_uri();?>/images/arrow-previous.png" class="prev" />
+				<img src="<?php echo get_template_directory_uri();?>/images/arrow-previous.png" class="prev" alt="prev"/>
 			</a>
 			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-				<img src="<?php echo get_template_directory_uri();?>/images/arrow-next.png" class="next" />
+				<img src="<?php echo get_template_directory_uri();?>/images/arrow-next.png" class="next" alt="next" />
 			</a> 
 		</div>
 

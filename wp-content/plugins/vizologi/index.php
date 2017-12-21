@@ -119,7 +119,7 @@ function _canvasTemplate($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 150) ? substr($obj["Description"],0,150) .'...' : $obj["Description"];
 		$logoName = _cleanFileName(strtolower($obj["slug"]));
-		$html .= '<div class="col-sm-4 item"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div>';
+		$html .= '<div class="col-sm-4 item"><div class="card"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="' . $obj["Company Name"] . ' business model | How does ' . $obj["Company Name"] . ' make money?" width="250" /></a></div>';
         
 		$html .= '<div class="tags">';
 		$tags = explode(",",$obj["Tags"]);
@@ -144,7 +144,7 @@ function _canvasTemplateRecommended($arr) {
 		
 		$desc = (strlen($obj["Description"]) > 100) ? substr($obj["Description"],0,100) .'...' : $obj["Description"];
 	    $logoName = _cleanFileName(strtolower($obj["slug"]));
-$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="" width="250" /></a></div></div></div>';  
+$html .= '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas"><img src="https://vizologi-api-server.herokuapp.com/logos/'. $logoName .'.png" class="attachment-medium size-medium wp-post-image" alt="' . $obj["Company Name"] . ' business model | How does ' . $obj["Company Name"] . ' make money?" width="250" /></a></div></div></div>';  
 	}
 	return $html;
 }
@@ -241,7 +241,7 @@ function _singleCompanyTemplate($obj) {
         <div class="container">
             <div id="canvas-info" class="row">
                 <div class="col-sm-8">
-                    <img class="img-responsive" src="https://vizologi-api-server.herokuapp.com/logos/<?php echo _cleanFileName(strtolower($obj[0]["slug"])); ?>.png" />
+                    <img class="img-responsive" src="https://vizologi-api-server.herokuapp.com/logos/<?php echo _cleanFileName(strtolower($obj[0]["slug"])); ?>.png" alt="<?php echo $obj[0]["Company Name"]; ?> business model | How does <?php echo $obj[0]["Company Name"]; ?> make money?" />
                     <div class="text-description">
                             <p>
                                 <?php echo $obj[0]["Description"]; ?>
@@ -395,7 +395,7 @@ function wpse_43672_wp_head(){
         
         <script type="application/ld+json">
 			{
-			  "@context": "http://schema.org/",
+			  "@context": "http://schema.org/Review",
 			  "@type":" Review",
 			  "name": "<?php echo $res[0]["Company Name"]; ?> business model canvas",
 			  "image": "http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png",
@@ -434,7 +434,7 @@ function wpse_43672_wp_head(){
         <script type="application/ld+json">
 			{
 			
-			  "@context": "http://schema.org/",
+			  "@context": "http://schema.org/Review",
 			
 			  "@type": "Review",
 			
@@ -459,7 +459,7 @@ function wpse_43672_wp_head(){
         <script type="application/ld+json">
 			{
 			
-			  "@context": "http://schema.org/",
+			  "@context": "http://schema.org/Review",
 			
 			  "@type": "Review",
 			
@@ -484,7 +484,7 @@ function wpse_43672_wp_head(){
         <script type="application/ld+json">
 			{
 			
-			  "@context": "http://schema.org/",
+			  "@context": "http://schema.org/Review",
 			
 			  "@type": "Review",
 			

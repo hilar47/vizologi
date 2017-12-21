@@ -16,7 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	 <title>Vizologi -<?php the_title(); ?></title> 
+	 <title>Vizologi - <?php the_title(); ?></title> 
 	<!--<title>Vizologi - Business Models & Business Strategy</title>-->
 	<meta name="description" content="Free (do whatever you want) online business model canvas examples to help find the right business model for your company." />
 	<meta name="keywords" content="business models, business model, 
@@ -42,7 +42,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<img src="<?php echo get_template_directory_uri();?>/images/logo-2x.png" class="img-responsive" />
+				<img src="<?php echo get_template_directory_uri();?>/images/logo-2x.png" class="img-responsive" alt="Vizologi" />
 			</a>
 		</div>
 
