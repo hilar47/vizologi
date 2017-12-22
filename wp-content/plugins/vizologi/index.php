@@ -126,7 +126,7 @@ function _canvasTemplate($arr) {
 		foreach($tags as $tag) {
 			$html .= '<a href="'.get_home_url().'/business-strategy/case-studies/tag/'.ltrim($tag) .'" rel="tag">'.ltrim($tag).'</a>';
 		}
-		$html .= '</div><h1><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .'</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
+		$html .= '</div><h1><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas">'. $obj["Company Name"] .' Business Model</a></h1><div class="entry-content">'.$desc.'</div><a href="'.get_home_url().'/business-strategy-canvas/'.$obj["slug"].'-business-model-canvas" class="view-canvas">View Canvas</a></div></div>';
 	}
 	return $html;
 
