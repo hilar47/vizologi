@@ -101,7 +101,7 @@ var vizologi = (function() {
             var logoName = _cleanFileName(e.slug);
 
             html += '<div class="col-sm-4"><div class="card"><div class="img-holder"><a href="' + baseURL + 'business-strategy-canvas/' + e.slug + '-business-model-canvas">';
-            html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="' + logoName + ' business model | How does ' + logoName + ' make money?" width="250"></a></div>';
+            html += '<img src="'+ server +'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="' + logoName + ' business model | How does ' + logoName + ' make money?" width="250"></a></div>';
             html += '<div class="tags">';
 
             var tags = e.Tags.split(",");
@@ -129,7 +129,7 @@ var vizologi = (function() {
         $.each(data, function(i, e) {
             var logoName = _cleanFileName(e.slug);
             html += '<div class="col-sm-4"><div class="card card-recommend"><div class="img-holder"><a href="' + baseURL + 'business-strategy-canvas/' + e.slug + '-business-model-canvas">';
-            html += '<img src="' + server + 'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="' + logoName + ' business model | How does ' + logoName + ' make money?" width=""></a></div ></div ></div > ';
+            html += '<img src="'+ server +'logos/' + logoName + '.png" class="attachment-medium size-medium wp-post-image" alt="' + logoName + ' business model | How does ' + logoName + ' make money?" width=""></a></div ></div ></div > ';
         });
 
         return html;

@@ -172,7 +172,7 @@ function _singleCompanyTemplate($obj) {
     <section class="canvas-viewer">
         <!--<div class="overlay" onclick="style.pointerEvents='none'"></div>-->
         <div class="container">
-            <img class="img-responsive center-block" id="canvas-company-image" src="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png" style="display:none;" alt="<?php echo $obj[0]["Company Name"]; ?> business model | How does <?php echo $obj[0]["Company Name"]; ?> make money?" title="<?php echo $obj[0]["slug"]; ?>-business-model-canvas" />
+            <img class="img-responsive center-block" id="canvas-company-image" src="<?php echo get_site_url() . '/wp-content/uploads/canvas/' . $obj[0]["slug"]; ?>-business-model-canvas.png" style="display:none;" alt="<?php echo $obj[0]["Company Name"]; ?> business model | How does <?php echo $obj[0]["Company Name"]; ?> make money?" title="<?php echo $obj[0]["slug"]; ?>-business-model-canvas" />
             </div>
     </section>
     <section class="canvas-detail-bar">
@@ -223,7 +223,7 @@ function _singleCompanyTemplate($obj) {
                     </div>
 
                     <div class="download">
-                        <a id="btn-download" target="_blank" href="<?php echo plugin_dir_url(__FILE__) . 'download.php?downloadurl=http://vizologi-api-server.herokuapp.com/canvas/png/'.  $obj[0]["slug"] . '-business-model-canvas.png&name=' . $obj[0]["slug"] . '-business-model-canvas.png&ext=png'; ?>" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png"><i class="lsf-icon" title="download"></i>
+                        <a id="btn-download" target="_blank" href="<?php echo plugin_dir_url(__FILE__) . 'download.php?downloadurl=' . get_site_url() . '/wp-content/uploads/canvas/' . $obj[0]["slug"] .'-business-model-canvas.png&name=' . $obj[0]["slug"] . '-business-model-canvas.png&ext=png'; ?>" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png"><i class="lsf-icon" title="download"></i>
                         </a>
                     </div>
 
@@ -381,11 +381,11 @@ function wpse_43672_wp_head(){
 		<meta name="twitter:site" content="@vizologi"/>
 		<meta name="twitter:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
 		<meta name="twitter:description" content="<?php echo $res[0]["Description"]; ?>"/>
-		<meta name="twitter:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
+		<meta name="twitter:image" content="<?php echo get_site_url() . '/wp-content/uploads/canvas/' . $res[0]["slug"]; ?>-business-model-canvas.png"/>
 		<meta name="twitter:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
 	
 		<meta property="og:type" content="article" />
-		<meta property="og:image" content="http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png"/>
+		<meta property="og:image" content="<?php echo get_site_url() . '/wp-content/uploads/canvas/' . $res[0]["slug"]; ?>-business-model-canvas.png"/>
 		<meta property="og:image:width" content="1000" />
 		<meta property="og:image:height" content="1000" />
 		<meta property="og:title" content="<?php echo $res[0]["Company Name"]; ?> business model canvas"/>
@@ -395,10 +395,10 @@ function wpse_43672_wp_head(){
         
         <script type="application/ld+json">
 			{
-			  "@context": "http://schema.org/Review",
+			  //"@context": "http://schema.org/Review",
 			  "@type":" Review",
 			  "name": "<?php echo $res[0]["Company Name"]; ?> business model canvas",
-			  "image": "http://vizologi-api-server.herokuapp.com/canvas/png/<?php echo $res[0]["slug"]; ?>-business-model-canvas.png",
+			  "image": "<?php echo get_site_url() . '/wp-content/uploads/canvas/' . $res[0]["slug"]; ?>-business-model-canvas.png",
 			  "url": "<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>",
 			  "description": "<?php  echo $res[0]["Description"]; ?>",
 			  "aggregateRating": {
@@ -434,7 +434,7 @@ function wpse_43672_wp_head(){
         <script type="application/ld+json">
 			{
 			
-			  "@context": "http://schema.org/Review",
+			  //"@context": "http://schema.org/Review",
 			
 			  "@type": "Review",
 			
@@ -459,7 +459,7 @@ function wpse_43672_wp_head(){
         <script type="application/ld+json">
 			{
 			
-			  "@context": "http://schema.org/Review",
+			 // "@context": "http://schema.org/Review",
 			
 			  "@type": "Review",
 			
@@ -484,7 +484,7 @@ function wpse_43672_wp_head(){
         <script type="application/ld+json">
 			{
 			
-			  "@context": "http://schema.org/Review",
+			  //"@context": "http://schema.org/Review",
 			
 			  "@type": "Review",
 			
