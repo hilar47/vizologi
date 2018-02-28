@@ -104,9 +104,9 @@
 
 .viewer-container {
     /* position: absolute; */
-    -webkit-touch-callout: none;
-    -ms-touch-action: none;
-    touch-action: none;
+    -webkit-touch-callout: auto;
+    -ms-touch-action: auto;
+    touch-action: auto;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

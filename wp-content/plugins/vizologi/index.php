@@ -7,6 +7,8 @@
 * Author URI: 
 */
 
+$numberOfVotesRandom = rand(1000,1500);
+
 function getResults($atts){
 	$res = _curlTemplate('https://vizologi-api-server.herokuapp.com/getselections?selection='. $atts["type"]);
 	return _canvasTemplate($res);
@@ -166,6 +168,9 @@ function _singleCompanyTemplate($obj) {
 	echo "<pre>";
 	print_r($obj[0]);
 	echo "</pre>";*/
+	
+	//we are accessing the global variable decalred at the top of this file.
+	global $numberOfVotesRandom;
 ?>
 
 
@@ -216,15 +221,15 @@ function _singleCompanyTemplate($obj) {
                             <i class="lsf-icon" title="share"></i>
                         </a>
                         <div class="open-new-share">
-                            
                               <?php  echo do_shortcode( '[addtoany url="'. get_site_url() . '/business-strategy-canvas/'.$obj[0]["slug"].'-business-model-canvas" title="'. $obj[0]["Company Name"] .' business model canvas"]' ); ?>
                            
                         </div>
                     </div>
 
                     <div class="download">
-                        <a id="btn-download" target="_blank" href="<?php echo plugin_dir_url(__FILE__) . 'download.php?downloadurl=' . get_site_url() . '/wp-content/uploads/canvas/' . $obj[0]["slug"] .'-business-model-canvas.png&name=' . $obj[0]["slug"] . '-business-model-canvas.png&ext=png'; ?>" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png"><i class="lsf-icon" title="download"></i>
-                        </a>
+                        <!--<a id="btn-download" target="_blank" href="<?php echo plugin_dir_url(__FILE__) . 'download.php?downloadurl=' . get_site_url() . '/wp-content/uploads/canvas/' . $obj[0]["slug"] .'-business-model-canvas.png&name=' . $obj[0]["slug"] . '-business-model-canvas.png&ext=png'; ?>" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png"><i class="lsf-icon" title="download"></i>
+                        </a>-->
+                        <?php  echo do_shortcode( '[pwt_canvas canvas="' . $obj[0]["slug"] . '-business-model-canvas.png"]' ); ?>
                     </div>
 
 
@@ -236,7 +241,6 @@ function _singleCompanyTemplate($obj) {
             </div>
         </div>
     </section>
-
     <section class="canvas-info">
         <div class="container">
             <div id="canvas-info" class="row">
@@ -266,7 +270,7 @@ function _singleCompanyTemplate($obj) {
                             </p>
                             <p>
                                 <b>Number of votes:</b> <br/>
-                                <span class="text__about__content"style="color:#a0a0a0;" id="number-of-votes"> <?php echo count($obj[0]['rating']['records']) + rand(100,1500); ?> </span>
+                                <span class="text__about__content"style="color:#a0a0a0;" id="number-of-votes"> <?php echo count($obj[0]['rating']['records']) + $numberOfVotesRandom; ?> </span>
                             </p>
                             <p>
                                 <b>Digital maturity:</b> <br/>
@@ -393,6 +397,10 @@ function wpse_43672_wp_head(){
 		<meta property="og:site_name" content="Vizologi | rethinking business model design"/>
 		<meta property="og:description" content="<?php  echo $res[0]["Description"]; ?>" />
         
+        <?php
+		   // let it know that we are accessing the global variable declared at the top of this file
+        	global $numberOfVotesRandom;
+		?>
         <script type="application/ld+json">
 			{
 			  //"@context": "http://schema.org/Review",
@@ -404,7 +412,7 @@ function wpse_43672_wp_head(){
 			  "aggregateRating": {
 				"@type": "AggregateRating",
 				"ratingValue": "<?php echo $res[0]['rating']['average']; ?>",
-				"reviewCount": "<?php echo count($res[0]['rating']['records']); ?>"
+				"reviewCount": "<?php echo count($res[0]['rating']['records']) + $numberOfVotesRandom; ?>"
 			  },
 			
 			  "digitalMaturity": "<?php echo $res[0]["Digital maturity"]; ?>",

@@ -10,7 +10,7 @@
         background-color: #edebeb;
         padding: 0;
     }
-    .viewer-container {
+    .viewer-container.viewer-container-transparent {
         @media(max-width: 767px) {
             height: calc(100vh - 120px) !important;
         }

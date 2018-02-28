@@ -1272,6 +1272,10 @@ var handlers = {
     var options = this.options,
         pointers = this.pointers;
 
+	//added by Aniket 
+    if(!this.options.movable)
+		return;
+	//end
 
     if (!this.viewed || this.transitioning) {
       return;
@@ -1301,6 +1305,10 @@ var handlers = {
         action = this.action,
         image = this.image;
 
+	//added by Aniket 
+    if(!this.options.movable)
+		return;
+	//end
 
     if (!this.viewed || !action) {
       return;
@@ -1386,7 +1394,12 @@ var handlers = {
     }
   },
   wheel: function wheel(e) {
-    var _this3 = this;
+	 //added by Aniket 
+    if(!this.options.zoomable)
+		return;
+	//end
+				
+	var _this3 = this;
 
     if (!this.viewed) {
       return;
