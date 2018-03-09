@@ -213,6 +213,68 @@ index.scss:296
 .viewer-fixed {
     background-color: rgba(0, 0, 0, .5);
 }
+
+/* Outer */
+.popup {
+width:100%;
+height:100%;
+display:none;
+position:fixed;
+top:0px;
+left:0px;
+z-index:9;
+}
+/* Inner */
+.popup-inner {
+max-width:700px;
+width:90%;
+padding:40px;
+position:absolute;
+top:50%;
+left:50%;
+-webkit-transform:translate(-50%, -50%);
+transform:translate(-50%, -50%);
+background:rgba(61, 61, 61, 0.9);
+}
+/* Close Button */
+.popup-close {
+width:30px;
+height:30px;
+padding-top:4px;
+display:inline-block;
+position:absolute;
+top:10px;
+right:10px;
+font-size:20px;
+text-align:center;
+line-height:100%;
+color:#f47574;
+font-weight:bold;
+}
+.popup-close:hover {
+	color:#fff;
+	text-decoration:none;
+}
+
+#pay-with-a-tweet-popup  b {
+	color: #87c6a8;
+}
+
+#pay-with-a-tweet-popup  h2 {
+	color: #ffffff;
+}
+
+.btn.btn-red {
+  color: #fff;
+  background-color: #f47574;
+  font-family: "AvenirNextCondensed";
+  text-transform: uppercase;
+}
+
+#pay-with-a-tweet-popup .btn-red {
+	margin-top:20px;
+}
+
 </style>
 
 <!-- Rating -->
@@ -227,6 +289,22 @@ index.scss:296
 <?php
 	get_template_part( 'template-parts/content', 'slides' );
 ?>
+
+<!-- pay with a tweet popup -->
+<div id="pay-with-a-tweet-popup" class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <h2><b>You rock! Thank you for your interest.</b>
+                    <br>
+                    Before starting the canvas download, we would like to ask you to pay with a tweet.
+        </h2>
+        <p>
+        	<a href="javascript:void(0);" class="btn btn-red text-uppercase">Download paying with a tweet</a>
+        </p>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+
 <script type="text/javascript">
 $(document).ready(function() {
 	var val = $("#rating-value").val();
@@ -242,6 +320,10 @@ $(document).ready(function() {
 	$('.rating-stars').click(function() {
 		<?php $company = explode("-business-model-canvas",get_query_var('company',1)); ?>
 		vizologi.checkRating('<?php echo $_COOKIE["vizologi_user"]; ?>', '<?php echo $company[0] ?>', $('.caption').text());
+	});
+	
+	$('#pay-with-a-tweet-popup .btn-red').click(function() { 
+		document.getElementById("pwt-redirect-button").click();
 	});
 
 	var firstClick = true;

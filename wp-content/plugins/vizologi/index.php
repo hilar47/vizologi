@@ -227,6 +227,7 @@ function _singleCompanyTemplate($obj) {
                     </div>
 
                     <div class="download">
+                    	<a class="btn-download" data-popup-open="popup-1" href="#"><i class="lsf-icon" title="download"></i></a>
                         <!--<a id="btn-download" target="_blank" href="<?php echo plugin_dir_url(__FILE__) . 'download.php?downloadurl=' . get_site_url() . '/wp-content/uploads/canvas/' . $obj[0]["slug"] .'-business-model-canvas.png&name=' . $obj[0]["slug"] . '-business-model-canvas.png&ext=png'; ?>" download="<?php echo $obj[0]["slug"]; ?>-business-model-canvas.png"><i class="lsf-icon" title="download"></i>
                         </a>-->
                         <?php  echo do_shortcode( '[pwt_canvas canvas="' . $obj[0]["slug"] . '-business-model-canvas.png"]' ); ?>

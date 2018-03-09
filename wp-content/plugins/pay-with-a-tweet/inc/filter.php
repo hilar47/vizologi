@@ -59,7 +59,7 @@ function pwt_download_404_template() {
 	<div class="container">
 		<div id="content" role="main">
 
-			<div id="post-0" class="post error404 not-found">
+			<div id="post-0" class="post error404 not-found"  style="color:#f47574;">
 				<h1 class="entry-title">Error <?php print $GLOBALS['pwt_error']->http_code; ?></h1>
 				<div class="entry-content" style="margin-bottom:100px;">
                                     <?php print $GLOBALS['pwt_error']->http_header['status']; ?>
@@ -82,7 +82,7 @@ function pwt_download_page_template() {
 	<div class="container">
 		<div id="content" role="main">
 
-			<div id="post-0" class="post pay-with-a-tweet-download">
+			<div id="post-0" class="post pay-with-a-tweet-download" style="color:#f47574;">
 				<h1 class="entry-title"><?php print __("Pay with a Tweet", PWT_PLUGIN); ?></h1>
 				<div class="entry-content">
                                     <?php print __("Thanks for your interest. In a few moments the tweet will be published and will start the download.", PWT_PLUGIN); ?>
