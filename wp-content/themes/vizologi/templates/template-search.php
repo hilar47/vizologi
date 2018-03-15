@@ -32,6 +32,7 @@ Template Name: Search
 	<link rel="stylesheet" type="text/css" href="<?php echo content_url();?>/themes/vizologi/css/owl.carousel.css">
 	<!-- jquery -->
 	<script src="<?php echo content_url();?>/themes/vizologi/js/jquery-3.1.1.min.js"></script>
+    <script src="https://use.fontawesome.com/72475ed57e.js"></script>
 	</head>
 
 <body <?php body_class(); ?>>
