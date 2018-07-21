@@ -133,7 +133,6 @@ function pwt_download() {
 
             $button = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "pwt_button WHERE id='" . intval($_GET['id']) . "'");
 
-
             $consumerkey = get_option(PWT_PLUGIN . '_twitter_consumerkey', '');
             $consumersecret = get_option(PWT_PLUGIN . '_twitter_consumersecret', '');
 
@@ -148,7 +147,10 @@ function pwt_download() {
             $connection2 = new TwitterOAuth($consumerkey, $consumersecret, $access_token['oauth_token'], $access_token['oauth_token_secret']);
             $twitter_user = $connection2->get('account/verify_credentials');
 
-            $status = $connection2->post('statuses/update', array('status' => $button[0]->message));
+            $company_name = explode('-business-model-canvas.png', $button[0]->name);
+            $company_name = str_replace("-", " ", $company_name[0]);
+
+            $status = $connection2->post('statuses/update', array('status' => $button[0]->message . ' ' . $company_name));
 
             /* Remove no longer needed request tokens */
             setcookie('oauth_token', '', -1);
